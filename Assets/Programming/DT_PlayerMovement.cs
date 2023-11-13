@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,7 @@ public class DT_PlayerMovement : MonoBehaviour
     private GameObject[] _ladders;
 
     private GameObject _nextStone;
+    private GameObject _currentStone;
 
     private enum TargetDirection
     {
@@ -84,6 +86,86 @@ public class DT_PlayerMovement : MonoBehaviour
         StartCoroutine(Step());
             
     }
+    /*
+    public void OnClimb()
+    {
+        Debug.Log("INPUT: Climb");
+        
+        // Check we can do it
+        if (!CanPerformAction("Climb")) return;
+        Debug.Log("Starting Climb Coroutine");
+        StartCoroutine(Climb());
+    }
+
+    private IEnumerator Climb()
+    {
+    var theTranformShouldBe = _currentStone.transform.parent.GetComponent<DT_LadderGroup>().ladderBase.transform;
+    
+        //If current stone is tagged with Base
+        //Go up
+        if (_currentStone.CompareTag("LadderBase"))
+        {
+            _targetDirection = TargetDirection.Up;
+        }
+        //If current stone is tagged with Top
+        //Go down
+        else if (_currentStone.CompareTag("LadderTop"))
+        {
+            _targetDirection = TargetDirection.Down;
+            _currentStone.transform.parent.gameObject
+        }
+        
+        GameObject.FindGameObjectsWithTag("LadderBase").Where(tranform.parent == )
+            
+        GetComponentInParent()
+
+        Debug.Log("PlayerState.Climbing");
+        _gameManager.playerState = GameManager.PlayerState.Climbing;
+            
+        // Set start and end points of movement
+        if (_targetDirection == TargetDirection.Up)
+        {
+            var startPoint = transform.position;
+            var endPoint = _nextStone.transform.position;
+        }
+        else if (_targetDirection == TargetDirection.Down)
+        {
+            
+        }
+
+        
+        // Start counting
+        float elapsedTime = 0f;
+
+        while (elapsedTime < moveDuration)
+        {
+            // Find where on curve player should be this frame
+            float t = elapsedTime / moveDuration;
+            Vector3 position = QuadraticBezier(startPoint, endPoint, jumpArcHeight, t);
+
+            // Set position
+            transform.position = position;
+
+            // Increment for next frame
+            elapsedTime += Time.deltaTime;
+
+            // Wait
+            yield return null;
+        }
+            
+        // Force player onto correct spot
+        transform.position = _nextStone.transform.position;
+        // Assign as current stone
+        _currentStone = _nextStone;
+        Debug.Log("Arrived at target!");
+            
+        ResetToIdle();
+            
+        yield return null;
+
+        
+    }
+    */
 
     private bool CanPerformAction(string actionType)
     {
@@ -117,6 +199,11 @@ public class DT_PlayerMovement : MonoBehaviour
                     Debug.Log($"{actionType} cancelled. No ladders in the scene.");
                     return false;
                 }
+                if (_currentStone == null)
+                {
+                    Debug.Log($"{actionType} cancelled. Must be on a stone.");
+                    return false;
+                }
                 break;
             
             default:
@@ -135,10 +222,8 @@ public class DT_PlayerMovement : MonoBehaviour
         Debug.Log("PARAMS RESET");
     }
 
-    public void OnClimb()
-    {
-        Debug.Log("Climbed");
-    }
+
+   
 
     private IEnumerator Step()
     {
@@ -180,6 +265,8 @@ public class DT_PlayerMovement : MonoBehaviour
             
             // Force player onto correct spot
             transform.position = _nextStone.transform.position;
+            // Assign as current stone
+            _currentStone = _nextStone;
             Debug.Log("Arrived at target!");
             
             ResetToIdle();
