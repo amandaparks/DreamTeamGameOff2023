@@ -7,11 +7,23 @@
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Climb_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Climb_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Crouch_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Crouch_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Idle_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Idle_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Jump_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Jump_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Knight Spritesheet_Placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Knight Spritesheet_Placeholder.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Player Sprite.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/CharacterAnim/Player Sprite.controller.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +34,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>

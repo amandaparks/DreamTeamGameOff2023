@@ -15,7 +15,13 @@ public class DT_Trigger : MonoBehaviour
 
     void Start()
     {
-        // Find the Game Manager and assign it to this variable
+        //If this stone is not set to trigger anything, turn off collider and do nothing else
+        if (!isDialogueTrigger || !isSceneLoadTrigger)
+        {
+            GetComponent<Collider>().enabled = false;
+            return;
+        }
+        // Otherwise, find the Game Manager and Collider
         _gameManager = GameManager.Instance;
         _thisCollider = GetComponent<Collider>();
     }

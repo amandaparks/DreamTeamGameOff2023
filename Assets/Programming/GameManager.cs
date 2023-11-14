@@ -68,7 +68,8 @@ public class GameManager : MonoBehaviour
         Crouching,
         Damaged,
         Attacking,
-        Defending
+        Defending,
+        BardMode
     }
     
     
