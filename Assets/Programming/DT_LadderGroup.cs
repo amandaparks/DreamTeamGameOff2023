@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DT_LadderGroup : MonoBehaviour
 {
+    public GameObject topStepStone;
+    public GameObject baseStepStone;
+    
     public GameObject ladderTop;
     public GameObject ladderBase;
     

@@ -6,7 +6,7 @@
             "id": "9bc778e2-0645-4975-b8b6-df11fa3bc3b1",
             "actions": [
                 {
-                    "name": "Duck",
+                    "name": "Crouch",
                     "type": "Button",
                     "id": "8eccf529-fea4-495b-a60c-0c932ca2324a",
                     "expectedControlType": "Button",
@@ -117,7 +117,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controls",
-                    "action": "Duck",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

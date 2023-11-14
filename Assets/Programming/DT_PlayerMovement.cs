@@ -2,20 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 public class DT_PlayerMovement : MonoBehaviour
 {
 
     private GameManager _gameManager;
 
-    public float moveDuration;
-    public float jumpArcHeight;
-    public float climbSpeed;
-    private Vector3 _startPos;
+    public float stepDuration;
+    public float stepArcHeight;
+    public float climbDuration;
+    public float maxStepHeight;
+    private Vector3 _levelStartPos;
     private Vector3 _targetPos;
     private bool isNoStonesBruh;
     private bool isNoLaddersBruh;
@@ -25,8 +30,10 @@ public class DT_PlayerMovement : MonoBehaviour
 
     private GameObject _nextStone;
     private GameObject _currentStone;
+    private GameObject _ladderStartTarget;
+    private GameObject _ladderEndTarget;
 
-    private enum TargetDirection
+    public enum TargetDirection
     {
         Left,
         Right,
@@ -35,21 +42,22 @@ public class DT_PlayerMovement : MonoBehaviour
         Stop
     }
 
-    private TargetDirection _targetDirection;
+    public static TargetDirection targetDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         // Find the Game Manager and assign it to this variable
         _gameManager = GameManager.Instance;
+        // Note position of the Player on level start and tell GameManager
+        _levelStartPos = gameObject.transform.position;
+        _gameManager.playerStartPos = _levelStartPos;
         
         // Find all the stepping stones and ladders
         _steppingStones = GameObject.FindGameObjectsWithTag("StepStone");
-        Debug.Log("Found "+_steppingStones.Length+" stones!");
+        Debug.Log("Found "+_steppingStones.Length+" stone(s)!");
         _ladders = GameObject.FindGameObjectsWithTag("Ladder");
-        Debug.Log("Found "+_ladders.Length+" ladders!");
-
-        _startPos = gameObject.transform.position;
+        Debug.Log("Found "+_ladders.Length+" ladder(s)!");
         
         // If there are no stones or ladders, set bools to true
         isNoStonesBruh = _steppingStones.Length == 0;
@@ -64,87 +72,98 @@ public class DT_PlayerMovement : MonoBehaviour
 
     public void OnStepBkd()
     {
-        Debug.Log("INPUT: StepBkd");
+        Debug.Log("INPUT: STEPBKD");
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
         
-        _targetDirection = TargetDirection.Left; 
-        Debug.Log("Starting Step Coroutine");
+        targetDirection = TargetDirection.Left;
         StartCoroutine(Step());
     }
 
     public void OnStepFwd()
     {
-        Debug.Log("INPUT: StepFwd");
+        Debug.Log("INPUT: STEPFWD");
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
         
-        _targetDirection = TargetDirection.Right;
-        Debug.Log("Starting Step Coroutine");
+        targetDirection = TargetDirection.Right;
         StartCoroutine(Step());
             
     }
-    /*
+    
     public void OnClimb()
     {
-        Debug.Log("INPUT: Climb");
+        Debug.Log("INPUT: CLIMB");
         
         // Check we can do it
         if (!CanPerformAction("Climb")) return;
-        Debug.Log("Starting Climb Coroutine");
         StartCoroutine(Climb());
+    }
+
+    private void FindLadderNextTargets()
+    {
+        // Make sure starting values are null
+        _nextStone = null;
+        _ladderStartTarget = null;
+        _ladderEndTarget = null;
+        
+        //If current stone is the base step stone
+        if (_currentStone.GetComponentInParent<DT_LadderGroup>().baseStepStone == _currentStone)
+        {
+            //Assign direction and set the top step stone as the next stone
+            targetDirection = TargetDirection.Up;
+            _nextStone = _currentStone.GetComponentInParent<DT_LadderGroup>().topStepStone;
+            //Assign the start and end points of the movement so sprite doesn't cut through ladder
+            _ladderStartTarget = _currentStone.GetComponentInParent<DT_LadderGroup>().ladderBase;
+            _ladderEndTarget = _currentStone.GetComponentInParent<DT_LadderGroup>().ladderTop;
+            //Return next stone
+            return;
+        }
+        //If current stone is the top step stone
+        if (_currentStone.GetComponentInParent<DT_LadderGroup>().topStepStone == _currentStone)
+        {
+            //Assign direction and set the base step stone as the next stone
+            targetDirection = TargetDirection.Down;
+            _nextStone = _currentStone.GetComponentInParent<DT_LadderGroup>().baseStepStone;
+            //Assign the start and end points of the movement so sprite doesn't cut through ladder
+            _ladderStartTarget = _currentStone.GetComponentInParent<DT_LadderGroup>().ladderTop;
+            _ladderEndTarget = _currentStone.GetComponentInParent<DT_LadderGroup>().ladderBase;
+            //Return next stone
+            return;
+        }
+        //If neither, log error.
+        Debug.LogError("Cannot find ladder parts.");
     }
 
     private IEnumerator Climb()
     {
-    var theTranformShouldBe = _currentStone.transform.parent.GetComponent<DT_LadderGroup>().ladderBase.transform;
-    
-        //If current stone is tagged with Base
-        //Go up
-        if (_currentStone.CompareTag("LadderBase"))
+        //First find the next stone and Ladder Targets
+        FindLadderNextTargets();
+        
+        //Set the target points
+        var startPoint = _ladderStartTarget.transform.position;
+        var endPoint = _ladderEndTarget.transform.position;
+        
+        // If anything is missing...
+        if (_nextStone == null || _ladderStartTarget == null || _ladderEndTarget == null)
         {
-            _targetDirection = TargetDirection.Up;
-        }
-        //If current stone is tagged with Top
-        //Go down
-        else if (_currentStone.CompareTag("LadderTop"))
-        {
-            _targetDirection = TargetDirection.Down;
-            _currentStone.transform.parent.gameObject
+            Debug.Log("INVALID: Missing target info.");
         }
         
-        GameObject.FindGameObjectsWithTag("LadderBase").Where(tranform.parent == )
-            
-        GetComponentInParent()
-
-        Debug.Log("PlayerState.Climbing");
+        //Set state to climbing
+        Debug.Log("PLAYER_STATE: CLIMBING");
         _gameManager.playerState = GameManager.PlayerState.Climbing;
-            
-        // Set start and end points of movement
-        if (_targetDirection == TargetDirection.Up)
-        {
-            var startPoint = transform.position;
-            var endPoint = _nextStone.transform.position;
-        }
-        else if (_targetDirection == TargetDirection.Down)
-        {
-            
-        }
 
-        
         // Start counting
         float elapsedTime = 0f;
 
-        while (elapsedTime < moveDuration)
+        // Climb until there is no time left
+        while (elapsedTime < climbDuration)
         {
-            // Find where on curve player should be this frame
-            float t = elapsedTime / moveDuration;
-            Vector3 position = QuadraticBezier(startPoint, endPoint, jumpArcHeight, t);
-
-            // Set position
-            transform.position = position;
+            // Move to where Player should be this frame
+            transform.position = Vector3.Lerp(startPoint, endPoint, elapsedTime / climbDuration);
 
             // Increment for next frame
             elapsedTime += Time.deltaTime;
@@ -153,32 +172,30 @@ public class DT_PlayerMovement : MonoBehaviour
             yield return null;
         }
             
-        // Force player onto correct spot
+        // Force player on to correct spot
         transform.position = _nextStone.transform.position;
-        // Assign as current stone
+        // Assign the top/base stone as current stone
         _currentStone = _nextStone;
-        Debug.Log("Arrived at target!");
-            
+
         ResetToIdle();
             
         yield return null;
 
-        
     }
-    */
+    
 
     private bool CanPerformAction(string actionType)
     {
         // Player can only move if game is not paused and they are already in Idle
         if (_gameManager.gameState == GameManager.GameState.Paused)
         {
-            Debug.Log($"{actionType} cancelled. Game is paused.");
+            Debug.Log($"{actionType} cancelled. INVALID: Game is paused.");
             return false;
         }
 
         if (_gameManager.playerState != GameManager.PlayerState.Idle)
         {
-            Debug.Log($"{actionType} cancelled. Player not Idle.");
+            Debug.Log($"{actionType} cancelled. INVALID: Player not Idle.");
             return false;
         }
 
@@ -188,7 +205,7 @@ public class DT_PlayerMovement : MonoBehaviour
             case "Step":
                 if (isNoStonesBruh)
                 {
-                    Debug.Log($"{actionType} cancelled. No stones in the scene.");
+                    Debug.Log($"{actionType} cancelled. INVALID: No stones in the scene.");
                     return false;
                 }
                 break;
@@ -196,16 +213,23 @@ public class DT_PlayerMovement : MonoBehaviour
             case "Climb":
                 if (isNoLaddersBruh)
                 {
-                    Debug.Log($"{actionType} cancelled. No ladders in the scene.");
+                    Debug.Log($"{actionType} cancelled. INVALID: No ladders in the scene.");
                     return false;
                 }
+
                 if (_currentStone == null)
                 {
-                    Debug.Log($"{actionType} cancelled. Must be on a stone.");
+                    Debug.Log($"{actionType} cancelled. INVALID: Must be on a stone.");
+                    return false;
+                }
+
+                if  (_currentStone.GetComponentInParent<DT_LadderGroup>() == null)
+                {
+                    Debug.Log($"{actionType} cancelled. INVALID: Stone must be part of a ladder group.");
                     return false;
                 }
                 break;
-            
+
             default:
                 Debug.LogError($"Unknown action type: {actionType}");
                 return false;
@@ -217,14 +241,13 @@ public class DT_PlayerMovement : MonoBehaviour
     public void ResetToIdle()
     {
         _nextStone = null;
-        _targetDirection = TargetDirection.Stop;
+        _ladderStartTarget = null;
+        _ladderEndTarget = null;
+        targetDirection = TargetDirection.Stop;
         _gameManager.playerState = GameManager.PlayerState.Idle;
-        Debug.Log("PARAMS RESET");
+        Debug.Log("PLAYER_STATE: IDLE");
     }
-
-
-   
-
+    
     private IEnumerator Step()
     {
         // First, find next stone
@@ -233,12 +256,18 @@ public class DT_PlayerMovement : MonoBehaviour
         // If no stones found...
         if (_nextStone == null)
         {
-            Debug.Log("No more stones :(");
+            Debug.Log("INVALID: No more stones.");
+        }
+        // If next stone is too high/low...
+        // Mathf.Abs always returns a positive number
+        if (Mathf.Abs(_nextStone.transform.position.y - transform.position.y) >= maxStepHeight)
+        {
+            Debug.Log("INVALID: Stone too far away.");
         }
         // Stone found...
         else
         {
-            Debug.Log("PlayerState.Stepping");
+            Debug.Log("PLAYER_STATE: STEPPING");
             _gameManager.playerState = GameManager.PlayerState.Stepping;
             
             // Set start and end points of curve
@@ -247,11 +276,11 @@ public class DT_PlayerMovement : MonoBehaviour
             // Start counting
             float elapsedTime = 0f;
 
-            while (elapsedTime < moveDuration)
+            while (elapsedTime < stepDuration)
             {
                 // Find where on curve player should be this frame
-                float t = elapsedTime / moveDuration;
-                Vector3 position = QuadraticBezier(startPoint, endPoint, jumpArcHeight, t);
+                float t = elapsedTime / stepDuration;
+                Vector3 position = QuadraticBezier(startPoint, endPoint, stepArcHeight, t);
 
                 // Set position
                 transform.position = position;
@@ -267,22 +296,15 @@ public class DT_PlayerMovement : MonoBehaviour
             transform.position = _nextStone.transform.position;
             // Assign as current stone
             _currentStone = _nextStone;
-            Debug.Log("Arrived at target!");
-            
             ResetToIdle();
-            
             yield return null;
         }
     }
 
     private GameObject FindNextStone()
     {
-        Debug.Log("Finding next stone...");
-        
-        // Reset _nextStone
+        // Make sure starting value is null
         _nextStone = null;
-        
-        Debug.Log("Checking each one...");
         
         // Compare the distance from player of each stone to the previous stone
         // For the first stone, compare it to the biggest possible number (float.MaxValue)
@@ -295,8 +317,8 @@ public class DT_PlayerMovement : MonoBehaviour
             var distanceToStone = Vector3.Distance(transform.position, stone.transform.position);
 
             // Check if it's on the side we want
-            bool isTargetDirection = (_targetDirection == TargetDirection.Right && stone.transform.position.x > transform.position.x) ||
-                                      (_targetDirection == TargetDirection.Left && stone.transform.position.x < transform.position.x);
+            bool isTargetDirection = (targetDirection == TargetDirection.Right && stone.transform.position.x > transform.position.x) ||
+                                      (targetDirection == TargetDirection.Left && stone.transform.position.x < transform.position.x);
 
             // If it's on the side we want and closer than any previous stones
             if (isTargetDirection && distanceToStone < closestDistance)
@@ -309,16 +331,18 @@ public class DT_PlayerMovement : MonoBehaviour
             }
         }
         
-        // If no stones were found
-
+        
+        // Update _nextStone
+        
         if (_nextStone != null)
         {
-            Debug.Log($"Closest stone is {_nextStone.name}");
             // Return the updated stone
             return _nextStone;
         }
 
-        Debug.Log("No stones...");
+        // If no stones were found
+        
+        Debug.LogError("No step target.");
         return null;
     }
 
@@ -342,9 +366,9 @@ public class DT_PlayerMovement : MonoBehaviour
 
 
 
-    public void OnDuck()
+    public void OnCrouch()
     {
-        Debug.Log("Ducked");
+        Debug.Log("Crouching");
     }
     public void OnAttack()
     {

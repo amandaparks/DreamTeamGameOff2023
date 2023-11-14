@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public GameState gameState;
     // [HideInInspector] public CurrentScene currentScene;
     [HideInInspector] public PlayerState playerState;
-
+    [HideInInspector] public Vector3 playerStartPos;
+    
     void Awake()
     {
         // We want one Game Manager to awake and persist for the rest of the game
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     public enum GameState
     {
         Playing,
@@ -49,7 +52,7 @@ public class GameManager : MonoBehaviour
         Talking,
         Stepping,
         Climbing,
-        Ducking,
+        Crouching,
         Damaged,
         Attacking,
         Defending
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         playerState = PlayerState.Idle;
         gameState = GameState.Playing;
+        Debug.Log($"Player starting position is {playerStartPos}");
     }
 
     // Update is called once per frame
