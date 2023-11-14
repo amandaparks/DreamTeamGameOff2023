@@ -362,7 +362,7 @@ MonoBehaviour:
     IsBackgroundRecursive: 0
     IsHidden: 0
   - Type: 1
-    Key: Assets/Effects and Shaders
+    Key: Assets/Effects and Anim
     Ordinal: 29
     Priority: 0
     IconType: 140

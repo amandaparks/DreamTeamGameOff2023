@@ -1,14 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 using Vector3 = UnityEngine.Vector3;
 
 public class DT_PlayerMovement : MonoBehaviour
@@ -72,7 +63,7 @@ public class DT_PlayerMovement : MonoBehaviour
 
     public void OnStepBkd()
     {
-        Debug.Log("INPUT: STEPBKD");
+        Debug.Log("INPUT: STEP BKD");
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
@@ -83,7 +74,7 @@ public class DT_PlayerMovement : MonoBehaviour
 
     public void OnStepFwd()
     {
-        Debug.Log("INPUT: STEPFWD");
+        Debug.Log("INPUT: STEP FWD");
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
@@ -260,7 +251,7 @@ public class DT_PlayerMovement : MonoBehaviour
         }
         // If next stone is too high/low...
         // Mathf.Abs always returns a positive number
-        if (Mathf.Abs(_nextStone.transform.position.y - transform.position.y) >= maxStepHeight)
+        else if (Mathf.Abs(_nextStone.transform.position.y - transform.position.y) >= maxStepHeight)
         {
             Debug.Log("INVALID: Stone too far away.");
         }
@@ -342,7 +333,7 @@ public class DT_PlayerMovement : MonoBehaviour
 
         // If no stones were found
         
-        Debug.LogError("No step target.");
+        Debug.Log("INVALID: No step target.");
         return null;
     }
 
