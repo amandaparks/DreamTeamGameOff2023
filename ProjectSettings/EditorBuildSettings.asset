@@ -8,5 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tests etc/Amanda/AmandasTestScene.unity
     guid: 5adb2e87331a1d04c9727dd149ef1a22
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c421940b65dbf6842b3043f992dbc568
+  - enabled: 1
+    path: Assets/Scenes/WorldMap.unity
+    guid: 9c405eb03e6985748a804a35cb6cd095
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: a58e12465fcdb1a44891b61198cbb9aa
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 491411754249a254db9490ae17fa7294, type: 2}
