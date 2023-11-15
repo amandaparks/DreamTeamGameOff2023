@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerState playerState;
     [HideInInspector] public Vector3 playerStartPos;
     private Graphic _blackPanel;
-
     [SerializeField] private float sceneFadeSpeed = 1.0f;
     
 
@@ -50,12 +49,12 @@ public class GameManager : MonoBehaviour
     {
         MainMenu,
         WorldMap,
-        Level1,
-        Level2,
-        Level3,
-        Level4,
-        Level5,
-        Level6,
+        Level_1,
+        Level_2,
+        Level_3,
+        Level_4,
+        Level_5,
+        Level_6,
         Summit
     }
 
@@ -102,6 +101,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
         StartCoroutine(FadeIn());
+        
+    }
+    
+    private IEnumerator FadeOut()
+    {
+        Color color = _blackPanel.color;
+        while (color.a < 1)
+        {
+            color.a += Time.deltaTime * sceneFadeSpeed;
+            _blackPanel.color = color;
+            yield return null;
+        }
     }
     
     private IEnumerator FadeIn()
@@ -115,16 +126,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOut()
-    {
-        Color color = _blackPanel.color;
-        while (color.a < 1)
-        {
-            color.a += Time.deltaTime * sceneFadeSpeed;
-            _blackPanel.color = color;
-            yield return null;
-        }
-    }
+
 
     private void OnEnable()
     {
