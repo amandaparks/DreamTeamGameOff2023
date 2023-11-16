@@ -1,140 +1,257 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.EventSystems;
 
 public class DT_PointClickInput : MonoBehaviour
 {
-    //private GameObject _player;
+    [Header("Gameplay UI Buttons")]
+    [SerializeField] private Button button1, button2, button3, button4, button5, button6, button7, buttonB;
+    
+    [Header("Gameplay Controls")]
+    [SerializeField] private InputActionReference defend;
+    [SerializeField] private InputActionReference crouch;
+    [SerializeField] private InputActionReference stepBkd;
+    [SerializeField] private InputActionReference climb;
+    [SerializeField] private InputActionReference stepFwd;
+    [SerializeField] private InputActionReference attack;
+    [SerializeField] private InputActionReference magic;
+    [SerializeField] private InputActionReference bardOn;
+    
+    [Header("Bard Controls")]
+    [SerializeField] private InputActionReference key1;
+    [SerializeField] private InputActionReference key2;
+    [SerializeField] private InputActionReference key3;
+    [SerializeField] private InputActionReference key4;
+    [SerializeField] private InputActionReference key5;
+    [SerializeField] private InputActionReference key6;
+    [SerializeField] private InputActionReference key7;
+    [SerializeField] private InputActionReference bardOff;
+    
     private GameManager _gameManager;
+    private GameObject _player;
+    
 
-    // Start is called before the first frame update
+        /* THIS SCRIPT DOES TWO THINGS:
+         * 1. It listens for mouse/touch input on UI Buttons and
+         * invokes the same actions as the corresponding keyboard input
+         * 2. It listens for keyboard input and makes the corresponding
+         * UI buttons change colour/sprite as if they had been selected
+        */
+    
+    // 1. MOUSE/TOUCH --> KEYBOARD
+
+    // Add listeners to all the UI buttons
     void Start()
     {
-        // Find the game manager
+        // Find the game manager and player
         _gameManager = GameManager.Instance;
+        _player = GameObject.FindWithTag("Player");
+        
+        // Set up listeners to run methods when clicked
+        button1.onClick.AddListener(delegate {MimicInput("Button1");});
+        button2.onClick.AddListener(delegate {MimicInput("Button2");});
+        button3.onClick.AddListener(delegate {MimicInput("Button3");});
+        button4.onClick.AddListener(delegate {MimicInput("Button4");});
+        button5.onClick.AddListener(delegate {MimicInput("Button5");});
+        button6.onClick.AddListener(delegate {MimicInput("Button6");});
+        button7.onClick.AddListener(delegate {MimicInput("Button7");});
+        buttonB.onClick.AddListener(delegate {MimicInput("ButtonB");});
     }
-
-    // Routing through here in case we want to add anything later
-    public void ButtonClick(string input)
+    private void MimicInput (string button)
     {
-        BroadcastInput(input);
-        Debug.Log($"CLICK: {input}");
-    }
-    private void BroadcastInput(string input)
-    {
-        // Check if we're in Bard Mode (this reflects current Action Map)
+        // First, check if we're in Bard Mode
         var isBardMode = _gameManager.playerState == GameManager.PlayerState.BardMode;
-
-        switch (input.ToLower())
+        
+        switch (button)
         {
-            case "button_1":
-            case "button 1":
-            case "button1":
+            case "Button1":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_1");
+                    _player.SendMessage("On_1");
                 }
                 else
                 {
-                    BroadcastMessage("OnDefend");
+                    _player.SendMessage("OnDefend");
                 }
 
                 break;
-
-            case "button_2":
-            case "button 2":
-            case "button2":
+            case "Button2":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_2");
+                    _player.SendMessage("On_2");
                 }
                 else
                 {
-                    BroadcastMessage("OnCrouch");
+                    _player.SendMessage("OnCrouch");
                 }
 
                 break;
-
-            case "button_3":
-            case "button 3":
-            case "button3":
+            case "Button3":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_3");
+                    _player.SendMessage("On_3");
                 }
                 else
                 {
-                    BroadcastMessage("OnStepBkd");
+                    _player.SendMessage("OnStepBkd");
                 }
 
                 break;
-
-            case "button_4":
-            case "button 4":
-            case "button4":
+            case "Button4":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_4");
+                    _player.SendMessage("On_4");
                 }
                 else
                 {
-                    BroadcastMessage("OnClimb");
+                    _player.SendMessage("OnClimb");
                 }
 
                 break;
-
-            case "button_5":
-            case "button 5":
-            case "button5":
+            case "Button5":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_5");
+                    _player.SendMessage("On_5");
                 }
                 else
                 {
-                    BroadcastMessage("OnStepFwd");
+                    _player.SendMessage("OnStepFwd");
                 }
-
                 break;
-
-            case "button_6":
-            case "button 6":
-            case "button6":
+            case "Button6":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_6");
+                    _player.SendMessage("On_6");
                 }
                 else
                 {
-                    BroadcastMessage("OnAttack");
+                    _player.SendMessage("OnAttack");
                 }
-
                 break;
-
-            case "button_7":
-            case "button 7":
-            case "button7":
+            case "Button7":
                 if (isBardMode)
                 {
-                    BroadcastMessage("On_7");
+                    _player.SendMessage("On_7");
                 }
                 else
                 {
-                    BroadcastMessage("OnMagic");
+                    _player.SendMessage("OnMagic");
                 }
-
                 break;
-
-            case "button_b":
-            case "button b":
-            case "buttonb":
+            case "ButtonB":
                 //This is the same for both Action Maps
-                BroadcastMessage("OnBard");
+                _player.SendMessage("OnBard");
                 break;
-
             default:
                 Debug.LogError("No broadcast set.");
+                break;
+        }
+    }
+
+
+    // 2. KEYBOARD --> UI BUTTON SELECT
+
+    private void OnEnable()
+    {
+        // Subscribe to sending context to the method
+        defend.action.started += context => SelectDeselect(button1, context);
+        crouch.action.started += context => SelectDeselect(button2, context);
+        stepBkd.action.started += context => SelectDeselect(button3, context);
+        climb.action.started += context => SelectDeselect(button4, context);
+        stepFwd.action.started += context => SelectDeselect(button5, context);
+        attack.action.started += context => SelectDeselect(button6, context);
+        magic.action.started += context => SelectDeselect(button7, context);
+        bardOn.action.started += context => SelectDeselect(buttonB, context);
+        
+        key1.action.started += context => SelectDeselect(button1, context);
+        key2.action.started += context => SelectDeselect(button2, context);
+        key3.action.started += context => SelectDeselect(button3, context);
+        key4.action.started += context => SelectDeselect(button4, context);
+        key5.action.started += context => SelectDeselect(button5, context);
+        key6.action.started += context => SelectDeselect(button6, context);
+        key7.action.started += context => SelectDeselect(button7, context);
+        bardOff.action.started += context => SelectDeselect(buttonB, context);
+        
+        defend.action.canceled += context => SelectDeselect(button1, context);
+        crouch.action.canceled += context => SelectDeselect(button2, context);
+        stepBkd.action.canceled += context => SelectDeselect(button3, context);
+        climb.action.canceled += context => SelectDeselect(button4, context);
+        stepFwd.action.canceled += context => SelectDeselect(button5, context);
+        attack.action.canceled += context => SelectDeselect(button6, context);
+        magic.action.canceled += context => SelectDeselect(button7, context);
+        bardOn.action.canceled += context => SelectDeselect(buttonB, context);
+        
+        key1.action.canceled += context => SelectDeselect(button1, context);
+        key2.action.canceled += context => SelectDeselect(button2, context);
+        key3.action.canceled += context => SelectDeselect(button3, context);
+        key4.action.canceled += context => SelectDeselect(button4, context);
+        key5.action.canceled += context => SelectDeselect(button5, context);
+        key6.action.canceled += context => SelectDeselect(button6, context);
+        key7.action.canceled += context => SelectDeselect(button7, context);
+        bardOff.action.canceled += context => SelectDeselect(buttonB, context);
+    }
+
+    private void OnDisable()
+    {
+        //Unsubscribe sending context to the method
+        defend.action.started -= context => SelectDeselect(button1, context);
+        crouch.action.started -= context => SelectDeselect(button2, context);
+        stepBkd.action.started -= context => SelectDeselect(button3, context);
+        climb.action.started -= context => SelectDeselect(button4, context);
+        stepFwd.action.started -= context => SelectDeselect(button5, context);
+        attack.action.started -= context => SelectDeselect(button6, context);
+        magic.action.started -= context => SelectDeselect(button7, context);
+        bardOn.action.started -= context => SelectDeselect(buttonB, context);
+        
+        key1.action.started -= context => SelectDeselect(button1, context);
+        key2.action.started -= context => SelectDeselect(button2, context);
+        key3.action.started -= context => SelectDeselect(button3, context);
+        key4.action.started -= context => SelectDeselect(button4, context);
+        key5.action.started -= context => SelectDeselect(button5, context);
+        key6.action.started -= context => SelectDeselect(button6, context);
+        key7.action.started -= context => SelectDeselect(button7, context);
+        bardOff.action.started -= context => SelectDeselect(buttonB, context);
+        
+        defend.action.canceled -= context => SelectDeselect(button1, context);
+        crouch.action.canceled -= context => SelectDeselect(button2, context);
+        stepBkd.action.canceled -= context => SelectDeselect(button3, context);
+        climb.action.canceled -= context => SelectDeselect(button4, context);
+        stepFwd.action.canceled -= context => SelectDeselect(button5, context);
+        attack.action.canceled -= context => SelectDeselect(button6, context);
+        magic.action.canceled -= context => SelectDeselect(button7, context);
+        bardOn.action.canceled -= context => SelectDeselect(buttonB, context);
+        
+        key1.action.canceled -= context => SelectDeselect(button1, context);
+        key2.action.canceled -= context => SelectDeselect(button2, context);
+        key3.action.canceled -= context => SelectDeselect(button3, context);
+        key4.action.canceled -= context => SelectDeselect(button4, context);
+        key5.action.canceled -= context => SelectDeselect(button5, context);
+        key6.action.canceled -= context => SelectDeselect(button6, context);
+        key7.action.canceled -= context => SelectDeselect(button7, context);
+        bardOff.action.canceled -= context => SelectDeselect(buttonB, context);
+    }
+
+    private void SelectDeselect(Button button, InputAction.CallbackContext context)
+    {
+        // Make button appear selected depending on whether it's being pressed
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+                Debug.Log("Input started");
+                //Execute the event for when a button is pressed aka submitted
+                ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
+                    ExecuteEvents.submitHandler);
+                break;
+            case InputActionPhase.Canceled:
+                Debug.Log("Input canceled");
+                //Execute the event for when a button is deselected
+                ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
+                    ExecuteEvents.deselectHandler);
                 break;
         }
     }

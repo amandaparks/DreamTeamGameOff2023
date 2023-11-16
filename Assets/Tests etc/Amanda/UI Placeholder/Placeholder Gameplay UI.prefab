@@ -499,7 +499,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 636004115, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 636004115, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: -33541642, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -511,19 +511,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7959593634404466308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 2
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &2336147803001599963
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,7 +880,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1218184270, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 1218184270, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: 1499201803, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -904,19 +892,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8144158532951212797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 3
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4262236143534763331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1080,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 947147178, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 947147178, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: -170858838, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1116,19 +1092,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3631466523304868306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 5
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &5586410729895388218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1245,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1303449663, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 1303449663, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: 1213654694, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1293,19 +1257,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3632438894592221836}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 4
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6316063998541897790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,7 +1366,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1252936746, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 1252936746, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: 1431429683, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1426,19 +1378,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8506129658259185644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 6
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6480913630145113910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,7 +1487,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -1896057911, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: -1896057911, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: 63436253, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1559,19 +1499,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8467369654955531187}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button B
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7464424819685145120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1687,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 772474677, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 772474677, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: 1968360234, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1771,19 +1699,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1081938171269068052}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 1
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &9067861636193436197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1808,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 1453200971, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 1453200971, guid: 14cf90b74fd61db48a8bbccabb1bdbbe, type: 3}
     m_DisabledSprite: {fileID: -1900861272, guid: 42bf5de0c7e956d46bd9755a77e0170f, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1904,16 +1820,4 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6977264817550814840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DT_PointClickInput, Assembly-CSharp
-        m_MethodName: ButtonClick
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Button 7
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
