@@ -90,7 +90,7 @@ public class DT_Enemies : MonoBehaviour
         // If enemies are ready, do nothing
         if (_isEnemiesReady) return;
         // If game state is not Playing, do nothing
-        if (_gameManager.gameState != GameManager.GameState.Playing) return;
+        if (GameManager.CurrentGameState != GameManager.GameState.Playing) return;
         
         
         PrepEnemy();

@@ -73,3 +73,44 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: af30f9032b3dc4a42ad9698331d6ea1f, type: 3}
     volume: 0
     source: {fileID: 0}
+  kalimbaNotes:
+  - buttonKey: 1
+    kalimbaNote: A
+    noteClip: {fileID: 8300000, guid: 7925b530c10094d4babec3c9046fdf59, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: 2
+    kalimbaNote: F
+    noteClip: {fileID: 8300000, guid: 74a38b1849cfc77458850629f9fb5f2c, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: 3
+    kalimbaNote: D
+    noteClip: {fileID: 8300000, guid: 672d1c1a7aea31c44b88ea18deaf0bd3, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: 4
+    kalimbaNote: C
+    noteClip: {fileID: 8300000, guid: 0c8b9f217fb1280499da0eda202d4f52, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: 5
+    kalimbaNote: E
+    noteClip: {fileID: 8300000, guid: 28848d0a88833454cbe2227b99951537, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: 6
+    kalimbaNote: G
+    noteClip: {fileID: 8300000, guid: 1449ae88bcf10c541a94df0bf54afa18, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: 7
+    kalimbaNote: B
+    noteClip: {fileID: 8300000, guid: af30f9032b3dc4a42ad9698331d6ea1f, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: fail
+    kalimbaNote: Failed Twang Sound
+    noteClip: {fileID: 0}
+    volume: 0.7
+    source: {fileID: 0}

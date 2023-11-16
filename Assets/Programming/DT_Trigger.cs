@@ -9,7 +9,7 @@ public class DT_Trigger : MonoBehaviour
     [SerializeField] private bool isDialogueTrigger;
     [SerializeField] private bool isSceneLoadTrigger;
 
-    [SerializeField] private GameManager.CurrentScene sceneToLoad;
+    [SerializeField] private GameManager.GameScene sceneToLoad;
     [Header("For Playtest Builds (Will Override Scene To Load):")]
     [SerializeField] private string sceneName;
     private GameManager _gameManager;

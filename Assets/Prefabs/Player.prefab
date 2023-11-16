@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3436483925329256312}
   - component: {fileID: 8694043827388129428}
+  - component: {fileID: 5696449928352528717}
+  - component: {fileID: 6205380873372588421}
   - component: {fileID: 3096627336125693270}
-  - component: {fileID: 5151325049536345082}
   - component: {fileID: 366022015188951554}
+  - component: {fileID: 5151325049536345082}
   - component: {fileID: 9056982727533574181}
   - component: {fileID: 3599774638079587248}
   m_Layer: 0
@@ -149,6 +151,54 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &5696449928352528717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358782960550085104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ba1022442a24e4c926550ea4912df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  button3: {fileID: 0}
+  button4: {fileID: 0}
+  button5: {fileID: 0}
+  button6: {fileID: 0}
+  button7: {fileID: 0}
+  buttonB: {fileID: 0}
+  defend: {fileID: -6338559921211422086, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  crouch: {fileID: -3686782437624206327, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  stepBkd: {fileID: 4777193223090369174, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  climb: {fileID: 7348389355082821605, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  stepFwd: {fileID: 5279348765907227334, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  attack: {fileID: 377394616541116831, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  magic: {fileID: -3560319899298943139, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  bardOn: {fileID: -1669741703745645570, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key1: {fileID: 659043357774081937, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key2: {fileID: -192702574619887746, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key3: {fileID: 3610250685510043833, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key4: {fileID: 7374730943262376479, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key5: {fileID: 1261632820325369529, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key6: {fileID: 1610882710880041368, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  key7: {fileID: 1952634041717836160, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+  bardOff: {fileID: -264306342864882247, guid: 0684ce0bf19cf974a811492a63a8c508, type: 3}
+--- !u!114 &6205380873372588421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358782960550085104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece4a8038b82b294681d2c8a2314a1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3096627336125693270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +215,18 @@ MonoBehaviour:
   stepArcHeight: 2.5
   climbDuration: 0.6
   maxStepHeight: 1
+--- !u!114 &366022015188951554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358782960550085104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8039218db67d89b4ab0089db019cd926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5151325049536345082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,18 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteAnimator: {fileID: 4700812900794926477}
   _spriteRenderer: {fileID: 5638951211031477030}
---- !u!114 &366022015188951554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358782960550085104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8039218db67d89b4ab0089db019cd926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &9056982727533574181
 CapsuleCollider:
   m_ObjectHideFlags: 0

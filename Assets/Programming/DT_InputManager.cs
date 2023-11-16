@@ -1,19 +1,15 @@
-/*
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.InputSystem.UI;
-using UnityEngine.EventSystems;
 
-public class DT_PointClickInput : MonoBehaviour
+public class DT_InputManager : MonoBehaviour
 {
     [Header("Gameplay UI Buttons")]
     [SerializeField] private Button button1, button2, button3, button4, button5, button6, button7, buttonB;
-    
     [Header("Gameplay Controls")]
     [SerializeField] private InputActionReference defend;
     [SerializeField] private InputActionReference crouch;
@@ -23,7 +19,6 @@ public class DT_PointClickInput : MonoBehaviour
     [SerializeField] private InputActionReference attack;
     [SerializeField] private InputActionReference magic;
     [SerializeField] private InputActionReference bardOn;
-    
     [Header("Bard Controls")]
     [SerializeField] private InputActionReference key1;
     [SerializeField] private InputActionReference key2;
@@ -33,126 +28,255 @@ public class DT_PointClickInput : MonoBehaviour
     [SerializeField] private InputActionReference key6;
     [SerializeField] private InputActionReference key7;
     [SerializeField] private InputActionReference bardOff;
+    // There HAS to be another way to do the above but I'll figure it out later
     
-    private GameManager _gameManager;
-    private GameObject _player;
-    
-    // 1. MOUSE/TOUCH --> KEYBOARD
+    private DT_BardMode _bardMode;
+    private DT_PlayerActions _playerActions;
+    private DT_PlayerMovement _playerMovement;
 
-    // Add listeners to all the UI buttons
+    /*   This script handles GAMEPLAY and BARD input
+     *      1. Listens for which the UI buttons are being clicked
+     *      2. Receives keyboard input
+     *      3. Invokes the relevant methods on these scripts attached to the player:
+     *          (or ignore if game is paused)
+     *              - DT_PlayerActions
+     *              - DT_PlayerMovement
+     *              - DT_BardMode
+     *      4. Mimics UI clicks based on keyboard input
+     */
+
     void Start()
     {
-        // Don't use this script if nothing is filled out
-        if (button1 == null) return;
-        // Find the game manager and player
-        _gameManager = GameManager.Instance;
-        _player = GameObject.FindWithTag("Player");
+        // Assign components
+        _bardMode = GetComponent<DT_BardMode>();
+        _playerActions = GetComponent<DT_PlayerActions>();
+        _playerMovement = GetComponent<DT_PlayerMovement>();
         
         // Set up listeners to run methods when clicked
-        button1.onClick.AddListener(delegate {MimicInput("Button1");});
-        button2.onClick.AddListener(delegate {MimicInput("Button2");});
-        button3.onClick.AddListener(delegate {MimicInput("Button3");});
-        button4.onClick.AddListener(delegate {MimicInput("Button4");});
-        button5.onClick.AddListener(delegate {MimicInput("Button5");});
-        button6.onClick.AddListener(delegate {MimicInput("Button6");});
-        button7.onClick.AddListener(delegate {MimicInput("Button7");});
-        buttonB.onClick.AddListener(delegate {MimicInput("ButtonB");});
+        button1.onClick.AddListener(delegate {ClickInput("Button1");});
+        button2.onClick.AddListener(delegate {ClickInput("Button2");});
+        button3.onClick.AddListener(delegate {ClickInput("Button3");});
+        button4.onClick.AddListener(delegate {ClickInput("Button4");});
+        button5.onClick.AddListener(delegate {ClickInput("Button5");});
+        button6.onClick.AddListener(delegate {ClickInput("Button6");});
+        button7.onClick.AddListener(delegate {ClickInput("Button7");});
+        buttonB.onClick.AddListener(delegate {ClickInput("ButtonB");});
     }
-    private void MimicInput (string button)
+
+    private bool IsGamePaused()
     {
-        // First, check if we're in Bard Mode
-        var isBardMode = _gameManager.playerState == GameManager.PlayerState.BardMode;
+        // return bool value of whether or not game is paused
+        return GameManager.CurrentGameState == GameManager.GameState.Paused;
+    }
+
+    // CLICK INPUT SECTION
+    private void ClickInput (string button)
+    {
+        // If game is paused, ignore input
+        if (IsGamePaused()) return;
+
+        // Check if we're in Bard Mode
+        var isBardMode = GameManager.CurrentPlayerState == GameManager.PlayerState.BardMode;
         
         switch (button)
         {
             case "Button1":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_1");
+                    _bardMode.PlayNote("1");
                 }
                 else
                 {
-                    _player.SendMessage("OnDefend");
+                    _playerActions.Defend();
                 }
 
                 break;
             case "Button2":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_2");
+                    _bardMode.PlayNote("2");
                 }
                 else
                 {
-                    _player.SendMessage("OnCrouch");
+                    _playerActions.Crouch();
                 }
 
                 break;
             case "Button3":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_3");
+                    _bardMode.PlayNote("3");
                 }
                 else
                 {
-                    _player.SendMessage("OnStepBkd");
+                    _playerMovement.StepBkd();
                 }
 
                 break;
             case "Button4":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_4");
+                    _bardMode.PlayNote("4");
                 }
                 else
                 {
-                    _player.SendMessage("OnClimb");
+                    _playerMovement.Climb();
                 }
 
                 break;
             case "Button5":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_5");
+                    _bardMode.PlayNote("5");
                 }
                 else
                 {
-                    _player.SendMessage("OnStepFwd");
+                    _playerMovement.StepFwd();
                 }
                 break;
             case "Button6":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_6");
+                    _bardMode.PlayNote("6");
                 }
                 else
                 {
-                    _player.SendMessage("OnAttack");
+                    _playerActions.Attack();
                 }
                 break;
             case "Button7":
                 if (isBardMode)
                 {
-                    _player.SendMessage("On_7");
+                    _bardMode.PlayNote("7");
                 }
                 else
                 {
-                    _player.SendMessage("OnMagic");
+                    _playerActions.Magic();
                 }
                 break;
             case "ButtonB":
-                //This is the same for both Action Maps
-                _player.SendMessage("OnBard");
+                if (isBardMode)
+                {
+                    _bardMode.PlayNote("B");
+                }
+                else
+                {
+                    _playerActions.Bard();
+                }
                 break;
             default:
-                Debug.LogError("No broadcast set.");
+                Debug.LogError("No action set.");
                 break;
         }
     }
+    
+    // KEYBOARD INPUT SECTION
 
+    // Really annoyed that I can't use callback context in the methods here but
+    // absolutely can't be bothered switching to C# events at this point
+    
+    public void OnDefend()
+    {
+        // Do nothing if game paused
+        if (IsGamePaused()) return;
+        _playerActions.Defend();
+    }
 
-    // 2. KEYBOARD --> UI BUTTON SELECT
+    public void OnCrouch()
+    {
+        if (IsGamePaused()) return;
+        _playerActions.Crouch();
+    }
 
-    private void OnEnable()
+    public void OnStepBkd()
+    {
+        if (IsGamePaused()) return;
+        _playerMovement.StepBkd();
+    }
+
+    public void OnClimb()
+    {
+        if (IsGamePaused()) return;
+        _playerMovement.Climb();
+    }
+
+    public void OnStepFwd()
+    {
+        if (IsGamePaused()) return;
+        _playerMovement.Climb();
+    }
+
+    public void OnAttack()
+    {
+        if (IsGamePaused()) return;
+        _playerActions.Attack();
+    }
+
+    public void OnMagic()
+    {
+        if (IsGamePaused()) return;
+        _playerActions.Magic();
+    }
+
+    public void OnBard()
+    {
+        if (IsGamePaused()) return;
+        _playerActions.Bard();
+    }
+
+    public void On_1()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("1");
+    }
+
+    public void On_2()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("2");
+    }
+
+    public void On_3()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("3");
+    }
+
+    public void On_4()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("4");
+    }
+
+    public void On_5()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("5");
+    }
+    
+    public void On_6()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("6");
+    }
+    
+    public void On_7()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("7");
+    }
+    
+    public void On_B()
+    {
+        if (IsGamePaused()) return;
+        _bardMode.PlayNote("B");
+    }
+
+    // KEYBOARD UI BUTTON SELECT / DESELECT
+    
+    // Subscribing to all the events above legit can't believe I have to do this urrrrgh
+    
+        private void OnEnable()
     {
         // Subscribe to sending context to the method
         defend.action.started += context => SelectDeselect(button1, context);
@@ -231,7 +355,8 @@ public class DT_PointClickInput : MonoBehaviour
         key7.action.canceled -= context => SelectDeselect(button7, context);
         bardOff.action.canceled -= context => SelectDeselect(buttonB, context);
     }
-
+    
+    
     private void SelectDeselect(Button button, InputAction.CallbackContext context)
     {
         // Make button appear selected depending on whether it's being pressed
@@ -251,5 +376,5 @@ public class DT_PointClickInput : MonoBehaviour
                 break;
         }
     }
+
 }
-*/

@@ -18,16 +18,16 @@ public class DT_PlayerAnimations : MonoBehaviour
     void Update()
     {
         // If player state hasn't changed, do nothing
-        if (_currentState == _gameManager.playerState) return;
+        if (_currentState == GameManager.CurrentPlayerState) return;
 
         // Otherwise, change animation and update current state
-        ChangeAnimation(_gameManager.playerState);
-        _currentState = _gameManager.playerState;
+        ChangeAnimation(GameManager.CurrentPlayerState);
+        _currentState = GameManager.CurrentPlayerState;
     }
 
     private void ChangeAnimation(GameManager.PlayerState gameManagerPlayerState)
     {
-        switch (_gameManager.playerState)
+        switch (GameManager.CurrentPlayerState)
         {
             case GameManager.PlayerState.Idle:
                 spriteAnimator.SetTrigger("Idle");

@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour
 {
     // Static variable so any script can access this script by using GameManager.Instance
     public static GameManager Instance;
-    [HideInInspector] public GameState gameState;
-    [HideInInspector] public CurrentScene currentScene;
-    [HideInInspector] public PlayerState playerState;
+    public static GameState CurrentGameState;
+    public static GameScene CurrentScene;
+    public static PlayerState CurrentPlayerState;
     [HideInInspector] public Vector3 playerStartPos;
     private Graphic _blackPanel;
     [SerializeField] private float sceneFadeSpeed = 1.0f;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         Paused
     }
 
-    public enum CurrentScene
+    public enum GameScene
     {
         MainMenu,
         WorldMap,
@@ -83,8 +83,8 @@ public class GameManager : MonoBehaviour
     {
         // This method will be called every time a new scene is loaded
         Debug.Log("Scene loaded: " + scene.name);
-        playerState = PlayerState.Idle;
-        gameState = GameState.Playing;
+        CurrentPlayerState = PlayerState.Idle;
+        CurrentGameState = GameState.Playing;
         Debug.Log($"Player starting position is {playerStartPos}");
         
     }
@@ -139,5 +139,7 @@ public class GameManager : MonoBehaviour
         // Unsubscribe from the sceneLoaded event when the script is disabled
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+    
+    
     
 }

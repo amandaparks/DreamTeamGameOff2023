@@ -46,7 +46,7 @@ public class DT_PlayerMovement : MonoBehaviour
         isNoStonesBruh = _steppingStones.Length == 0;
         isNoLaddersBruh = _ladders.Length == 0;
     }
-    public void OnStepBkd()
+    public void StepBkd()
     {
         Debug.Log("INPUT: STEP BKD");
         
@@ -56,7 +56,7 @@ public class DT_PlayerMovement : MonoBehaviour
         targetDirection = TargetDirection.Left;
         StartCoroutine(Step());
     }
-    public void OnStepFwd()
+    public void StepFwd()
     {
         Debug.Log("INPUT: STEP FWD");
         
@@ -67,24 +67,24 @@ public class DT_PlayerMovement : MonoBehaviour
         StartCoroutine(Step());
             
     }
-    public void OnClimb()
+    public void Climb()
     {
         Debug.Log("INPUT: CLIMB");
         
         // Check we can do it
         if (!CanPerformAction("Climb")) return;
-        StartCoroutine(Climb());
+        StartCoroutine(ClimbLadder());
     }
     private bool CanPerformAction(string actionType)
     {
         // Player can only move if game is not paused and they are already in Idle
-        if (_gameManager.gameState == GameManager.GameState.Paused)
+        if (GameManager.CurrentGameState == GameManager.GameState.Paused)
         {
             Debug.Log($"{actionType} cancelled. INVALID: Game is paused.");
             return false;
         }
 
-        if (_gameManager.playerState != GameManager.PlayerState.Idle)
+        if (GameManager.CurrentPlayerState != GameManager.PlayerState.Idle)
         {
             Debug.Log($"{actionType} cancelled. INVALID: Player not Idle.");
             return false;
@@ -226,7 +226,7 @@ public class DT_PlayerMovement : MonoBehaviour
         else
         {
             Debug.Log("PLAYER_STATE: STEPPING");
-            _gameManager.playerState = GameManager.PlayerState.Stepping;
+            GameManager.CurrentPlayerState = GameManager.PlayerState.Stepping;
             
             // Set start and end points of curve
             var startPoint = transform.position;
@@ -258,7 +258,7 @@ public class DT_PlayerMovement : MonoBehaviour
             yield return null;
         }
     }
-    private IEnumerator Climb()
+    private IEnumerator ClimbLadder()
     {
         //First find the next stone and Ladder Targets
         FindLadderNextTargets();
@@ -275,7 +275,7 @@ public class DT_PlayerMovement : MonoBehaviour
         
         //Set state to climbing
         Debug.Log("PLAYER_STATE: CLIMBING");
-        _gameManager.playerState = GameManager.PlayerState.Climbing;
+        GameManager.CurrentPlayerState = GameManager.PlayerState.Climbing;
 
         // Start counting
         float elapsedTime = 0f;
@@ -309,7 +309,7 @@ public class DT_PlayerMovement : MonoBehaviour
         _ladderStartTarget = null;
         _ladderEndTarget = null;
         targetDirection = TargetDirection.Stop;
-        _gameManager.playerState = GameManager.PlayerState.Idle;
+        GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         Debug.Log("PLAYER_STATE: IDLE");
     }
     private Vector3 QuadraticBezier(Vector3 p0, Vector3 p2, float height, float t)

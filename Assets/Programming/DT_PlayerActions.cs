@@ -13,8 +13,7 @@ public class DT_PlayerActions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Find the Game Manager and assign it to this variable
-        _gameManager = GameManager.Instance;
+        //Bard mode off by default
         _isBardMode = false;
         
         //Get player input component
@@ -26,47 +25,47 @@ public class DT_PlayerActions : MonoBehaviour
     {
         
     }
-    public void OnCrouch()
+    public void Crouch()
     {
         // Check we can do it
         if (!CanPerformAction("Crouch")) return;
         
         // If not already crouching
-        if (_gameManager.playerState != GameManager.PlayerState.Crouching)
+        if ( GameManager.CurrentPlayerState != GameManager.PlayerState.Crouching)
         {
             // Update Player State
             Debug.Log("PLAYER_STATE: CROUCHING");
-            _gameManager.playerState = GameManager.PlayerState.Crouching;
+            GameManager.CurrentPlayerState = GameManager.PlayerState.Crouching;
         }
         // If already crouching
-        else if (_gameManager.playerState == GameManager.PlayerState.Crouching)
+        else if (GameManager.CurrentPlayerState == GameManager.PlayerState.Crouching)
         {
             // Update Player State
             Debug.Log("PLAYER_STATE: IDLE");
-            _gameManager.playerState = GameManager.PlayerState.Idle;
+            GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         }
     }
-    public void OnAttack()
+    public void Attack()
     {
         // Check we can do it
         if (!CanPerformAction("Attack")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: ATTACKING");
-        _gameManager.playerState = GameManager.PlayerState.Attacking;
+        GameManager.CurrentPlayerState = GameManager.PlayerState.Attacking;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
     }
-    public void OnDefend()
+    public void Defend()
     {
         // Check we can do it
         if (!CanPerformAction("Defend")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: DEFENDING");
-        _gameManager.playerState = GameManager.PlayerState.Defending;
+        GameManager.CurrentPlayerState = GameManager.PlayerState.Defending;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
     }
-    public void OnMagic()
+    public void Magic()
     {
         // Check we can do it
         if (!CanPerformAction("Magic")) return;
@@ -79,34 +78,34 @@ public class DT_PlayerActions : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         // Update Player State
         Debug.Log("PLAYER_STATE: IDLE");
-        _gameManager.playerState = GameManager.PlayerState.Idle;
+        GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         yield return null;
     }
 
-    public void OnBard()
+    public void Bard()
     {
         // Check we can do it
         if (!CanPerformAction("Bard")) return;
         
         // If not already in bard mode
-        if (_gameManager.playerState != GameManager.PlayerState.BardMode)
+        if (GameManager.CurrentPlayerState != GameManager.PlayerState.BardMode)
         {
             //Turn on Bard Mode
             _isBardMode = true;
             ToggleBardMode();
             // Update Player State
             Debug.Log("PLAYER_STATE: BARD MODE");
-            _gameManager.playerState = GameManager.PlayerState.BardMode;
+            GameManager.CurrentPlayerState = GameManager.PlayerState.BardMode;
         }
         // If already in bard mode
-        else if (_gameManager.playerState == GameManager.PlayerState.BardMode)
+        else if (GameManager.CurrentPlayerState == GameManager.PlayerState.BardMode)
         {
             //Turn off Bard Mode
             _isBardMode = false;
             ToggleBardMode();
             // Update Player State
             Debug.Log("PLAYER_STATE: IDLE");
-            _gameManager.playerState = GameManager.PlayerState.Idle;
+            GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         }
     }
 
@@ -128,7 +127,7 @@ public class DT_PlayerActions : MonoBehaviour
     private bool CanPerformAction(string actionType)
     {
         // Player can only do an action if game is not paused
-        if (_gameManager.gameState == GameManager.GameState.Paused)
+        if (GameManager.CurrentGameState == GameManager.GameState.Paused)
         {
             Debug.Log($"{actionType} cancelled. INVALID: Game is paused.");
             return false;
@@ -138,7 +137,7 @@ public class DT_PlayerActions : MonoBehaviour
         switch (actionType)
         {
             case "Crouch":
-                switch (_gameManager.playerState)
+                switch (GameManager.CurrentPlayerState)
                 {
                     case GameManager.PlayerState.Crouching:
                     case GameManager.PlayerState.Idle:
@@ -148,7 +147,7 @@ public class DT_PlayerActions : MonoBehaviour
                         return false;
                 }
             case "Bard":
-                switch (_gameManager.playerState)
+                switch (GameManager.CurrentPlayerState)
                 {
                     case GameManager.PlayerState.BardMode:
                     case GameManager.PlayerState.Idle:
@@ -160,7 +159,7 @@ public class DT_PlayerActions : MonoBehaviour
         }
 
         // Player must be Idle to do other actions
-        if (_gameManager.playerState != GameManager.PlayerState.Idle)
+        if (GameManager.CurrentPlayerState != GameManager.PlayerState.Idle)
         {
             Debug.Log($"{actionType} cancelled. INVALID: Player not Idle.");
             return false;
