@@ -48,6 +48,8 @@ public class DT_PointClickInput : MonoBehaviour
     // Add listeners to all the UI buttons
     void Start()
     {
+        // Don't use this script if nothing is filled out
+        if (button1 == null) return;
         // Find the game manager and player
         _gameManager = GameManager.Instance;
         _player = GameObject.FindWithTag("Player");
