@@ -13,33 +13,26 @@ public class GameManager : MonoBehaviour
     public static GameState CurrentGameState;
     public static GameScene CurrentScene;
     public static PlayerState CurrentPlayerState;
+    public static PlayerLevel CurrentPlayerLevel;
     [HideInInspector] public Vector3 playerStartPos;
     private Graphic _blackPanel;
     [SerializeField] private float sceneFadeSpeed = 1.0f;
+
+    public enum PlayerLevel
+    {
+        NewGame,
+        OneNote,
+        TwoNotes,
+        ThreeNotes,
+        FourNotes,
+        FiveNotes,
+        SixNotes,
+        SevenNotes,
+        Winner
+    }
     
 
-
-        void Awake()
-    {
-        // We want one Game Manager to awake and persist for the rest of the game
-        if (Instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
-        // If the Game Manager awakens but another already exists, it should destroy itself
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-        void Start()
-        {
-            _blackPanel = GetComponentInChildren<Graphic>();
-        }
-
-        public enum GameState
+    public enum GameState
     {
         Playing,
         Paused
@@ -72,7 +65,25 @@ public class GameManager : MonoBehaviour
     }
     
     
+    void Awake()
+    {
+        // We want one Game Manager to awake and persist for the rest of the game
+        if (Instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+        // If the Game Manager awakens but another already exists, it should destroy itself
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    void Start()
+    {
+        _blackPanel = GetComponentInChildren<Graphic>();
+    }
     // Update is called once per frame
     void Update()
     {
