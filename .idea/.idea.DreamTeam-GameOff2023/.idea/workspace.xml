@@ -5,87 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Music or Loops/idea number 2.ogg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Music or Loops/idea number 2.ogg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Music or Loops/scale song.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/Music or Loops/scale song.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_A-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_B-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_C-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_D-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_E-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_F-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-001.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-001.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-002.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-002.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-003.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-003.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-004.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Kalimba/SFX_Kalimba_G-004.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Programming/Audio Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Programming/Audio Scripts/AudioManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Programming/Audio Scripts/AudioManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Programming/Audio Scripts/Sound.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Programming/Audio Scripts/Sound.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Borodar/RainbowFolders/Editor/Source/RainbowFolders.src.unitypackage.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/Music or Loops.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Enemies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Enemies.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PointClickInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PointClickInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/Input System/Controls.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/Input System/Controls.inputactions.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/Box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/Box.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/green.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/skyblue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/skyblue.mat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +30,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PointClickInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Enemies.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
