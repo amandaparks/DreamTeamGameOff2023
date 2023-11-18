@@ -8,7 +8,8 @@ public class DT_PlayerActions : MonoBehaviour
 {
     private GameManager _gameManager;
     private bool _isBardMode;
-    private PlayerInput _playerInput;
+    private DT_InputManager _inputManager;
+    private DT_GameTextManager _gameTextManager;
     
     // Start is called before the first frame update
     void Start()
@@ -16,15 +17,18 @@ public class DT_PlayerActions : MonoBehaviour
         //Bard mode off by default
         _isBardMode = false;
         
-        //Get player input component
-        _playerInput = GetComponent<PlayerInput>();
+        //Find game text manager
+        _gameTextManager = FindObjectOfType<DT_GameTextManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Next()
     {
-        
+        // Check we can do it
+        if (!CanPerformAction("Next")) return;
+        // Trigger next line of text
+        _gameTextManager.NextLine();
     }
+
     public void Crouch()
     {
         // Check we can do it
@@ -115,13 +119,12 @@ public class DT_PlayerActions : MonoBehaviour
         
         if (_isBardMode)
         {
-            _playerInput.SwitchCurrentActionMap("Bard");
+            _inputManager.SwitchActionMap("Bard");
         }
         else if (!_isBardMode)
         {
-            _playerInput.SwitchCurrentActionMap("Gameplay");
+            _inputManager.SwitchActionMap("Gameplay");
         }
-
     }
 
     private bool CanPerformAction(string actionType)
@@ -155,6 +158,11 @@ public class DT_PlayerActions : MonoBehaviour
                     default:
                          Debug.Log($"{actionType} cancelled. INVALID: Player must be in bard mode or idle.");
                          return false;
+                }
+            case "Next":
+                {
+                    // return the result of the statement "current state = talking"
+                    return GameManager.CurrentPlayerState == GameManager.PlayerState.Talking;
                 }
         }
 

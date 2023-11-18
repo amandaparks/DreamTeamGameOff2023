@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameText:
   - sceneName: 2
+    playerLevel: 1
     textBoxType: 0
     textLines:
     - speaker: 2
@@ -21,11 +22,14 @@ MonoBehaviour:
     - speaker: 2
       text: This is a nice level
   - sceneName: 2
+    playerLevel: 1
     textBoxType: 1
     textLines:
     - speaker: 0
-      text: Hello I am Player
+      text: Hello, are you dragon?
     - speaker: 1
-      text: Hello I am NPC
+      text: Oh hai thar, yis I is dragon.
     - speaker: 0
-      text: Hello I am... Player
+      text: I have come to save you!
+    - speaker: 1
+      text: 'Oh yay! Ok bai. '

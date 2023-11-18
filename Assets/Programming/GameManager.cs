@@ -10,13 +10,61 @@ public class GameManager : MonoBehaviour
 {
     // Static variable so any script can access this script by using GameManager.Instance
     public static GameManager Instance;
-    public static GameState CurrentGameState;
-    public static GameScene CurrentScene;
+    public static GameState CurrentGameState
+    {
+        get { return _currentGameState;}
+        set
+        {
+            _currentGameState = value;
+            // Get the calling method's information
+            System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
+            System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(1);
+            System.Reflection.MethodBase methodBase = stackFrame.GetMethod();
+            
+            Debug.LogWarning($"CurrentGameState changed to: {value} by {methodBase.DeclaringType}.{methodBase.Name}");
+        }
+    }
+
+    private static GameState _currentGameState;
+
+    public static GameScene CurrentScene
+    {
+        get { return _CurrentScene;}
+        set
+        {
+            _CurrentScene = value;
+            // Get the calling method's information
+            System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
+            System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(1);
+            System.Reflection.MethodBase methodBase = stackFrame.GetMethod();
+            
+            Debug.LogWarning($"CurrentGameState changed to: {value} by {methodBase.DeclaringType}.{methodBase.Name}");
+        }
+    }
+
+    private static GameScene _CurrentScene;
     public static PlayerState CurrentPlayerState;
-    public static PlayerLevel CurrentPlayerLevel;
+
+    public static PlayerLevel CurrentPlayerLevel
+    {
+        get { return _currentPlayerLevel; }
+        set
+        {    _currentPlayerLevel = value;
+
+                // Get the calling method's information
+                System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
+                System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(1);
+                System.Reflection.MethodBase methodBase = stackFrame.GetMethod();
+            
+                Debug.LogWarning($"CurrentGameState changed to: {value} by {methodBase.DeclaringType}.{methodBase.Name}");
+        }
+    }
+    private static PlayerLevel _currentPlayerLevel;
     [HideInInspector] public Vector3 playerStartPos;
     private Graphic _blackPanel;
     [SerializeField] private float sceneFadeSpeed = 1.0f;
+    
+
 
     public enum PlayerLevel
     {
@@ -83,6 +131,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _blackPanel = GetComponentInChildren<Graphic>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -94,10 +143,16 @@ public class GameManager : MonoBehaviour
     {
         // This method will be called every time a new scene is loaded
         Debug.Log("Scene loaded: " + scene.name);
-        CurrentPlayerState = PlayerState.Idle;
-        CurrentGameState = GameState.Playing;
         Debug.Log($"Player starting position is {playerStartPos}");
         
+        // If there is no Level Manager, set these as default:
+        if (!FindObjectOfType<DT_LevelManager>())
+        {
+            CurrentPlayerState = PlayerState.Idle;
+            CurrentGameState = GameState.Playing;
+        }
+
+
     }
 
     public void StartGame()
@@ -105,13 +160,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadScene("WorldMap"));
     }
 
-    public IEnumerator LoadScene(string scene)
+    public static IEnumerator LoadScene(string scene)
     {
         Debug.Log($"Loading {scene}");
-        StartCoroutine(FadeOut());
+        Instance.StartCoroutine(Instance.FadeOut());
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
-        StartCoroutine(FadeIn());
+        Instance.StartCoroutine(Instance.FadeIn());
         
     }
     

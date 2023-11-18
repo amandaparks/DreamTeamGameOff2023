@@ -274,7 +274,7 @@
             ]
         },
         {
-            "name": "Dialogue",
+            "name": "Talking",
             "id": "028a7a83-cf0e-4cb5-8fc4-1b77da78edfc",
             "actions": [
                 {
@@ -318,84 +318,7 @@
                 {
                     "name": "",
                     "id": "e5aaba8b-9559-4ef6-b973-77fc0bca2710",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6631bffd-4f63-46bf-94a1-c4c9dd41428b",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e6ad3171-ae60-4af5-9704-7bd1eb77c17c",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ba899efb-1332-40c9-bb5d-990e8bdbd85e",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cceba66c-1066-4f8c-bf99-2e2a53de1b5f",
-                    "path": "<Keyboard>/t",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c46aea8f-2c02-4fd4-b51c-266a19932d69",
-                    "path": "<Keyboard>/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7c139691-220d-47d2-bf1d-75598f04be0d",
-                    "path": "<Keyboard>/u",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controls",
-                    "action": "Next",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "edd86811-bf95-4a0d-a98c-70587e3f07d8",
-                    "path": "<Keyboard>/b",
+                    "path": "<Keyboard>/5",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controls",

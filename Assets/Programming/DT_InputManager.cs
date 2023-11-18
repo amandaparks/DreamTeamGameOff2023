@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -28,13 +29,17 @@ public class DT_InputManager : MonoBehaviour
     [SerializeField] private InputActionReference key6;
     [SerializeField] private InputActionReference key7;
     [SerializeField] private InputActionReference bardOff;
+
+    [Header("Talking Controls")] 
+    [SerializeField] private InputActionReference next;
     // There HAS to be another way to do the above but I'll figure it out later
     
     private DT_BardMode _bardMode;
     private DT_PlayerActions _playerActions;
     private DT_PlayerMovement _playerMovement;
+    private PlayerInput _playerInput;
 
-    /*   This script handles GAMEPLAY and BARD input
+    /*   This script handles GAMEPLAY and BARD and TALKING input
      *      1. Listens for which the UI buttons are being clicked
      *      2. Receives keyboard input
      *      3. Invokes the relevant methods on these scripts attached to the player:
@@ -43,14 +48,21 @@ public class DT_InputManager : MonoBehaviour
      *              - DT_PlayerMovement
      *              - DT_BardMode
      *      4. Mimics UI clicks based on keyboard input
+     *      5. Holds method for switching action map
      */
 
-    void Start()
+    private void Awake()
     {
         // Assign components
         _bardMode = GetComponent<DT_BardMode>();
         _playerActions = GetComponent<DT_PlayerActions>();
         _playerMovement = GetComponent<DT_PlayerMovement>();
+        _playerInput = GetComponent<PlayerInput>();
+        
+        if (_playerInput == null)
+        {
+            Debug.LogError("PlayerInput not found on " + gameObject.name);
+        }
         
         // Set up listeners to run methods when clicked
         button1.onClick.AddListener(delegate {ClickInput("Button1");});
@@ -69,6 +81,11 @@ public class DT_InputManager : MonoBehaviour
         return GameManager.CurrentGameState == GameManager.GameState.Paused;
     }
 
+    public void SwitchActionMap(string mapName)
+    {
+        _playerInput.SwitchCurrentActionMap(mapName);
+    }
+
     // CLICK INPUT SECTION
     private void ClickInput (string button)
     {
@@ -77,6 +94,9 @@ public class DT_InputManager : MonoBehaviour
 
         // Check if we're in Bard Mode
         var isBardMode = GameManager.CurrentPlayerState == GameManager.PlayerState.BardMode;
+        
+        // Check if Player is talking
+        var isTalking = GameManager.CurrentPlayerState == GameManager.PlayerState.Talking;
         
         switch (button)
         {
@@ -89,7 +109,6 @@ public class DT_InputManager : MonoBehaviour
                 {
                     _playerActions.Defend();
                 }
-
                 break;
             case "Button2":
                 if (isBardMode)
@@ -100,7 +119,6 @@ public class DT_InputManager : MonoBehaviour
                 {
                     _playerActions.Crouch();
                 }
-
                 break;
             case "Button3":
                 if (isBardMode)
@@ -111,7 +129,6 @@ public class DT_InputManager : MonoBehaviour
                 {
                     _playerMovement.StepBkd();
                 }
-
                 break;
             case "Button4":
                 if (isBardMode)
@@ -128,6 +145,10 @@ public class DT_InputManager : MonoBehaviour
                 if (isBardMode)
                 {
                     _bardMode.PlayNote("5");
+                }
+                if (isTalking) //IF TALKING
+                {
+                    _playerActions.Next();
                 }
                 else
                 {
@@ -271,6 +292,12 @@ public class DT_InputManager : MonoBehaviour
         if (IsGamePaused()) return;
         _bardMode.PlayNote("B");
     }
+// TALKING MODE
+    public void OnNext()
+    {
+        if (IsGamePaused()) return;
+        _playerActions.Next();
+    }
 
     // KEYBOARD UI BUTTON SELECT / DESELECT
     
@@ -297,6 +324,8 @@ public class DT_InputManager : MonoBehaviour
         key7.action.started += context => SelectDeselect(button7, context);
         bardOff.action.started += context => SelectDeselect(buttonB, context);
         
+        next.action.started += context => SelectDeselect(button5, context);
+        
         defend.action.canceled += context => SelectDeselect(button1, context);
         crouch.action.canceled += context => SelectDeselect(button2, context);
         stepBkd.action.canceled += context => SelectDeselect(button3, context);
@@ -314,6 +343,8 @@ public class DT_InputManager : MonoBehaviour
         key6.action.canceled += context => SelectDeselect(button6, context);
         key7.action.canceled += context => SelectDeselect(button7, context);
         bardOff.action.canceled += context => SelectDeselect(buttonB, context);
+        
+        next.action.canceled += context => SelectDeselect(button5, context);
     }
 
     private void OnDisable()
@@ -337,6 +368,8 @@ public class DT_InputManager : MonoBehaviour
         key7.action.started -= context => SelectDeselect(button7, context);
         bardOff.action.started -= context => SelectDeselect(buttonB, context);
         
+        next.action.started -= context => SelectDeselect(button5, context);
+        
         defend.action.canceled -= context => SelectDeselect(button1, context);
         crouch.action.canceled -= context => SelectDeselect(button2, context);
         stepBkd.action.canceled -= context => SelectDeselect(button3, context);
@@ -354,6 +387,8 @@ public class DT_InputManager : MonoBehaviour
         key6.action.canceled -= context => SelectDeselect(button6, context);
         key7.action.canceled -= context => SelectDeselect(button7, context);
         bardOff.action.canceled -= context => SelectDeselect(buttonB, context);
+        
+        next.action.canceled -= context => SelectDeselect(button5, context);
     }
     
     

@@ -309,6 +309,11 @@ public class DT_PlayerMovement : MonoBehaviour
         _ladderStartTarget = null;
         _ladderEndTarget = null;
         targetDirection = TargetDirection.Stop;
+        
+        // If player has already started talking, don't change the state
+        if (GameManager.CurrentPlayerState == GameManager.PlayerState.Talking) return;
+        
+        // Otherwise, return to idle
         GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         Debug.Log("PLAYER_STATE: IDLE");
     }

@@ -8,12 +8,10 @@ public class DT_Trigger : MonoBehaviour
 {
     [SerializeField] private bool isDialogueTrigger;
     [SerializeField] private bool isSceneLoadTrigger;
-
     [SerializeField] private GameManager.GameScene sceneToLoad;
-    [Header("For Playtest Builds (Will Override Scene To Load):")]
-    [SerializeField] private string sceneName;
-    private GameManager _gameManager;
+    
     private Collider _thisCollider;
+    private DT_GameTextManager _gameTextManager;
 
     void Start()
     {
@@ -23,9 +21,9 @@ public class DT_Trigger : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             return;
         }
-        // Otherwise, find the Game Manager and Collider
-        _gameManager = GameManager.Instance;
+        // Otherwise, find the Game Text Manager and Collider
         _thisCollider = GetComponent<Collider>();
+        _gameTextManager = FindObjectOfType<DT_GameTextManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,42 +32,22 @@ public class DT_Trigger : MonoBehaviour
         {
             // When player sets off trigger, load dialogue, scene or both
             Debug.Log("Trigger");
-            
-            //THIS PART FOR TESTING ONLY
 
-            if (sceneName!= null)
-            {
-                StartCoroutine(_gameManager.LoadScene(sceneName));
-                return;
-            }
-            //END OF TESTING SECTION
-            
             if (isDialogueTrigger & !isSceneLoadTrigger)
             {
-                //load dialogue
+                _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Conversation,null);
             }
             else if (isSceneLoadTrigger & !isDialogueTrigger)
             {
-                StartCoroutine(_gameManager.LoadScene(sceneToLoad.ToString()));
+                StartCoroutine(GameManager.LoadScene(sceneToLoad.ToString()));
             }
             else if (isDialogueTrigger & isSceneLoadTrigger)
             {
-                StartCoroutine(TalkAndLeave());
+                _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Conversation,sceneToLoad.ToString());
             }
 
             // Disable trigger so only happens once
             _thisCollider.isTrigger = false;
         }
     }
-
-    private IEnumerator TalkAndLeave()
-    {
-        // Talk
-        
-        // Wait until done
-        
-        // Load scene
-        yield return null;
-    }
-
 }

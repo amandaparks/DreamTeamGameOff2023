@@ -8,6 +8,8 @@ TagManager:
   - Ladder
   - LadderBase
   - LadderTop
+  - UI_Info
+  - NPC
   layers:
   - Default
   - TransparentFX
