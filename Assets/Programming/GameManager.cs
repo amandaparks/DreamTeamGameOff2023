@@ -63,8 +63,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public Vector3 playerStartPos;
     private Graphic _blackPanel;
     [SerializeField] private float sceneFadeSpeed = 1.0f;
-    
-
+    public static PlayerLevel EndLevelPlayerLevel;
 
     public enum PlayerLevel
     {
@@ -133,12 +132,12 @@ public class GameManager : MonoBehaviour
         _blackPanel = GetComponentInChildren<Graphic>();
         
     }
-    // Update is called once per frame
-    void Update()
+
+    // This is triggered by the start button on the MainMenu
+    public void StartGame()
     {
-        
+        StartCoroutine(LoadScene("WorldMap"));
     }
-    
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // This method will be called every time a new scene is loaded
@@ -151,23 +150,18 @@ public class GameManager : MonoBehaviour
             CurrentPlayerState = PlayerState.Idle;
             CurrentGameState = GameState.Playing;
         }
-
-
     }
-
-    public void StartGame()
-    {
-        StartCoroutine(LoadScene("WorldMap"));
-    }
-
+    
+    // Any script can use this method to load scenes
     public static IEnumerator LoadScene(string scene)
     {
         Debug.Log($"Loading {scene}");
         Instance.StartCoroutine(Instance.FadeOut());
         yield return new WaitForSeconds(0.5f);
+        //Update the player's level
+        CurrentPlayerLevel = EndLevelPlayerLevel;
         SceneManager.LoadScene(scene);
         Instance.StartCoroutine(Instance.FadeIn());
-        
     }
     
     private IEnumerator FadeOut()
@@ -191,9 +185,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
     }
-
-
-
+    
     private void OnEnable()
     {
         // Subscribe to the sceneLoaded event when the script is enabled
@@ -205,7 +197,5 @@ public class GameManager : MonoBehaviour
         // Unsubscribe from the sceneLoaded event when the script is disabled
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    
-    
-    
+
 }

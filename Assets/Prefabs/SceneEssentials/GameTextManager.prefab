@@ -87,8 +87,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2508607572915046679}
+  - component: {fileID: 4371711130589543844}
   m_Layer: 0
-  m_Name: UI Manager
+  m_Name: GameTextManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,3 +111,16 @@ Transform:
   - {fileID: 5619018257862847279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4371711130589543844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4485051023341308850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa1831023b91fa40b2943a12eaa061a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTextAsset: {fileID: 11400000, guid: 56af443ef0c9b0748ab996ceb2c2e0a8, type: 2}

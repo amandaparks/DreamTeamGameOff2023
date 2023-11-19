@@ -25,13 +25,11 @@ public class DT_GameTextManager : MonoBehaviour
     private DT_SO_GameText.TextLines.Speaker _currentSpeaker;
     private Canvas _currentCanvas;
     private string _sceneToLoad;
+    
     private DT_InputManager _inputManager;
-
-    //Have static access to:
-    //GameManager.CurrentScene
-    //GameManager.PlayerLevel
-
-// manager knows: current level, info text box, player text box, NPC text box
+    private bool _canAdvance = true;
+    public float cooldownTime = 0.5f;
+    
     private void Awake()
     {
         // Find the input manager
@@ -145,6 +143,11 @@ public class DT_GameTextManager : MonoBehaviour
     
     public void NextLine()
     {
+        // If too soon to press key, do nothing
+        if (!_canAdvance) return;
+        // Otherwise, accept input and initiate cooldown
+        StartCoroutine(Cooldown());
+        
         // If the most recent line wasn't the last one
         if (_currentLineIndex != _matchingLines.Length-1)
         {
@@ -157,7 +160,14 @@ public class DT_GameTextManager : MonoBehaviour
             FinishUp();
         }
     }
-    
+
+    private IEnumerator Cooldown()
+    {
+        _canAdvance = false;
+        yield return new WaitForSeconds(cooldownTime);
+        _canAdvance = true;
+    }
+
     private void DisplayText()
     {
         // Figure out who the speaker is
@@ -228,78 +238,3 @@ public class DT_GameTextManager : MonoBehaviour
     }
     
 }
-
-/*
-    private int currentEntryIndex = 0; // Tracks the current position in the dialogue array
-
-    private void Start()
-    {
-        Time.timeScale = 0; // This freezes the game
-                            // Disable any player inputs or other scripts that should not function during the dialogue
-    
-
-        // Display the first entry of dialogue when the scene starts, if any are available
-        if (dialogueEntries.Length > 0)
-        {
-            DisplayDialogueEntry(currentEntryIndex);
-        }
-    }
-
-    private void Update()
-    {
-        // Detect if the player has clicked to advance the dialogue
-        if (Input.GetMouseButtonDown(0))
-        {
-            AdvanceDialogue();
-        }
-    }
-
-    public void AdvanceDialogue()
-    {
-        currentEntryIndex++; // Move to the next dialogue entry
-
-        // Check if there are more entries to display
-        if (currentEntryIndex < dialogueEntries.Length)
-        {
-            DisplayDialogueEntry(currentEntryIndex);
-        }
-        else
-        {
-            EndDialogue(); // Call the end dialogue function if no more entries exist
-        }
-    }
-
-    private void DisplayDialogueEntry(int index)
-    {
-        // Update the UI with the current dialogue entry's character name and text
-        characterNameText.text = dialogueEntries[index].characterName;
-        dialogueText.text = dialogueEntries[index].dialogueText;
-
-        // Optionally adjust alignment based on the character speaking
-        if (dialogueEntries[index].characterName == playerName)
-        {
-            characterNameText.alignment = TextAlignmentOptions.Left;
-        }
-        else
-        {
-            characterNameText.alignment = TextAlignmentOptions.Right;
-        }
-
-        // Update the character images for the current dialogue entry
-        playerImage.sprite = dialogueEntries[index].playerSprite;
-        nonPlayerImage.sprite = dialogueEntries[index].nonPlayerSprite;
-
-        // Enable or disable image components based on whether sprites are assigned
-        playerImage.enabled = dialogueEntries[index].playerSprite != null;
-        nonPlayerImage.enabled = dialogueEntries[index].nonPlayerSprite != null;
-    }
-
-    private void EndDialogue()
-    {
-        // Perform any final actions when the dialogue sequence ends
-        // For example, deactivate the dialogue UI, activate/deactivate game objects, etc.
-
-        gameObject.SetActive(false); // Deactivate the dialogue UI canvas
-    }
-}
-*/
