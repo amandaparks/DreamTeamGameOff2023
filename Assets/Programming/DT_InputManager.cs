@@ -11,29 +11,7 @@ public class DT_InputManager : MonoBehaviour
 {
     [Header("Gameplay UI Buttons")]
     [SerializeField] private Button button1, button2, button3, button4, button5, button6, button7, buttonB;
-    [Header("Gameplay Controls")]
-    [SerializeField] private InputActionReference defend;
-    [SerializeField] private InputActionReference crouch;
-    [SerializeField] private InputActionReference stepBkd;
-    [SerializeField] private InputActionReference climb;
-    [SerializeField] private InputActionReference stepFwd;
-    [SerializeField] private InputActionReference attack;
-    [SerializeField] private InputActionReference magic;
-    [SerializeField] private InputActionReference bardOn;
-    [Header("Bard Controls")]
-    [SerializeField] private InputActionReference key1;
-    [SerializeField] private InputActionReference key2;
-    [SerializeField] private InputActionReference key3;
-    [SerializeField] private InputActionReference key4;
-    [SerializeField] private InputActionReference key5;
-    [SerializeField] private InputActionReference key6;
-    [SerializeField] private InputActionReference key7;
-    [SerializeField] private InputActionReference bardOff;
 
-    [Header("Talking Controls")] 
-    [SerializeField] private InputActionReference next;
-    // There HAS to be another way to do the above but I'll figure it out later
-    
     private DT_BardMode _bardMode;
     private DT_PlayerActions _playerActions;
     private DT_PlayerMovement _playerMovement;
@@ -64,6 +42,9 @@ public class DT_InputManager : MonoBehaviour
             Debug.LogError("PlayerInput not found on " + gameObject.name);
         }
         
+        // Subscribe to be notified when any input action is triggered
+        _playerInput.onActionTriggered += OnActionTriggered;
+        
         // Set up listeners to run methods when clicked
         button1.onClick.AddListener(delegate {ClickInput("Button1");});
         button2.onClick.AddListener(delegate {ClickInput("Button2");});
@@ -73,6 +54,12 @@ public class DT_InputManager : MonoBehaviour
         button6.onClick.AddListener(delegate {ClickInput("Button6");});
         button7.onClick.AddListener(delegate {ClickInput("Button7");});
         buttonB.onClick.AddListener(delegate {ClickInput("ButtonB");});
+    }
+    
+    private void OnDestroy()
+    {
+        // Unsubscribe from the onActionTriggered event when the script is destroyed
+        _playerInput.onActionTriggered -= OnActionTriggered;
     }
 
     private bool IsGamePaused()
@@ -84,6 +71,204 @@ public class DT_InputManager : MonoBehaviour
     public void SwitchActionMap(string mapName)
     {
         _playerInput.SwitchCurrentActionMap(mapName);
+    }
+    
+    // KEYBOARD INPUT SECTION 
+
+    private void OnActionTriggered(InputAction.CallbackContext context)
+    {
+        // We'll use default controls for menus so can ignore any action input
+        if (IsGamePaused()) return;
+
+        switch (context.action.name)
+        {
+        // GAMEPLAY
+            case "Defend":
+            {
+                // Do action
+                if (context.performed)
+                {
+                    _playerActions.Defend();
+                }
+
+                // Make button appear clicked
+                SelectDeselect(button1, context);
+                break;
+            }
+            case "Crouch":
+            {
+                if (context.performed)
+                {
+                    _playerActions.Crouch();
+                }
+
+                SelectDeselect(button2, context);
+                break;
+            }
+            case "StepBkd":
+            {
+                if (context.performed)
+                {
+                    _playerMovement.StepBkd();
+                }
+
+                SelectDeselect(button3, context);
+                break;
+            }
+            case "Climb":
+            {
+                if (context.performed)
+                {
+                    _playerMovement.Climb();
+                }
+
+                SelectDeselect(button4, context);
+                break;
+            }
+            case "StepFwd":
+            {
+                if (context.performed)
+                {
+                    _playerMovement.StepFwd();
+                }
+
+                SelectDeselect(button5, context);
+                break;
+            }
+            case "Attack":
+            {
+                if (context.performed)
+                {
+                    _playerActions.Attack();
+                }
+
+                SelectDeselect(button6, context);
+                break;
+            }
+            case "Magic":
+            {
+                if (context.performed)
+                {
+                    _playerActions.Magic();
+                }
+
+                SelectDeselect(button7, context);
+                break;
+            }
+            case "Bard":
+            {
+                if (context.performed)
+                {
+                    _playerActions.Bard();
+                }
+
+                SelectDeselect(buttonB, context);
+                break;
+            }
+        // TALKING
+            case "Next":
+            {
+                if (context.performed)
+                {
+                    _playerActions.Next();
+                }
+
+                SelectDeselect(button5, context);
+                break;
+            }
+        // BARD MODE
+            case "1":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("1");
+                }
+
+                SelectDeselect(button1, context);
+                break;
+            }
+            case "2":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("2");
+                }
+
+                SelectDeselect(button2, context);
+                break;
+            }
+            case "3":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("3");
+                }
+
+                SelectDeselect(button3, context);
+                break;
+            }
+            case "4":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("4");
+                }
+
+                SelectDeselect(button4, context);
+                break;
+            }
+            case "5":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("5");
+                }
+
+                SelectDeselect(button5, context);
+                break;
+            }
+            case "6":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("6");
+                }
+
+                SelectDeselect(button6, context);
+                break;
+            }
+            case "7":
+            {
+                if (context.performed)
+                {
+                    _bardMode.PlayNote("7");
+                }
+
+                SelectDeselect(button7, context);
+                break;
+            }
+
+        }
+    }
+
+    private void SelectDeselect(Button button, InputAction.CallbackContext context)
+    {
+        // Make button appear selected depending on whether it's being pressed
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+                Debug.Log("Input started");
+                //Execute the event for when a button is pressed aka submitted
+                ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
+                    ExecuteEvents.submitHandler);
+                break;
+            case InputActionPhase.Canceled:
+                Debug.Log("Input canceled");
+                //Execute the event for when a button is deselected
+                ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
+                    ExecuteEvents.deselectHandler);
+                break;
+        }
     }
 
     // CLICK INPUT SECTION
@@ -190,226 +375,4 @@ public class DT_InputManager : MonoBehaviour
                 break;
         }
     }
-    
-    // KEYBOARD INPUT SECTION
-
-    // Really annoyed that I can't use callback context in the methods here but
-    // absolutely can't be bothered switching to C# events at this point
-    
-    public void OnDefend()
-    {
-        // Do nothing if game paused
-        if (IsGamePaused()) return;
-        _playerActions.Defend();
-    }
-
-    public void OnCrouch()
-    {
-        if (IsGamePaused()) return;
-        _playerActions.Crouch();
-    }
-
-    public void OnStepBkd()
-    {
-        if (IsGamePaused()) return;
-        _playerMovement.StepBkd();
-    }
-
-    public void OnClimb()
-    {
-        if (IsGamePaused()) return;
-        _playerMovement.Climb();
-    }
-
-    public void OnStepFwd()
-    {
-        if (IsGamePaused()) return;
-        _playerMovement.Climb();
-    }
-
-    public void OnAttack()
-    {
-        if (IsGamePaused()) return;
-        _playerActions.Attack();
-    }
-
-    public void OnMagic()
-    {
-        if (IsGamePaused()) return;
-        _playerActions.Magic();
-    }
-
-    public void OnBard()
-    {
-        if (IsGamePaused()) return;
-        _playerActions.Bard();
-    }
-
-    public void On_1()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("1");
-    }
-
-    public void On_2()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("2");
-    }
-
-    public void On_3()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("3");
-    }
-
-    public void On_4()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("4");
-    }
-
-    public void On_5()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("5");
-    }
-    
-    public void On_6()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("6");
-    }
-    
-    public void On_7()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("7");
-    }
-    
-    public void On_B()
-    {
-        if (IsGamePaused()) return;
-        _bardMode.PlayNote("B");
-    }
-// TALKING MODE
-    public void OnNext()
-    {
-        if (IsGamePaused()) return;
-        _playerActions.Next();
-    }
-
-    // KEYBOARD UI BUTTON SELECT / DESELECT
-    
-    // Subscribing to all the events above legit can't believe I have to do this urrrrgh
-    
-        private void OnEnable()
-    {
-        // Subscribe to sending context to the method
-        defend.action.started += context => SelectDeselect(button1, context);
-        crouch.action.started += context => SelectDeselect(button2, context);
-        stepBkd.action.started += context => SelectDeselect(button3, context);
-        climb.action.started += context => SelectDeselect(button4, context);
-        stepFwd.action.started += context => SelectDeselect(button5, context);
-        attack.action.started += context => SelectDeselect(button6, context);
-        magic.action.started += context => SelectDeselect(button7, context);
-        bardOn.action.started += context => SelectDeselect(buttonB, context);
-        
-        key1.action.started += context => SelectDeselect(button1, context);
-        key2.action.started += context => SelectDeselect(button2, context);
-        key3.action.started += context => SelectDeselect(button3, context);
-        key4.action.started += context => SelectDeselect(button4, context);
-        key5.action.started += context => SelectDeselect(button5, context);
-        key6.action.started += context => SelectDeselect(button6, context);
-        key7.action.started += context => SelectDeselect(button7, context);
-        bardOff.action.started += context => SelectDeselect(buttonB, context);
-        
-        next.action.started += context => SelectDeselect(button5, context);
-        
-        defend.action.canceled += context => SelectDeselect(button1, context);
-        crouch.action.canceled += context => SelectDeselect(button2, context);
-        stepBkd.action.canceled += context => SelectDeselect(button3, context);
-        climb.action.canceled += context => SelectDeselect(button4, context);
-        stepFwd.action.canceled += context => SelectDeselect(button5, context);
-        attack.action.canceled += context => SelectDeselect(button6, context);
-        magic.action.canceled += context => SelectDeselect(button7, context);
-        bardOn.action.canceled += context => SelectDeselect(buttonB, context);
-        
-        key1.action.canceled += context => SelectDeselect(button1, context);
-        key2.action.canceled += context => SelectDeselect(button2, context);
-        key3.action.canceled += context => SelectDeselect(button3, context);
-        key4.action.canceled += context => SelectDeselect(button4, context);
-        key5.action.canceled += context => SelectDeselect(button5, context);
-        key6.action.canceled += context => SelectDeselect(button6, context);
-        key7.action.canceled += context => SelectDeselect(button7, context);
-        bardOff.action.canceled += context => SelectDeselect(buttonB, context);
-        
-        next.action.canceled += context => SelectDeselect(button5, context);
-    }
-
-    private void OnDisable()
-    {
-        //Unsubscribe sending context to the method
-        defend.action.started -= context => SelectDeselect(button1, context);
-        crouch.action.started -= context => SelectDeselect(button2, context);
-        stepBkd.action.started -= context => SelectDeselect(button3, context);
-        climb.action.started -= context => SelectDeselect(button4, context);
-        stepFwd.action.started -= context => SelectDeselect(button5, context);
-        attack.action.started -= context => SelectDeselect(button6, context);
-        magic.action.started -= context => SelectDeselect(button7, context);
-        bardOn.action.started -= context => SelectDeselect(buttonB, context);
-        
-        key1.action.started -= context => SelectDeselect(button1, context);
-        key2.action.started -= context => SelectDeselect(button2, context);
-        key3.action.started -= context => SelectDeselect(button3, context);
-        key4.action.started -= context => SelectDeselect(button4, context);
-        key5.action.started -= context => SelectDeselect(button5, context);
-        key6.action.started -= context => SelectDeselect(button6, context);
-        key7.action.started -= context => SelectDeselect(button7, context);
-        bardOff.action.started -= context => SelectDeselect(buttonB, context);
-        
-        next.action.started -= context => SelectDeselect(button5, context);
-        
-        defend.action.canceled -= context => SelectDeselect(button1, context);
-        crouch.action.canceled -= context => SelectDeselect(button2, context);
-        stepBkd.action.canceled -= context => SelectDeselect(button3, context);
-        climb.action.canceled -= context => SelectDeselect(button4, context);
-        stepFwd.action.canceled -= context => SelectDeselect(button5, context);
-        attack.action.canceled -= context => SelectDeselect(button6, context);
-        magic.action.canceled -= context => SelectDeselect(button7, context);
-        bardOn.action.canceled -= context => SelectDeselect(buttonB, context);
-        
-        key1.action.canceled -= context => SelectDeselect(button1, context);
-        key2.action.canceled -= context => SelectDeselect(button2, context);
-        key3.action.canceled -= context => SelectDeselect(button3, context);
-        key4.action.canceled -= context => SelectDeselect(button4, context);
-        key5.action.canceled -= context => SelectDeselect(button5, context);
-        key6.action.canceled -= context => SelectDeselect(button6, context);
-        key7.action.canceled -= context => SelectDeselect(button7, context);
-        bardOff.action.canceled -= context => SelectDeselect(buttonB, context);
-        
-        next.action.canceled -= context => SelectDeselect(button5, context);
-    }
-    
-    
-    private void SelectDeselect(Button button, InputAction.CallbackContext context)
-    {
-        // Make button appear selected depending on whether it's being pressed
-        switch (context.phase)
-        {
-            case InputActionPhase.Started:
-                Debug.Log("Input started");
-                //Execute the event for when a button is pressed aka submitted
-                ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
-                    ExecuteEvents.submitHandler);
-                break;
-            case InputActionPhase.Canceled:
-                Debug.Log("Input canceled");
-                //Execute the event for when a button is deselected
-                ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
-                    ExecuteEvents.deselectHandler);
-                break;
-        }
-    }
-
 }
