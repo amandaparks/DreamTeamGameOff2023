@@ -52,7 +52,11 @@ public class DT_PlayerMovement : MonoBehaviour
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
+
+        // Play sound but I can't get it to work because CS0120 error
+        // AudioManager.PlayKalimba("3");
         
+        // Move character
         targetDirection = TargetDirection.Left;
         StartCoroutine(Step());
     }
@@ -62,7 +66,11 @@ public class DT_PlayerMovement : MonoBehaviour
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
-        
+
+        // Play sound but I can't get it to work because CS0120 error
+        // AudioManager.PlayKalimba("5");
+
+        // Move character
         targetDirection = TargetDirection.Right;
         StartCoroutine(Step());
             
@@ -73,6 +81,11 @@ public class DT_PlayerMovement : MonoBehaviour
         
         // Check we can do it
         if (!CanPerformAction("Climb")) return;
+
+        // Play sound but I can't get it to work because CS0120 error
+        // AudioManager.PlayKalimba("4");
+
+        // CLimb
         StartCoroutine(ClimbLadder());
     }
     private bool CanPerformAction(string actionType)
