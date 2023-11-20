@@ -6,6 +6,11 @@ public class DT_PlayerAnimations : MonoBehaviour
     private GameManager.PlayerState _currentState;
     [SerializeField] private Animator spriteAnimator;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    private static readonly int Damaged = Animator.StringToHash("Damaged");
+    private static readonly int Crouch = Animator.StringToHash("Crouch");
+    private static readonly int Climb = Animator.StringToHash("Climb");
+    private static readonly int Step = Animator.StringToHash("Step");
+    private static readonly int Idle = Animator.StringToHash("Idle");
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,7 @@ public class DT_PlayerAnimations : MonoBehaviour
         switch (GameManager.CurrentPlayerState)
         {
             case GameManager.PlayerState.Idle:
-                spriteAnimator.SetTrigger("Idle");
+                spriteAnimator.SetTrigger(Idle);
                 break;
             case GameManager.PlayerState.Stepping:
                 //If player going right, don't flip sprite
@@ -43,13 +48,16 @@ public class DT_PlayerAnimations : MonoBehaviour
                 {
                     _spriteRenderer.flipX = true;
                 }
-                spriteAnimator.SetTrigger("Step");
+                spriteAnimator.SetTrigger(Step);
                 break;
             case GameManager.PlayerState.Climbing:
-                spriteAnimator.SetTrigger("Climb");
+                spriteAnimator.SetTrigger(Climb);
                 break;
             case GameManager.PlayerState.Crouching:
-                spriteAnimator.SetTrigger("Crouch");
+                spriteAnimator.SetTrigger(Crouch);
+                break;
+            case GameManager.PlayerState.Damaged:
+                spriteAnimator.SetTrigger(Damaged);
                 break;
         }
     }

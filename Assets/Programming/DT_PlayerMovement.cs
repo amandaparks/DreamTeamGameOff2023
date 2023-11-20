@@ -234,7 +234,7 @@ public class DT_PlayerMovement : MonoBehaviour
             // Start counting
             float elapsedTime = 0f;
 
-            while (elapsedTime < stepDuration)
+            while (elapsedTime < stepDuration && GameManager.CurrentPlayerState != GameManager.PlayerState.Damaged)
             {
                 // Find where on curve player should be this frame
                 float t = elapsedTime / stepDuration;
@@ -249,6 +249,18 @@ public class DT_PlayerMovement : MonoBehaviour
                 // Wait
                 yield return null;
             }
+            
+            // If the player has been damaged
+            if (GameManager.CurrentPlayerState == GameManager.PlayerState.Damaged)
+            {
+                // Reset current/next stones
+                _currentStone = null;
+                _nextStone = null;
+            
+                yield return null;
+            }
+        
+            //Otherwise
             
             // Force player onto correct spot
             transform.position = _nextStone.transform.position;
@@ -281,7 +293,7 @@ public class DT_PlayerMovement : MonoBehaviour
         float elapsedTime = 0f;
 
         // Climb until there is no time left
-        while (elapsedTime < climbDuration)
+        while (elapsedTime < climbDuration && GameManager.CurrentPlayerState != GameManager.PlayerState.Damaged)
         {
             // Move to where Player should be this frame
             transform.position = Vector3.Lerp(startPoint, endPoint, elapsedTime / climbDuration);
@@ -292,12 +304,23 @@ public class DT_PlayerMovement : MonoBehaviour
             // Wait
             yield return null;
         }
+        
+        // If the player has been damaged
+        if (GameManager.CurrentPlayerState == GameManager.PlayerState.Damaged)
+        {
+            // Reset current/next stones
+            _currentStone = null;
+            _nextStone = null;
             
+            yield return null;
+        }
+        
+        //Otherwise
+
         // Force player on to correct spot
         transform.position = _nextStone.transform.position;
         // Assign the top/base stone as current stone
         _currentStone = _nextStone;
-
         ResetToIdle();
             
         yield return null;

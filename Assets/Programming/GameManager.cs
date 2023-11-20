@@ -10,22 +10,31 @@ public class GameManager : MonoBehaviour
 {
     // Static variable so any script can access this script by using GameManager.Instance
     public static GameManager Instance;
+    
+    // Event for game pause/unpause
+    
+    // Define a delegate for the event
+    public delegate void GameStateChangedHandler(GameState newGameState);
+
+    // Define the event based on the delegate
+    public static event GameStateChangedHandler OnGameStateChanged;
+    
+    private static GameState _currentGameState;
     public static GameState CurrentGameState
     {
         get { return _currentGameState;}
         set
         {
-            _currentGameState = value;
-            // Get the calling method's information
-            System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
-            System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(1);
-            System.Reflection.MethodBase methodBase = stackFrame.GetMethod();
-            
-            Debug.LogWarning($"CurrentGameState changed to: {value} by {methodBase.DeclaringType}.{methodBase.Name}");
+            if (_currentGameState != value)
+            {
+                // Set the new state
+                _currentGameState = value;
+
+                // Trigger the event to notify subscribers about the state change
+                OnGameStateChanged?.Invoke(_currentGameState);
+            }
         }
     }
-
-    private static GameState _currentGameState;
 
     public static GameScene CurrentScene
     {
@@ -142,6 +151,8 @@ public class GameManager : MonoBehaviour
     {
         // This method will be called every time a new scene is loaded
         Debug.Log("Scene loaded: " + scene.name);
+        
+        playerStartPos = transform.position;
         Debug.Log($"Player starting position is {playerStartPos}");
         
         // If there is no Level Manager, set these as default:
