@@ -22,7 +22,7 @@ public class DT_PlayerDamage : MonoBehaviour
     {
         //Set the target points
         var startPoint = transform.position;
-        var endPoint = GameManager.Instance.playerStartPos;
+        var endPoint = GameManager.PlayerStartPos;
 
         // Start counting
         float elapsedTime = 0f;

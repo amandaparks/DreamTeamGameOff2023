@@ -34,7 +34,7 @@ public class DT_PlayerMovement : MonoBehaviour
         _gameManager = GameManager.Instance;
         // Note position of the Player on level start and tell GameManager
         _levelStartPos = gameObject.transform.position;
-        _gameManager.playerStartPos = _levelStartPos;
+        GameManager.PlayerStartPos = _levelStartPos;
         
         // Find all the stepping stones and ladders
         _steppingStones = GameObject.FindGameObjectsWithTag("StepStone");

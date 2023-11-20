@@ -30,7 +30,7 @@ public class DT_TriggerHandler : MonoBehaviour
         {
             //Send all the details to the trigger object
             trigger.objectWithTrigger.GetComponent<DT_Trigger>().PrepareTrigger(trigger.displayText, trigger.textType,
-                trigger.changeScene, trigger.sceneToLoad);
+                trigger.changeScene, trigger.sceneToLoad, trigger._pauseMovingEnemies, trigger._pauseStationaryEnemies);
         }
     }
 }
@@ -40,8 +40,13 @@ public class DT_TriggerHandler : MonoBehaviour
 public class DT_TriggerSettings
 {
     public GameObject objectWithTrigger;
+    [Header("== Display text? ==")]
     public bool displayText;
     public DT_SO_GameText.GameText.TextType textType;
+    [Header("== Change scene? ==")]
     public bool changeScene;
     public GameManager.GameScene sceneToLoad;
+    [Header("== Permanently Pause Enemies? ==")]
+    public bool _pauseMovingEnemies;
+    public bool _pauseStationaryEnemies;
 }

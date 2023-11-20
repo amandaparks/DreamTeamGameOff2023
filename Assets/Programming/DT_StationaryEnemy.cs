@@ -40,7 +40,6 @@ public class DT_StationaryEnemy : MonoBehaviour
     [HideInInspector] public AudioSource alwaysOnAudioSource;
     
     private GameObject _player;
-    private bool _isEnemyActive;
     private Collider _damageCollider;
     private DT_PlayerDamage _playerDamage;
 
@@ -49,7 +48,31 @@ public class DT_StationaryEnemy : MonoBehaviour
     *    - Geyser
     *    - Poison bramble
     */
-    
+
+    public void OnPlayerAttack()
+    {
+        // If not attackable enemy, ignore
+        if (!playerCanAttack) return;
+        
+        // Calculate distance from player
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
+
+        // If player is close enough
+        if (distance <= maxAttackableDistance)
+        {
+            if (destroyedParticles != null)
+            {destroyedParticles.Play();}
+            if (destroyedSound != null)
+            {
+                destroyedAudioSource.Play();
+            }
+            damageCollider.enabled = false;
+            damageCollider.isTrigger = false;
+            
+            gameObject.SetActive(false);
+        }
+    }
+
     void Start()
     {
         // Find the player and scripts
@@ -61,55 +84,22 @@ public class DT_StationaryEnemy : MonoBehaviour
         damageAudioSource = new GameObject().AddComponent<AudioSource>();
         intervalAudioSource = new GameObject().AddComponent<AudioSource>();
         destroyedAudioSource = new GameObject().AddComponent<AudioSource>();
-
-        // Subscribe to know when game is paused/unpaused
-        GameManager.OnGameStateChanged += HandleGameStateChanged;
-
-        // Start based on the current game state
-        HandleGameStateChanged(GameManager.CurrentGameState);
         
         EnemyToggle(true);
     }
-    
-    private void OnDestroy()
-    {
-        // Unsubscribe when destroyed
-        GameManager.OnGameStateChanged -= HandleGameStateChanged;
-    }
-    
-    private void HandleGameStateChanged(GameManager.GameState newGameState)
-    {
-        switch (newGameState)
-        {
-            case GameManager.GameState.Paused:
-                if (_isEnemyActive)
-                {
-                    EnemyToggle(false);
-                }
-                break;
-            case GameManager.GameState.Playing:
-                if (!_isEnemyActive)
-                {
-                    EnemyToggle(true);
-                }
-                break;
-        }
-    }
 
-    void EnemyToggle(bool isEnemyActive)
+    public void EnemyToggle(bool isEnemyActive)
     {
         // Start/stop enemy behaviour if true/false
         if (isEnemyActive)
         {
             AlwaysOn(true);
-            _isEnemyActive = true;
             if (damageType != DamageType.interval) return;
             StartCoroutine(IntervalDamage());
         }
         else
         {
             AlwaysOn(false);
-            _isEnemyActive = false;
             if (damageType != DamageType.interval) return;
             StopCoroutine(IntervalDamage());
         }
@@ -180,6 +170,9 @@ public class DT_StationaryEnemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Don't damage already damaged player
+            if (GameManager.CurrentPlayerState == GameManager.PlayerState.Damaged) return;
+            
             // Cause damage to player
             _playerDamage.DamagePlayer();
             

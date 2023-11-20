@@ -16,6 +16,7 @@ public class DT_InputManager : MonoBehaviour
     private DT_PlayerActions _playerActions;
     private DT_PlayerMovement _playerMovement;
     private PlayerInput _playerInput;
+    private bool _isTalkControls;
 
     /*   This script handles GAMEPLAY and BARD and TALKING input
      *      1. Listens for which the UI buttons are being clicked
@@ -27,6 +28,7 @@ public class DT_InputManager : MonoBehaviour
      *              - DT_BardMode
      *      4. Mimics UI clicks based on keyboard input
      *      5. Holds method for switching action map
+     *      6. Hides kalimba keys that Player doesn't have yet
      */
 
     private void Awake()
@@ -45,6 +47,11 @@ public class DT_InputManager : MonoBehaviour
         // Subscribe to be notified when any input action is triggered
         _playerInput.onActionTriggered += OnActionTriggered;
         
+        // Subscribe to be notified when Player Level changes
+        GameManager.OnPlayerLevelChanged += ShowButtons;
+        // Subscribe to be notified when Player Status changes
+        GameManager.OnPlayerStateChanged += CheckButtons;
+        
         // Set up listeners to run methods when clicked
         button1.onClick.AddListener(delegate {ClickInput("Button1");});
         button2.onClick.AddListener(delegate {ClickInput("Button2");});
@@ -55,11 +62,117 @@ public class DT_InputManager : MonoBehaviour
         button7.onClick.AddListener(delegate {ClickInput("Button7");});
         buttonB.onClick.AddListener(delegate {ClickInput("ButtonB");});
     }
-    
+
+    private void Start()
+    {
+        HideButtons();
+        ShowButtons(GameManager.CurrentPlayerLevel);
+    }
+
+    private void CheckButtons(GameManager.PlayerState newPlayerState)
+    {
+        // If player not currently talking
+        if (!_isTalkControls)
+        {
+            // But new status is talking
+            if (newPlayerState == GameManager.PlayerState.Talking)
+            {
+                    // Hide buttons (except Next)
+                    HideButtons();
+                    _isTalkControls = true;
+            }
+        }
+        // If player is currently talking
+        else if (_isTalkControls)
+        {
+            // And new status is not talking
+            if (newPlayerState != GameManager.PlayerState.Talking)
+            {
+                // Show controls for player's current level
+                ShowButtons(GameManager.CurrentPlayerLevel);
+                _isTalkControls = false;
+            }
+        }
+    }
+
+    private void ShowButtons(GameManager.PlayerLevel newPlayerLevel)
+    {
+        switch (newPlayerLevel)
+        {
+            case GameManager.PlayerLevel.NewGame:
+                button5.gameObject.SetActive(true); // step fwd
+                break;
+            case GameManager.PlayerLevel.OneNote:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                break;
+            case GameManager.PlayerLevel.TwoNotes:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                button4.gameObject.SetActive(true); // climb
+                break;
+            case GameManager.PlayerLevel.ThreeNotes:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                button4.gameObject.SetActive(true); // climb
+                button3.gameObject.SetActive(true); // step bkd
+                break;
+            case GameManager.PlayerLevel.FourNotes:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                button4.gameObject.SetActive(true); // climb
+                button3.gameObject.SetActive(true); // step bkd
+                button2.gameObject.SetActive(true); // crouch
+                break;
+            case GameManager.PlayerLevel.FiveNotes:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                button4.gameObject.SetActive(true); // climb
+                button3.gameObject.SetActive(true); // step bkd
+                button2.gameObject.SetActive(true); // crouch
+                button6.gameObject.SetActive(true); // attack
+                break;
+            case GameManager.PlayerLevel.SixNotes:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                button4.gameObject.SetActive(true); // climb
+                button3.gameObject.SetActive(true); // step bkd
+                button2.gameObject.SetActive(true); // crouch
+                button6.gameObject.SetActive(true); // attack
+                button1.gameObject.SetActive(true); // defend
+                break;
+            case GameManager.PlayerLevel.SevenNotes:
+                button5.gameObject.SetActive(true); // step fwd
+                buttonB.gameObject.SetActive(true); // bard mode
+                button4.gameObject.SetActive(true); // climb
+                button3.gameObject.SetActive(true); // step bkd
+                button2.gameObject.SetActive(true); // crouch
+                button6.gameObject.SetActive(true); // attack
+                button1.gameObject.SetActive(true); // defend
+                button7.gameObject.SetActive(true); // magic
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void HideButtons()
+    {
+        // Hide everything except for step fwd (button 5)
+        button1.gameObject.SetActive(false);
+        button2.gameObject.SetActive(false);
+        button3.gameObject.SetActive(false);
+        button4.gameObject.SetActive(false);
+        button6.gameObject.SetActive(false);
+        button7.gameObject.SetActive(false);
+        buttonB.gameObject.SetActive(false);
+    }
+
     private void OnDestroy()
     {
-        // Unsubscribe from the onActionTriggered event when the script is destroyed
+        // Unsubscribe from these events on destroy
         _playerInput.onActionTriggered -= OnActionTriggered;
+        GameManager.OnPlayerLevelChanged -= ShowButtons;
     }
 
     private bool IsGamePaused()

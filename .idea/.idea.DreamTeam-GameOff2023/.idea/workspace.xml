@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet_Placeholder.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet_Placeholder.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Player Sprite.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Player Sprite.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Enemies.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Enemies.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_TriggerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_TriggerHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
     </list>
@@ -32,15 +33,17 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PointClickInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2Xsv6o5YC0S4qROesvcN3f1oWqF" />
   <component name="ProjectViewState">

@@ -11,14 +11,10 @@ public class GameManager : MonoBehaviour
     // Static variable so any script can access this script by using GameManager.Instance
     public static GameManager Instance;
     
-    // Event for game pause/unpause
-    
-    // Define a delegate for the event
+    // EVENT for Game State
     public delegate void GameStateChangedHandler(GameState newGameState);
-
-    // Define the event based on the delegate
     public static event GameStateChangedHandler OnGameStateChanged;
-    
+
     private static GameState _currentGameState;
     public static GameState CurrentGameState
     {
@@ -36,43 +32,54 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static GameScene CurrentScene
+    // EVENT for Player State
+
+    public delegate void PlayerStateChangeHandler(PlayerState newPlayerState);
+    public static event PlayerStateChangeHandler OnPlayerStateChanged;
+    
+    private static PlayerState _currentPlayerState;
+
+    public static PlayerState CurrentPlayerState
     {
-        get { return _CurrentScene;}
+        get { return _currentPlayerState; }
         set
         {
-            _CurrentScene = value;
-            // Get the calling method's information
-            System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
-            System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(1);
-            System.Reflection.MethodBase methodBase = stackFrame.GetMethod();
-            
-            Debug.LogWarning($"CurrentGameState changed to: {value} by {methodBase.DeclaringType}.{methodBase.Name}");
+            if (_currentPlayerState != value)
+            {
+                _currentPlayerState = value;
+                // Notify subscribers
+                OnPlayerStateChanged?.Invoke(_currentPlayerState);
+            }
         }
     }
 
-    private static GameScene _CurrentScene;
-    public static PlayerState CurrentPlayerState;
+    // EVENT for Player Level
+    public delegate void PlayerLevelChangeHandler(PlayerLevel newPlayerLevel);
+    public static event PlayerLevelChangeHandler OnPlayerLevelChanged;
 
+    private static PlayerLevel _currentPlayerLevel;
     public static PlayerLevel CurrentPlayerLevel
     {
         get { return _currentPlayerLevel; }
         set
-        {    _currentPlayerLevel = value;
-
-                // Get the calling method's information
-                System.Diagnostics.StackTrace stackTrace = new System.Diagnostics.StackTrace();
-                System.Diagnostics.StackFrame stackFrame = stackTrace.GetFrame(1);
-                System.Reflection.MethodBase methodBase = stackFrame.GetMethod();
-            
-                Debug.LogWarning($"CurrentGameState changed to: {value} by {methodBase.DeclaringType}.{methodBase.Name}");
+        {
+            if (_currentPlayerLevel != value)
+            {
+                _currentPlayerLevel = value;
+                // Notify subscribers
+                OnPlayerLevelChanged?.Invoke(_currentPlayerLevel);
+            }
         }
     }
-    private static PlayerLevel _currentPlayerLevel;
-    [HideInInspector] public Vector3 playerStartPos;
-    private Graphic _blackPanel;
-    [SerializeField] private float sceneFadeSpeed = 1.0f;
+    
+    // PUBLIC STATIC Variables
+    public static GameScene CurrentScene;
     public static PlayerLevel EndLevelPlayerLevel;
+    public static Vector3 PlayerStartPos;
+    
+    // PRIVATE Variables
+    [SerializeField] private float sceneFadeSpeed = 1.0f;
+    private Graphic _blackPanel;
 
     public enum PlayerLevel
     {
@@ -98,12 +105,12 @@ public class GameManager : MonoBehaviour
     {
         MainMenu,
         WorldMap,
-        Level_1,
-        Level_2,
-        Level_3,
-        Level_4,
-        Level_5,
-        Level_6,
+        Dungeon_1,
+        Dungeon_2,
+        Dungeon_3,
+        Dungeon_4,
+        Dungeon_5,
+        Dungeon_6,
         Summit
     }
 
@@ -152,8 +159,8 @@ public class GameManager : MonoBehaviour
         // This method will be called every time a new scene is loaded
         Debug.Log("Scene loaded: " + scene.name);
         
-        playerStartPos = transform.position;
-        Debug.Log($"Player starting position is {playerStartPos}");
+        PlayerStartPos = transform.position;
+        Debug.Log($"Player starting position is {PlayerStartPos}");
         
         // If there is no Level Manager, set these as default:
         if (!FindObjectOfType<DT_LevelManager>())
