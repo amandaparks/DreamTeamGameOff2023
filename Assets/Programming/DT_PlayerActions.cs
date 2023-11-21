@@ -39,6 +39,7 @@ public class DT_PlayerActions : MonoBehaviour
         {
             // Update Player State
             Debug.Log("PLAYER_STATE: CROUCHING");
+            // ♬♬ Put Play Sound Here ♬♬
             GameManager.CurrentPlayerState = GameManager.PlayerState.Crouching;
         }
         // If already crouching
@@ -46,6 +47,7 @@ public class DT_PlayerActions : MonoBehaviour
         {
             // Update Player State
             Debug.Log("PLAYER_STATE: IDLE");
+            // ♬♬ Put Play Sound Here ♬♬
             GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         }
     }
@@ -55,6 +57,7 @@ public class DT_PlayerActions : MonoBehaviour
         if (!CanPerformAction("Attack")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: ATTACKING");
+        // ♬♬ Put Play Sound Here ♬♬
         GameManager.CurrentPlayerState = GameManager.PlayerState.Attacking;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
@@ -65,6 +68,7 @@ public class DT_PlayerActions : MonoBehaviour
         if (!CanPerformAction("Defend")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: DEFENDING");
+        // ♬♬ Put Play Sound Here ♬♬
         GameManager.CurrentPlayerState = GameManager.PlayerState.Defending;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
@@ -73,6 +77,10 @@ public class DT_PlayerActions : MonoBehaviour
     {
         // Check we can do it
         if (!CanPerformAction("Magic")) return;
+        // Update Player State
+        Debug.Log("PLAYER_STATE: MAGIC");
+        // ♬♬ Put Play Sound Here ♬♬
+        GameManager.CurrentPlayerState = GameManager.PlayerState.Magic;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
     }
@@ -99,6 +107,7 @@ public class DT_PlayerActions : MonoBehaviour
             ToggleBardMode();
             // Update Player State
             Debug.Log("PLAYER_STATE: BARD MODE");
+            // ♬♬ Put Play Sound Here ♬♬
             GameManager.CurrentPlayerState = GameManager.PlayerState.BardMode;
         }
         // If already in bard mode
@@ -109,6 +118,7 @@ public class DT_PlayerActions : MonoBehaviour
             ToggleBardMode();
             // Update Player State
             Debug.Log("PLAYER_STATE: IDLE");
+            // ♬♬ Put Play Sound Here ♬♬
             GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         }
     }
@@ -146,7 +156,8 @@ public class DT_PlayerActions : MonoBehaviour
                     case GameManager.PlayerState.Idle:
                         return true;
                     default:
-                        Debug.Log($"{actionType} cancelled. INVALID: Player must be crouching or idle.");
+                        Debug.Log($"FAIL: Player must be crouching or idle.");
+                        // ♬♬ Put Play Sound Here ♬♬
                         return false;
                 }
             case "Bard":
@@ -156,7 +167,8 @@ public class DT_PlayerActions : MonoBehaviour
                     case GameManager.PlayerState.Idle:
                         return true;
                     default:
-                         Debug.Log($"{actionType} cancelled. INVALID: Player must be in bard mode or idle.");
+                         Debug.Log($"FAIL: Player must be in bard mode or idle.");
+                         // ♬♬ Put Play Sound Here ♬♬
                          return false;
                 }
             case "Next":
@@ -166,14 +178,15 @@ public class DT_PlayerActions : MonoBehaviour
                 }
         }
 
-        // Player must be Idle to do other actions
+        // Player must be Idle to do other actions, if not idle = FAIL
         if (GameManager.CurrentPlayerState != GameManager.PlayerState.Idle)
         {
-            Debug.Log($"{actionType} cancelled. INVALID: Player not Idle.");
+            Debug.Log($"FAIL: Player not Idle.");
+            // ♬♬ Put Play Sound Here ♬♬
             return false;
         }
 
-        // Player can only do these if Idle
+        // Space for extra conditions:
         switch (actionType)
         {
             case "Attack":

@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
         Damaged,
         Attacking,
         Defending,
+        Magic,
         BardMode
     }
     

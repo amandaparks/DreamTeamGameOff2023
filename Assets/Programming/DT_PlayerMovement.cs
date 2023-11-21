@@ -17,7 +17,7 @@ public class DT_PlayerMovement : MonoBehaviour
         Down,
         Stop
     }
-    private GameManager _gameManager;
+    
     private Vector3 _levelStartPos;
     private Vector3 _targetPos;
     private bool isNoStonesBruh;
@@ -28,10 +28,14 @@ public class DT_PlayerMovement : MonoBehaviour
     private GameObject _currentStone;
     private GameObject _ladderStartTarget;
     private GameObject _ladderEndTarget;
+    
+    private AudioManager _audioManager;
+    
     void Start()
     {
-        // Find the Game Manager and assign it to this variable
-        _gameManager = GameManager.Instance;
+        // Find the Audio Manager
+        _audioManager = FindObjectOfType<AudioManager>();
+        
         // Note position of the Player on level start and tell GameManager
         _levelStartPos = gameObject.transform.position;
         GameManager.PlayerStartPos = _levelStartPos;
@@ -53,9 +57,6 @@ public class DT_PlayerMovement : MonoBehaviour
         // Check we can do it
         if (!CanPerformAction("Step")) return;
 
-        // Play sound but I can't get it to work because CS0120 error
-        // AudioManager.PlayKalimba("3");
-        
         // Move character
         targetDirection = TargetDirection.Left;
         StartCoroutine(Step());
@@ -66,9 +67,6 @@ public class DT_PlayerMovement : MonoBehaviour
         
         // Check we can do it
         if (!CanPerformAction("Step")) return;
-
-        // Play sound but I can't get it to work because CS0120 error
-        // AudioManager.PlayKalimba("5");
 
         // Move character
         targetDirection = TargetDirection.Right;
@@ -83,7 +81,7 @@ public class DT_PlayerMovement : MonoBehaviour
         if (!CanPerformAction("Climb")) return;
 
         // Play sound but I can't get it to work because CS0120 error
-        // AudioManager.PlayKalimba("4");
+        _audioManager.PlayKalimba("4");
 
         // CLimb
         StartCoroutine(ClimbLadder());
@@ -129,7 +127,9 @@ public class DT_PlayerMovement : MonoBehaviour
 
                 if  (_currentStone.GetComponentInParent<DT_LadderGroup>() == null)
                 {
-                    Debug.Log($"{actionType} cancelled. INVALID: Stone must be part of a ladder group.");
+                    Debug.Log("FAIL: No ladder. (Stone must be part of a ladder group.)");
+                    // Play sound
+                    _audioManager.PlayKalimba("fail");
                     return false;
                 }
                 break;
@@ -227,19 +227,25 @@ public class DT_PlayerMovement : MonoBehaviour
         // If no stones found...
         if (_nextStone == null)
         {
-            Debug.Log("INVALID: No more stones.");
+            Debug.Log("FAIL: No more stones.");
+            // Play sound
+            _audioManager.PlayKalimba("fail");
         }
         // If next stone is too high/low...
         // Mathf.Abs always returns a positive number
         else if (Mathf.Abs(_nextStone.transform.position.y - transform.position.y) >= maxStepHeight)
         {
-            Debug.Log("INVALID: Stone too far away.");
+            Debug.Log("FAIL: Stone too far away.");
+            // Play sound
+            _audioManager.PlayKalimba("fail");
         }
         // Stone found...
         else
         {
             Debug.Log("PLAYER_STATE: STEPPING");
             GameManager.CurrentPlayerState = GameManager.PlayerState.Stepping;
+            // Play sound
+            _audioManager.PlayKalimba("5");
             
             // Set start and end points of curve
             var startPoint = transform.position;
@@ -295,7 +301,9 @@ public class DT_PlayerMovement : MonoBehaviour
         // If anything is missing...
         if (_nextStone == null || _ladderStartTarget == null || _ladderEndTarget == null)
         {
-            Debug.Log("INVALID: Missing target info.");
+            Debug.Log("FAIL: Missing target info.");
+            // Play sound
+            _audioManager.PlayKalimba("fail");
         }
         
         //Set state to climbing
