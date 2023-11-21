@@ -253,6 +253,7 @@ public class DT_PlayerMovement : MonoBehaviour
             // Start counting
             float elapsedTime = 0f;
 
+            // Do unless player gets damaged
             while (elapsedTime < stepDuration && GameManager.CurrentPlayerState != GameManager.PlayerState.Damaged)
             {
                 // Find where on curve player should be this frame
@@ -276,7 +277,8 @@ public class DT_PlayerMovement : MonoBehaviour
                 _currentStone = null;
                 _nextStone = null;
             
-                yield return null;
+                // exit the coroutine
+                yield break;
             }
         
             //Otherwise
@@ -313,7 +315,7 @@ public class DT_PlayerMovement : MonoBehaviour
         // Start counting
         float elapsedTime = 0f;
 
-        // Climb until there is no time left
+        // Climb until there is no time left or until player is damaged
         while (elapsedTime < climbDuration && GameManager.CurrentPlayerState != GameManager.PlayerState.Damaged)
         {
             // Move to where Player should be this frame
@@ -333,7 +335,8 @@ public class DT_PlayerMovement : MonoBehaviour
             _currentStone = null;
             _nextStone = null;
             
-            yield return null;
+            // exit the coroutine
+            yield break;
         }
         
         //Otherwise

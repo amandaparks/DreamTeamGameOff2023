@@ -7,7 +7,7 @@ using UnityEngine;
 public class DT_EnemyManager : MonoBehaviour
 {
     [Header("Moving Enemies")] 
-    [SerializeField] private DT_EnemyGroup[] enemyGroup;
+    [SerializeField] private DT_EnemyGroup[] movingEnemies;
 
     [Header("Stationary Enemies")] 
     [SerializeField] private GameObject[] stationaryEnemies;
@@ -26,12 +26,20 @@ public class DT_EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        // Don't do anything if no enemies assigned
+        if (stationaryEnemies.Length == 0 || movingEnemies.Length == 0) return;
+        
+        // Stationary enemies don't need to be spawned
+        // Spawn moving enemies
         StartCoroutine(SpawnEnemies());
     }
 
     public IEnumerator SpawnEnemies()
     {
-        foreach (DT_EnemyGroup group in enemyGroup)
+        // Don't do anything if no enemies assigned 
+        if (movingEnemies.Length == 0) yield return null;
+        
+        foreach (DT_EnemyGroup group in movingEnemies)
         {
             // Repeat forever
             while(true)
@@ -80,6 +88,8 @@ public class DT_EnemyManager : MonoBehaviour
 
     public void ToggleMovingEnemies(bool toggle)
     {
+        if (movingEnemies.Length == 0) return; 
+        
         if (toggle) //true
         {
             // Start Spawning Enemies
@@ -106,6 +116,8 @@ public class DT_EnemyManager : MonoBehaviour
 
     public void ToggleStationaryEnemies(bool toggle)
     {
+        if (stationaryEnemies.Length == 0) return; 
+        
         if (toggle) //true
         {
             // Start all Stationary Enemies
@@ -165,7 +177,7 @@ public class DT_EnemyManager : MonoBehaviour
             case GameManager.PlayerState.Idle:
                 break;
             case GameManager.PlayerState.Talking:
-            // Option to stop enemies during talking will be option on Level Manager Trigger Handler
+            // This behaviour is handled by DT_TriggerHandler on LevelManager
                 break;
             case GameManager.PlayerState.Stepping:
                 break;
@@ -181,9 +193,7 @@ public class DT_EnemyManager : MonoBehaviour
             }
                 break;
             case GameManager.PlayerState.Damaged:
-            {
-                // Enemies are set to not do damage while player damaged
-            }
+                // This behaviour is handled by DT_MovingEnemy and DT_Stationary_Enemy on each game object
                 break;
             case GameManager.PlayerState.Attacking:
             {
@@ -195,6 +205,8 @@ public class DT_EnemyManager : MonoBehaviour
             }
                 break;
             case GameManager.PlayerState.Defending:
+                break;
+            case GameManager.PlayerState.Magic:
                 break;
             case GameManager.PlayerState.BardMode:
                 break;

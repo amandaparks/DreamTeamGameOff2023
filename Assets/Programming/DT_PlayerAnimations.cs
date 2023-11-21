@@ -11,6 +11,8 @@ public class DT_PlayerAnimations : MonoBehaviour
     private static readonly int Climb = Animator.StringToHash("Climb");
     private static readonly int Step = Animator.StringToHash("Step");
     private static readonly int Idle = Animator.StringToHash("Idle");
+    private static readonly int Bard = Animator.StringToHash("Bard");
+    private static readonly int Magic = Animator.StringToHash("Magic");
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +60,14 @@ public class DT_PlayerAnimations : MonoBehaviour
                 break;
             case GameManager.PlayerState.Damaged:
                 spriteAnimator.SetTrigger(Damaged);
+                break;
+            case GameManager.PlayerState.BardMode:
+                spriteAnimator.SetTrigger(Bard);
+                break;
+            case GameManager.PlayerState.Attacking: 
+            case GameManager.PlayerState.Defending:
+            case GameManager.PlayerState.Magic:
+                spriteAnimator.SetTrigger(Magic);
                 break;
         }
     }
