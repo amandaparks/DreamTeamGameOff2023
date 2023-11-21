@@ -16,7 +16,9 @@ public class DT_StationaryEnemy : MonoBehaviour
     }
     [Header("Interval Options")]
     [SerializeField] private ParticleSystem intervalParticles;
+    //set up sound effect and volume slider
     [SerializeField] private AudioClip intervalSound;
+    [Range(0f, 1f)] public float intervalVolume;
     [HideInInspector] public AudioSource intervalAudioSource;
     //Can make this more complex later:
     [SerializeField] private float onDuration;
@@ -24,7 +26,9 @@ public class DT_StationaryEnemy : MonoBehaviour
     
     [Header("== Damage Player Sound / Effect ==")]
     [SerializeField] private ParticleSystem damageParticles;
+    //set up sound effect and volume slider
     [SerializeField] private AudioClip damageSound;
+    [Range(0f, 1f)] public float damageVolume;
     [HideInInspector] public AudioSource damageAudioSource;
 
     [Header("== Attackable Enemy Settings ==")]
@@ -32,6 +36,7 @@ public class DT_StationaryEnemy : MonoBehaviour
     [SerializeField] private float maxAttackableDistance;
     [SerializeField] private ParticleSystem destroyedParticles;
     [SerializeField] private AudioClip destroyedSound;
+    [Range(0f, 1f)] public float destroyedVolume;
     [HideInInspector] public AudioSource destroyedAudioSource;
 
     [Header("== Always-On Sound / Effects ==")]
@@ -110,6 +115,7 @@ public class DT_StationaryEnemy : MonoBehaviour
     {
         if (intervalSound != null)
             intervalAudioSource.clip = intervalSound;
+            intervalAudioSource.volume = intervalVolume;
 
         // while true runs forever
         while (true)
@@ -181,6 +187,7 @@ public class DT_StationaryEnemy : MonoBehaviour
             {damageParticles.Play();}
             if (damageSound == null) return;
             damageAudioSource.clip = damageSound;
+            damageAudioSource.volume = damageVolume;
             damageAudioSource.Play();
         }
     }
