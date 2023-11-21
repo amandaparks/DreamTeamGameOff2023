@@ -19,6 +19,9 @@ public class DT_PlayerActions : MonoBehaviour
         
         //Find game text manager
         _gameTextManager = FindObjectOfType<DT_GameTextManager>();
+        
+        //Find input manager
+        _inputManager = GetComponent<DT_InputManager>();
     }
 
     public void Next()

@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Geyser_on.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Geyser_on.wav.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Knight_hurt.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Knight_hurt.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Climb_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Climb_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Crouch_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Crouch_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Damaged_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Damaged_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Idle_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Idle_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Jump_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Jump_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Player Sprite.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Player Sprite.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Borodar/RainbowFolders/Editor/Source/RainbowFolders.src.unitypackage.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Geyser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Geyser.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,17 +35,18 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PointClickInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2Xsv6o5YC0S4qROesvcN3f1oWqF" />
   <component name="ProjectViewState">

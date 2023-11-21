@@ -195,7 +195,7 @@ public class DT_EnemyManager : MonoBehaviour
             case GameManager.PlayerState.Damaged:
                 // This behaviour is handled by DT_MovingEnemy and DT_Stationary_Enemy on each game object
                 break;
-            case GameManager.PlayerState.Attacking:
+            /*case GameManager.PlayerState.Attacking:
             {
                 // Attack all attackable Stationary enemies
                 foreach (var enemy in stationaryEnemies)
@@ -203,7 +203,7 @@ public class DT_EnemyManager : MonoBehaviour
                     enemy.GetComponent<DT_StationaryEnemy>().OnPlayerAttack();
                 }
             }
-                break;
+                break;*/
             case GameManager.PlayerState.Defending:
                 break;
             case GameManager.PlayerState.Magic:
