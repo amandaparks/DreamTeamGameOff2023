@@ -12,7 +12,7 @@ public class DT_MovingEnemy : MonoBehaviour
     private enum MovementType
     {
         fallStraightDown,
-        screenLeftToRight,
+        screenRightToLeft,
         shootTowardPlayer
     }
     [HideInInspector] public float moveSpeed;
@@ -115,33 +115,29 @@ public class DT_MovingEnemy : MonoBehaviour
 
     private void AssignTargets(MovementType type)
     {
-        _playerPosition = _player.transform.position;
         _enemyStartPosition = transform.position;
+        _startPoint = _enemyStartPosition;
+        _playerPosition = _player.transform.position;
         
         switch (type)
         {
             case MovementType.fallStraightDown:
-                _startPoint = _enemyStartPosition;
                 // End point is further down on the Y axis
                 _endPoint = new Vector3(_enemyStartPosition.x, _enemyStartPosition.y - _minMoveDistance, _enemyStartPosition.z);
                 // Distance
                 _distance = Vector3.Distance(_startPoint, _endPoint);
                 break;
-            case MovementType.screenLeftToRight:
-                _startPoint = transform.position;
-                _startPoint = _enemyStartPosition;
+            case MovementType.screenRightToLeft:
                 // End point is further left on the X axis
                 _endPoint = new Vector3(_enemyStartPosition.x - _minMoveDistance, _enemyStartPosition.y, _enemyStartPosition.z);
                 // Distance
                 _distance = Vector3.Distance(_startPoint, _endPoint);
                 break;
             case MovementType.shootTowardPlayer:
-                _startPoint = transform.position;
-                var playerPosition = _player.transform.position;
                 // Work out direction to player
-                Vector3 direction = (playerPosition - _startPoint).normalized;
+                Vector3 direction = (_playerPosition - _startPoint).normalized;
                 // Set end point somewhere past that
-                _endPoint = playerPosition + direction * _minMoveDistance;
+                _endPoint = _playerPosition + direction * _minMoveDistance;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -160,17 +156,33 @@ public class DT_MovingEnemy : MonoBehaviour
 
         while (elapsedTime < (5f/moveSpeed))
         {
-            if (_canCoroutineRun)
+            if (!_canCoroutineRun) yield return null; // skip the rest of the loop
+            
+            // Check if player is defending
+            if (GameManager.CurrentPlayerState == GameManager.PlayerState.Defending)
             {
-                // Move enemy in assigned direction
-                transform.position = Vector3.Lerp(_startPoint, _endPoint, elapsedTime / (5f/moveSpeed));
-
-                // Increment for next frame
-                elapsedTime += Time.deltaTime;
-
-                // Wait for next frame
-                yield return null;
+                if (playerCanDefend)
+                {
+                    StartCoroutine(OnPlayerDefend());
+                    yield break;
+                }
             }
+            
+            // Move enemy in assigned direction
+            transform.position = Vector3.Lerp(_startPoint, _endPoint, elapsedTime / (5f/moveSpeed));
+
+            // If it's supposed to be shooting toward the player, make object face the player
+            if (moveType == MovementType.shootTowardPlayer)
+            {
+                transform.LookAt(_player.transform.position);
+            }
+
+
+            // Increment for next frame
+            elapsedTime += Time.deltaTime;
+
+            // Wait for next frame
+            yield return null;
         }
         
         yield return null;
@@ -179,9 +191,11 @@ public class DT_MovingEnemy : MonoBehaviour
     private void AlwaysOn(bool toggle)
     {
         if (toggle) //true
-        {   
+        {
             if (alwaysOnParticles != null)
-            {alwaysOnParticles.Play();}
+            {
+                alwaysOnParticles.Play();
+            }
             if (alwaysOnSound == null) return;
             alwaysOnAudioSource.clip = alwaysOnSound;
             alwaysOnAudioSource.Play();
@@ -213,18 +227,21 @@ public class DT_MovingEnemy : MonoBehaviour
             
             // Do effects and sound
             if (damageParticles != null)
-            {damageParticles.Play();}
+            {
+                damageParticles.Play();
+            }
             if (damageSound == null) return;
             damageAudioSource.clip = damageSound;
             damageAudioSource.Play();
         }
 
+        if (string.IsNullOrEmpty(environmentTag)) return;
         if (other.CompareTag(environmentTag))
         {
             // Turn off collider
             damageCollider.enabled = false;
             damageCollider.isTrigger = false;
-            
+
             // Do effects and sound
             if (collisionParticles != null)
             {
@@ -244,22 +261,30 @@ public class DT_MovingEnemy : MonoBehaviour
         }
     }
 
-    public void OnPlayerDefend()
+    private IEnumerator OnPlayerDefend()
     {
         // If not defendable enemy, ignore
-        if (!playerCanDefend) return;
+        if (!playerCanDefend) yield break;
+        // Stop running coroutine
+        _canCoroutineRun = false;
         
+        // Turn off collider
+        damageCollider.enabled = false;
+        damageCollider.isTrigger = false;
+
         if (disabledParticles != null)
-        {disabledParticles.Play();}
+        {
+            disabledParticles.Play();
+        }
         if (disabledSound != null)
         {
             disabledAudioSource.Play();
         }
-        damageCollider.enabled = false;
-        damageCollider.isTrigger = false;
-            
-        // Destroy yoself
-        Destroy(gameObject);
+
+        yield return new WaitForSeconds(0.5f);
+        
+        // Turn off kinematic so it falls with gravity
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
 }

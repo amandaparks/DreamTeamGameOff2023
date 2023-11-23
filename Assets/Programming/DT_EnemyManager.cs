@@ -180,16 +180,7 @@ public class DT_EnemyManager : MonoBehaviour
 
         switch (newPlayerState)
         {
-            case GameManager.PlayerState.Defending: // NOTE: Player cannot defend stationary Enemies
-            {
-                if (_spawnedEnemies == null) return;
-                // Tell moving enemies that player is defending
-                foreach (var movingEnemy in _spawnedEnemies)
-                {
-                    movingEnemy.GetComponent<DT_MovingEnemy>().OnPlayerDefend();
-                }
-            }
-                break;
+            
             case GameManager.PlayerState.Attacking: // NOTE: Player cannot attack moving Enemies
             {
                 if (stationaryEnemies == null) return;
@@ -215,6 +206,9 @@ public class DT_EnemyManager : MonoBehaviour
                 break;
             case GameManager.PlayerState.Crouching:
             // This check is done OnTriggerEnter
+                break;
+            case GameManager.PlayerState.Defending: 
+                // This will be handled in the coroutine in moving enemies
                 break;
             case GameManager.PlayerState.Idle:
             case GameManager.PlayerState.Stepping:
