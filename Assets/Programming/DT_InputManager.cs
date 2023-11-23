@@ -142,6 +142,7 @@ public class DT_InputManager : MonoBehaviour
                 button1.gameObject.SetActive(true); // defend
                 break;
             case GameManager.PlayerLevel.SevenNotes:
+            case GameManager.PlayerLevel.Winner:
                 button5.gameObject.SetActive(true); // step fwd
                 buttonB.gameObject.SetActive(true); // bard mode
                 button4.gameObject.SetActive(true); // climb
@@ -370,14 +371,12 @@ public class DT_InputManager : MonoBehaviour
         switch (context.phase)
         {
             case InputActionPhase.Started:
-                Debug.Log("Input started");
-                //Execute the event for when a button is pressed aka submitted
+                //Make appear submitted
                 ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
                     ExecuteEvents.submitHandler);
                 break;
             case InputActionPhase.Canceled:
-                Debug.Log("Input canceled");
-                //Execute the event for when a button is deselected
+                //Make appear deselected
                 ExecuteEvents.Execute(button.gameObject, new BaseEventData(EventSystem.current),
                     ExecuteEvents.deselectHandler);
                 break;

@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameText:
   - sceneName: 2
-    playerLevel: 1
     textBoxType: 0
     textLines:
     - speaker: 2
@@ -22,7 +21,6 @@ MonoBehaviour:
     - speaker: 2
       text: This is a nice level
   - sceneName: 2
-    playerLevel: 1
     textBoxType: 1
     textLines:
     - speaker: 0

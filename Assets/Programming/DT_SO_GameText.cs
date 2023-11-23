@@ -19,15 +19,14 @@ public class DT_SO_GameText : ScriptableObject
     {
         // Each entry will have these variables:
         public GameManager.GameScene sceneName;
-        public GameManager.PlayerLevel playerLevel;
         public TextType textBoxType;
         // Text lines each have a speaker and text:
         public TextLines[] textLines;
         
         public enum TextType
         {
-            Information,
-            Conversation
+            Scroll,
+            SpeechBubbles
         }
     }
 
@@ -35,6 +34,7 @@ public class DT_SO_GameText : ScriptableObject
     public class TextLines
     {
         public Speaker speaker;
+        [TextAreaAttribute]
         public string text;
         
         public enum Speaker

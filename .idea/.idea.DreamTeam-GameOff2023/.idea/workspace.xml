@@ -5,18 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Geyser_on.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Geyser_on.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Knight_hurt.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies/SFX_Knight_hurt.wav.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Borodar/RainbowFolders/Editor/Source/RainbowFolders.src.unitypackage.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Audio/SFX Oneshots/Enemies.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Geyser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Geyser.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art - Environment/SM_RockWall_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Environment/SM_RockWall_01.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art - Environment/SM_Rock_01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Environment/SM_Rock_01.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art - Environment/SM_Rock_02.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Environment/SM_Rock_02.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art - Environment/SM_Rock_03.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Environment/SM_Rock_03.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Bard_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Bard_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Climb_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Climb_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Crouch_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Crouch_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Damaged_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Damaged_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Idle_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Idle_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Jump_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Jump_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet_Placeholder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Knight Spritesheet_Placeholder.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Magic_Placeholder.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Magic_Placeholder.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Player Sprite.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/CharacterAnim/Player Sprite.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameText/GameText.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameText/GameText.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Geyser.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Geyser.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/MovingEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/MovingEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rock_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rock_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/AudioManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/LevelManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/LevelManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_LadderGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_LadderGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_1.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/Box.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/Box.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Gameplay UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Gameplay UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Info UI.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Info UI.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/skyblue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/skyblue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AudioManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,18 +84,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/215a3d79f22d4716a26783e9b63e881e175600/54/5a677ccf/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/66/84f8bd8e/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/0c/1f3f1986/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PointClickInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2Xsv6o5YC0S4qROesvcN3f1oWqF" />
   <component name="ProjectViewState">
@@ -54,6 +106,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3503772" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -62,23 +116,24 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="threadsIsVisibleKey" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12124">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12124" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12124">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12124" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />

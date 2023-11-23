@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
         Dungeon_1,
         Dungeon_2,
         Dungeon_3,
+        WorldMapRotated,
         Dungeon_4,
         Dungeon_5,
         Dungeon_6,
@@ -180,6 +181,8 @@ public class GameManager : MonoBehaviour
         //Update the player's level
         CurrentPlayerLevel = EndLevelPlayerLevel;
         SceneManager.LoadScene(scene);
+        // Start all new scenes on Idle
+        CurrentPlayerState = PlayerState.Idle;
         Instance.StartCoroutine(Instance.FadeIn());
     }
     

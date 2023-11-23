@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 3436483925329256312}
   - component: {fileID: 8694043827388129428}
   - component: {fileID: 5696449928352528717}
-  - component: {fileID: 6205380873372588421}
   - component: {fileID: 3096627336125693270}
-  - component: {fileID: 366022015188951554}
   - component: {fileID: 5151325049536345082}
+  - component: {fileID: 6683711607481333837}
+  - component: {fileID: 6205380873372588421}
+  - component: {fileID: 366022015188951554}
   - component: {fileID: 9056982727533574181}
   - component: {fileID: 3599774638079587248}
   m_Layer: 0
@@ -171,18 +172,6 @@ MonoBehaviour:
   button6: {fileID: 0}
   button7: {fileID: 0}
   buttonB: {fileID: 0}
---- !u!114 &6205380873372588421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358782960550085104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece4a8038b82b294681d2c8a2314a1c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3096627336125693270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,18 +188,6 @@ MonoBehaviour:
   stepArcHeight: 2.5
   climbDuration: 0.6
   maxStepHeight: 1
---- !u!114 &366022015188951554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358782960550085104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8039218db67d89b4ab0089db019cd926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5151325049536345082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +202,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteAnimator: {fileID: 4700812900794926477}
   _spriteRenderer: {fileID: 5638951211031477030}
+--- !u!114 &6683711607481333837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358782960550085104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6557b5def64646346a7bca8beb62afb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToReturn: 2
+--- !u!114 &6205380873372588421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358782960550085104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece4a8038b82b294681d2c8a2314a1c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &366022015188951554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2358782960550085104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8039218db67d89b4ab0089db019cd926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &9056982727533574181
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -271,7 +285,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

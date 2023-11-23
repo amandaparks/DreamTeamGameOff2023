@@ -61,11 +61,10 @@ MonoBehaviour:
   collisionSound: {fileID: 0}
   collisionAudioSource: {fileID: 0}
   environmentTag: 
-  playerCanAttack: 0
-  maxAttackableDistance: 0
-  destroyedParticles: {fileID: 0}
-  destroyedSound: {fileID: 0}
-  destroyedAudioSource: {fileID: 0}
+  playerCanDefend: 0
+  disabledParticles: {fileID: 0}
+  disabledSound: {fileID: 0}
+  disabledAudioSource: {fileID: 0}
 --- !u!65 &2984697299645968188
 BoxCollider:
   m_ObjectHideFlags: 0

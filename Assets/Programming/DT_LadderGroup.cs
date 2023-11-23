@@ -8,15 +8,5 @@ public class DT_LadderGroup : MonoBehaviour
     public GameObject ladderTop;
     public GameObject ladderBase;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Ladder.");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // This script exists for PlayerMovement to be able to find the next targets
 }

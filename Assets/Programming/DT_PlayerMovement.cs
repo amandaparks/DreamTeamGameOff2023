@@ -52,8 +52,6 @@ public class DT_PlayerMovement : MonoBehaviour
     }
     public void StepBkd()
     {
-        Debug.Log("INPUT: STEP BKD");
-        
         // Check we can do it
         if (!CanPerformAction("Step")) return;
 
@@ -63,8 +61,6 @@ public class DT_PlayerMovement : MonoBehaviour
     }
     public void StepFwd()
     {
-        Debug.Log("INPUT: STEP FWD");
-        
         // Check we can do it
         if (!CanPerformAction("Step")) return;
 
@@ -75,8 +71,6 @@ public class DT_PlayerMovement : MonoBehaviour
     }
     public void Climb()
     {
-        Debug.Log("INPUT: CLIMB");
-        
         // Check we can do it
         if (!CanPerformAction("Climb")) return;
 
@@ -97,7 +91,7 @@ public class DT_PlayerMovement : MonoBehaviour
 
         if (GameManager.CurrentPlayerState != GameManager.PlayerState.Idle)
         {
-            Debug.Log($"{actionType} cancelled. INVALID: Player not Idle.");
+            // There was a debug log here but it happens a lot
             return false;
         }
 
@@ -111,29 +105,24 @@ public class DT_PlayerMovement : MonoBehaviour
                     return false;
                 }
                 break;
-
             case "Climb":
                 if (isNoLaddersBruh)
                 {
                     Debug.Log($"{actionType} cancelled. INVALID: No ladders in the scene.");
                     return false;
                 }
-
                 if (_currentStone == null)
                 {
                     Debug.Log($"{actionType} cancelled. INVALID: Must be on a stone.");
                     return false;
                 }
-
                 if  (_currentStone.GetComponentInParent<DT_LadderGroup>() == null)
                 {
-                    Debug.Log("FAIL: No ladder. (Stone must be part of a ladder group.)");
                     // Play sound
                     _audioManager.PlayKalimba("fail");
                     return false;
                 }
                 break;
-
             default:
                 Debug.LogError($"Unknown action type: {actionType}");
                 return false;
@@ -181,7 +170,6 @@ public class DT_PlayerMovement : MonoBehaviour
         }
 
         // If no stones were found
-        
         Debug.Log("INVALID: No step target.");
         return null;
     }
@@ -227,7 +215,6 @@ public class DT_PlayerMovement : MonoBehaviour
         // If no stones found...
         if (_nextStone == null)
         {
-            Debug.Log("FAIL: No more stones.");
             // Play sound
             _audioManager.PlayKalimba("fail");
         }
@@ -235,14 +222,12 @@ public class DT_PlayerMovement : MonoBehaviour
         // Mathf.Abs always returns a positive number
         else if (Mathf.Abs(_nextStone.transform.position.y - transform.position.y) >= maxStepHeight)
         {
-            Debug.Log("FAIL: Stone too far away.");
             // Play sound
             _audioManager.PlayKalimba("fail");
         }
         // Stone found...
         else
         {
-            Debug.Log("PLAYER_STATE: STEPPING");
             GameManager.CurrentPlayerState = GameManager.PlayerState.Stepping;
             // Play sound
             _audioManager.PlayKalimba("5");
@@ -303,13 +288,11 @@ public class DT_PlayerMovement : MonoBehaviour
         // If anything is missing...
         if (_nextStone == null || _ladderStartTarget == null || _ladderEndTarget == null)
         {
-            Debug.Log("FAIL: Missing target info.");
             // Play sound
             _audioManager.PlayKalimba("fail");
         }
         
         //Set state to climbing
-        Debug.Log("PLAYER_STATE: CLIMBING");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Climbing;
 
         // Start counting
@@ -362,7 +345,6 @@ public class DT_PlayerMovement : MonoBehaviour
         
         // Otherwise, return to idle
         GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
-        Debug.Log("PLAYER_STATE: IDLE");
     }
     private Vector3 QuadraticBezier(Vector3 p0, Vector3 p2, float height, float t)
     {

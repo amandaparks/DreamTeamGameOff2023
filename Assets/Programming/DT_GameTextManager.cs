@@ -53,7 +53,7 @@ public class DT_GameTextManager : MonoBehaviour
         _playerTextField = _playerCanvas.GetComponentInChildren<TextMeshProUGUI>();
         _npcTextField = _npcCanvas.GetComponentInChildren<TextMeshProUGUI>();
 
-        Debug.Log($"Found {_infoTextField.gameObject.name} and {_playerTextField.gameObject.name} and {_npcTextField.gameObject.name}");
+        Debug.Log($"Text Boxes Found: {_infoTextField.gameObject.name}, {_playerTextField.gameObject.name} and {_npcTextField.gameObject.name}");
         
         
         // Make sure they're all turned off for now
@@ -66,9 +66,6 @@ public class DT_GameTextManager : MonoBehaviour
     private void Start()
     {
         _currentCanvas = null;
-        
-        // Run text if there is any
-        MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Information, null);
     }
 
     // Other game objects can also use this method to trigger text to appear
@@ -103,15 +100,14 @@ public class DT_GameTextManager : MonoBehaviour
 
     private DT_SO_GameText.GameText FindEntry(DT_SO_GameText.GameText.TextType textType)
     {
-        Debug.Log($"Looking for {textType} for {GameManager.CurrentScene} and {GameManager.CurrentPlayerLevel}");
+        Debug.Log($"Looking for {textType} for {GameManager.CurrentScene}");
         
         //Search through game text and find the one with matching:
-        //Text Type + Current Scene and Current Player Level
+        //Text Type + Current Scene and Level Bool + Required Level
         var entry =
             Array.Find(_gameText, entry => 
                 entry.textBoxType == textType && 
-                entry.sceneName == GameManager.CurrentScene && 
-                entry.playerLevel == GameManager.CurrentPlayerLevel);
+                entry.sceneName == GameManager.CurrentScene);
         
         // If an entry is found, 
         if (entry != null)

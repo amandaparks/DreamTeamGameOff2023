@@ -10,6 +10,7 @@ public class DT_PlayerActions : MonoBehaviour
     private bool _isBardMode;
     private DT_InputManager _inputManager;
     private DT_GameTextManager _gameTextManager;
+    [SerializeField] private float _magicTime = 1f;
     
     // Start is called before the first frame update
     void Start()
@@ -90,7 +91,7 @@ public class DT_PlayerActions : MonoBehaviour
 
     private IEnumerator WaitAndReset()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_magicTime);
         // Update Player State
         Debug.Log("PLAYER_STATE: IDLE");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
@@ -194,17 +195,17 @@ public class DT_PlayerActions : MonoBehaviour
         {
             case "Attack":
             {
-                // Logic TBA
+                // NA
             }
                 break;
             case "Defend":
             {
-                // Logic TBA
+                // NA
             }
                 break;
             case "Magic":
             {
-                // Logic TBA
+                // NA
             }
                 break;
             

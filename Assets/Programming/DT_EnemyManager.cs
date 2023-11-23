@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = System.Random;
 
 public class DT_EnemyManager : MonoBehaviour
 {
-    [Header("Moving Enemies")] 
+    [Header("Moving Enemies")]
     [SerializeField] private DT_EnemyGroup[] movingEnemies;
 
     [Header("Stationary Enemies")] 
@@ -15,8 +16,9 @@ public class DT_EnemyManager : MonoBehaviour
     private bool _canSpawnEnemies;
     
     private List<GameObject> _spawnedEnemies = new List<GameObject>();
-    private int _maxListSize;
+    private int _maxListSize = 30;
     private GameManager.PlayerState _oldPlayerState;
+    private bool _isSpawnerActive;
     private void Awake()
     {
         // Subscribe to know when game is paused/unpaused
@@ -29,30 +31,42 @@ public class DT_EnemyManager : MonoBehaviour
         // Don't do anything if no enemies assigned
         if (stationaryEnemies.Length == 0 || movingEnemies.Length == 0) return;
         
-        // Stationary enemies don't need to be spawned
-        // Spawn moving enemies
-        StartCoroutine(SpawnEnemies());
+        // Turn on spawner
+        ToggleMovingEnemies(true);
     }
 
-    public IEnumerator SpawnEnemies()
+    public IEnumerator SpawnEnemies(DT_EnemyGroup group)
     {
         // Don't do anything if no enemies assigned 
-        if (movingEnemies.Length == 0) yield return null;
+        if (group.enemyToSpawn == null) yield return null;
         
-        foreach (DT_EnemyGroup group in movingEnemies)
-        {
-            // Repeat forever
-            while(true)
+        // Repeat forever while true
+            while(_isSpawnerActive)
             {
-                // Wait for time set
-                yield return new WaitForSeconds(group.spawnRate);
+                // Wait for time set (dividing 1 by rate means higher number = more spawning)
+                yield return new WaitForSeconds(1/group.spawnRate);
                 
                 // Pick a random spawn point
                 var element = UnityEngine.Random.Range(0, group.spawnPoints.Length);
                 var point = group.spawnPoints[element];
                 
+                // Assign rotation
+                Quaternion rotation = default;
+                if (group.randomRotation)
+                {
+                    rotation = UnityEngine.Random.rotation;
+                }
+                else if (!group.randomRotation)
+                {
+                    rotation = Quaternion.identity;
+                }
+
                 // Spawn an enemy there
-                GameObject newEnemy = Instantiate(group.enemyToSpawn, point.transform.position, Quaternion.identity);
+                GameObject newEnemy = Instantiate(group.enemyToSpawn, point.transform.position, rotation);
+                
+                // Set it's move speed and max lifespan
+                newEnemy.GetComponent<DT_MovingEnemy>().moveSpeed = group.moveSpeed;
+                newEnemy.GetComponent<DT_MovingEnemy>().maxLifeSpan = group.maxLifeSpan;
                 
                 // Add enemy to a list
                 _spawnedEnemies.Add(newEnemy);
@@ -67,18 +81,8 @@ public class DT_EnemyManager : MonoBehaviour
                     _spawnedEnemies.RemoveRange(0, elementsToRemove);
                 }
             }
-        }
     }
-
-    public void UpdateEnemies()
-    {
-        // For each enemy in the list that is not empty, do a thing
-        foreach (var enemy in _spawnedEnemies.Where(enemy => !enemy))
-        {
-            //do a thing
-        }
-    }
-
+    
     private void OnDestroy()
     {
         // Unsubscribe when destroyed
@@ -89,27 +93,30 @@ public class DT_EnemyManager : MonoBehaviour
     public void ToggleMovingEnemies(bool toggle)
     {
         if (movingEnemies.Length == 0) return; 
-        
+        Debug.Log($"Moving enemy toggle is {toggle}.");
         if (toggle) //true
         {
             // Start Spawning Enemies
-            StartCoroutine(SpawnEnemies());
-                
-            // Restart all Moving Enemies
-            foreach (var movingEnemy in _spawnedEnemies)
+            _isSpawnerActive = true;
+            foreach (DT_EnemyGroup group in movingEnemies)
             {
-                movingEnemy.GetComponent<DT_MovingEnemy>().EnemyToggle(true);
+                StartCoroutine(SpawnEnemies(group));
             }
         }
         else
         {
             // Stop Spawning Enemies
-            StopCoroutine(SpawnEnemies());
-                
-            // Stop all Moving Enemies
+            _isSpawnerActive = false;
+            
+            // Destroy all existing enemies
+            if (_spawnedEnemies == null) return;
+            // For enemies in the list that have not already self destructed
             foreach (var movingEnemy in _spawnedEnemies)
             {
-                movingEnemy.GetComponent<DT_MovingEnemy>().EnemyToggle(false);
+                if (movingEnemy != null)
+                {
+                    Destroy(movingEnemy.gameObject);
+                }
             }
         }
     }
@@ -117,21 +124,21 @@ public class DT_EnemyManager : MonoBehaviour
     public void ToggleStationaryEnemies(bool toggle)
     {
         if (stationaryEnemies.Length == 0) return; 
-        
+        Debug.Log($"Stationary enemy toggle is {toggle}.");
         if (toggle) //true
         {
             // Start all Stationary Enemies
-            foreach (var stationaryEnemy in stationaryEnemies)
+            foreach (var enemy in stationaryEnemies)
             {
-                stationaryEnemy.GetComponent<DT_StationaryEnemy>().EnemyToggle(true);
+                enemy.GetComponent<DT_StationaryEnemy>().EnemyToggle(true);
             }
         }
         else
         {
             // Stop all Stationary Enemies
-            foreach (var stationaryEnemy in stationaryEnemies)
+            foreach (var enemy in stationaryEnemies)
             {
-                stationaryEnemy.GetComponent<DT_StationaryEnemy>().EnemyToggle(false);
+                enemy.GetComponent<DT_StationaryEnemy>().EnemyToggle(false);
             }
         }
     }
@@ -171,20 +178,20 @@ public class DT_EnemyManager : MonoBehaviour
                 movingEnemy.GetComponent<DT_MovingEnemy>().OnPlayerCrouch(false);
             }
         }
-        
+        // If player was bard mode but isn't anymore
+        if (_oldPlayerState == GameManager.PlayerState.BardMode && newPlayerState != GameManager.PlayerState.BardMode)
+        {
+            // Maybe change this later to enable/disable colliders?
+            // Toggle enemies on
+            ToggleMovingEnemies(true);
+            ToggleStationaryEnemies(true);
+        }
+
         switch (newPlayerState)
         {
-            case GameManager.PlayerState.Idle:
-                break;
-            case GameManager.PlayerState.Talking:
-            // This behaviour is handled by DT_TriggerHandler on LevelManager
-                break;
-            case GameManager.PlayerState.Stepping:
-                break;
-            case GameManager.PlayerState.Climbing:
-                break;
             case GameManager.PlayerState.Crouching:
             {
+                if (_spawnedEnemies == null) return;
                 // Tell moving enemies that player is crouching
                 foreach (var movingEnemy in _spawnedEnemies)
                 {
@@ -192,23 +199,45 @@ public class DT_EnemyManager : MonoBehaviour
                 }
             }
                 break;
+            
+            case GameManager.PlayerState.Defending: // NOTE: Player cannot defend stationary Enemies
+            {
+                if (_spawnedEnemies == null) return;
+                // Tell moving enemies that player is defending
+                foreach (var movingEnemy in _spawnedEnemies)
+                {
+                    movingEnemy.GetComponent<DT_MovingEnemy>().OnPlayerDefend();
+                }
+            }
+                break;
+            case GameManager.PlayerState.Attacking: // NOTE: Player cannot attack moving Enemies
+            {
+                if (stationaryEnemies == null) return;
+                // Tell stationary enemies that player is attacking
+                foreach (var stationaryEnemy in stationaryEnemies)
+                {
+                    stationaryEnemy.GetComponent<DT_StationaryEnemy>().OnPlayerAttack();
+                }
+            }
+                break;
+            case GameManager.PlayerState.BardMode:
+            {
+                // Toggle enemies off
+                ToggleMovingEnemies(false);
+                ToggleStationaryEnemies(false);
+            }
+                break;
             case GameManager.PlayerState.Damaged:
                 // This behaviour is handled by DT_MovingEnemy and DT_Stationary_Enemy on each game object
                 break;
-            /*case GameManager.PlayerState.Attacking:
-            {
-                // Attack all attackable Stationary enemies
-                foreach (var enemy in stationaryEnemies)
-                {
-                    enemy.GetComponent<DT_StationaryEnemy>().OnPlayerAttack();
-                }
-            }
-                break;*/
-            case GameManager.PlayerState.Defending:
+            case GameManager.PlayerState.Talking:
+                // This behaviour is handled by DT_TriggerHandler on LevelManager
                 break;
+            case GameManager.PlayerState.Idle:
+            case GameManager.PlayerState.Stepping:
+            case GameManager.PlayerState.Climbing:
             case GameManager.PlayerState.Magic:
-                break;
-            case GameManager.PlayerState.BardMode:
+                // No change
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -223,6 +252,9 @@ public class DT_EnemyManager : MonoBehaviour
 public class DT_EnemyGroup
 { 
     public GameObject enemyToSpawn;
+    public bool randomRotation;
+    [Range(0.1f, 3.0f)] public float spawnRate;
+    [Range(0.1f, 1.0f)] public float moveSpeed;
+    [Tooltip("(in seconds)")] public float maxLifeSpan;
     public GameObject[] spawnPoints;
-    public float spawnRate;
 }

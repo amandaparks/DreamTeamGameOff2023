@@ -47,6 +47,7 @@ public class DT_StationaryEnemy : MonoBehaviour
     private GameObject _player;
     private Collider _damageCollider;
     private DT_PlayerDamage _playerDamage;
+    private bool _isEnemyActive;
 
     /* NOTE:
     *  Stationary enemies are:
@@ -85,10 +86,16 @@ public class DT_StationaryEnemy : MonoBehaviour
         _playerDamage = _player.GetComponent<DT_PlayerDamage>();
         
         // Instantiate audio sources
-        alwaysOnAudioSource = new GameObject().AddComponent<AudioSource>();
-        damageAudioSource = new GameObject().AddComponent<AudioSource>();
-        intervalAudioSource = new GameObject().AddComponent<AudioSource>();
-        destroyedAudioSource = new GameObject().AddComponent<AudioSource>();
+        alwaysOnAudioSource = gameObject.AddComponent<AudioSource>();
+        damageAudioSource = gameObject.AddComponent<AudioSource>();
+        intervalAudioSource = gameObject.AddComponent<AudioSource>();
+        destroyedAudioSource = gameObject.AddComponent<AudioSource>();
+        
+        if (intervalSound != null)
+        {
+            intervalAudioSource.clip = intervalSound;
+            intervalAudioSource.volume = intervalVolume;
+        }
         
         EnemyToggle(true);
     }
@@ -100,52 +107,63 @@ public class DT_StationaryEnemy : MonoBehaviour
         {
             AlwaysOn(true);
             if (damageType != DamageType.interval) return;
+            _isEnemyActive = true;
             StartCoroutine(IntervalDamage());
         }
         else
         {
             AlwaysOn(false);
             if (damageType != DamageType.interval) return;
-            StopCoroutine(IntervalDamage());
+            Debug.Log("Stopping Coroutine Interval Damage");
+            _isEnemyActive = false;
+            TurnComponentsOff();
         }
     }
 
     
     private IEnumerator IntervalDamage()
     {
-        if (intervalSound != null)
-            intervalAudioSource.clip = intervalSound;
-            intervalAudioSource.volume = intervalVolume;
+        
 
-        // while true runs forever
-        while (true)
+        // runs while enemy is allowed to be active
+        while (_isEnemyActive)
         {
-            // Turn everything on
-            intervalParticles.Play();
-            if (intervalSound != null)
-            {
-                intervalAudioSource.Play();
-            }
-            damageCollider.enabled = true;
-            damageCollider.isTrigger = true;
+            TurnComponentsOn();
             
             // Wait for duration
             yield return new WaitForSeconds(onDuration);
             
-            // Turn everything off
-            intervalParticles.Stop();
-            if (intervalSound != null)
-            {
-                intervalAudioSource.Stop();
-            }
-            damageCollider.enabled = false;
-            damageCollider.isTrigger = false;
+            TurnComponentsOff();
             
             // Wait for duration
             yield return new WaitForSeconds(offDuration);
         }
     }
-    
+
+    private void TurnComponentsOn()
+    {
+        // Turn everything on
+        intervalParticles.Play();
+        if (intervalSound != null)
+        {
+            intervalAudioSource.Play();
+        }
+        damageCollider.enabled = true;
+        damageCollider.isTrigger = true;
+    }
+
+    private void TurnComponentsOff()
+    {
+        // Turn everything off
+        intervalParticles.Stop();
+        if (intervalSound != null)
+        {
+            intervalAudioSource.Stop();
+        }
+        damageCollider.enabled = false;
+        damageCollider.isTrigger = false;
+    }
+
 
     private void AlwaysOn(bool toggle)
     {
@@ -156,6 +174,7 @@ public class DT_StationaryEnemy : MonoBehaviour
             if (alwaysOnSound == null) return;
             alwaysOnAudioSource.clip = alwaysOnSound;
             alwaysOnAudioSource.Play();
+            Debug.Log("particles and audio should be on.");
             
         }
         else //false
@@ -164,10 +183,11 @@ public class DT_StationaryEnemy : MonoBehaviour
             {alwaysOnParticles.Stop();}
             if (alwaysOnSound == null) return;
             alwaysOnAudioSource.Stop();
+            Debug.Log("particles and audio should be stopped.");
         }
 
         if (damageType != DamageType.constant) return;
-        
+        Debug.Log("This should not show.");
         damageCollider.enabled = toggle;
         damageCollider.isTrigger = toggle;
     }

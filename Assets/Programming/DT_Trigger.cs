@@ -76,11 +76,12 @@ public class DT_Trigger : MonoBehaviour
     {
         // Do nothing if not prepared
         if (!_isPrepared) return;
-        Debug.Log("=== Trigger Entered ===");
         
         // If trigger enter by Player
         if (other.CompareTag("Player"))
         {
+            Debug.Log("=== Trigger Entered ===");
+            
             switch (_triggerType)
             {
                 case "both":

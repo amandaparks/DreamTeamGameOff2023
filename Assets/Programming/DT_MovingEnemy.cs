@@ -15,8 +15,8 @@ public class DT_MovingEnemy : MonoBehaviour
         screenLeftToRight,
         shootTowardPlayer
     }
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float maxLifeSpan;
+    [HideInInspector] public float moveSpeed;
+    [HideInInspector] public float maxLifeSpan;
     
     
     [Header("== Player Interaction ==")]
@@ -39,12 +39,11 @@ public class DT_MovingEnemy : MonoBehaviour
     [HideInInspector] public AudioSource collisionAudioSource;
     [SerializeField] private string environmentTag;
     
-    [Header("== Attackable Enemy Settings ==")]
-    [SerializeField] private bool playerCanAttack;
-    [SerializeField] private float maxAttackableDistance;
-    [SerializeField] private ParticleSystem destroyedParticles;
-    [SerializeField] private AudioClip destroyedSound;
-    [HideInInspector] public AudioSource destroyedAudioSource;
+    [Header("== Defendable Enemy Settings ==")]
+    [SerializeField] private bool playerCanDefend;
+    [SerializeField] private ParticleSystem disabledParticles;
+    [SerializeField] private AudioClip disabledSound;
+    [HideInInspector] public AudioSource disabledAudioSource;
     
     private GameObject _player;
     private bool _isEnemyActive;
@@ -54,11 +53,11 @@ public class DT_MovingEnemy : MonoBehaviour
     private float _minMoveDistance = 100f; // hard coding to save time
 
     // For use in calculating targets
-    private Vector3 _startPoint;
-    private Vector3 _endPoint;
-    private Vector3 _playerPosition;
-    private Vector3 _enemyStartPosition;
-    private float _distance;
+    [SerializeField] private Vector3 _startPoint;
+    [SerializeField] private Vector3 _endPoint;
+    [SerializeField] private Vector3 _playerPosition;
+    [SerializeField] private Vector3 _enemyStartPosition;
+    [SerializeField] private float _distance;
     
     /* NOTE:
   *  Moving enemies are:
@@ -68,7 +67,7 @@ public class DT_MovingEnemy : MonoBehaviour
   *    - Shooting arrows 
   */
 
-    public void EnemyToggle(bool isEnemyActive)
+    private void EnemyToggle(bool isEnemyActive)
     {
         // Start/stop enemy behaviour if true/false
         if (isEnemyActive)
@@ -94,10 +93,10 @@ public class DT_MovingEnemy : MonoBehaviour
         _playerDamage = _player.GetComponent<DT_PlayerDamage>();
         
         // Instantiate audio sources
-        alwaysOnAudioSource = new GameObject().AddComponent<AudioSource>();
-        damageAudioSource = new GameObject().AddComponent<AudioSource>();
-        collisionAudioSource = new GameObject().AddComponent<AudioSource>();
-        destroyedAudioSource = new GameObject().AddComponent<AudioSource>();
+        alwaysOnAudioSource = gameObject.AddComponent<AudioSource>();
+        damageAudioSource = gameObject.AddComponent<AudioSource>();
+        collisionAudioSource = gameObject.AddComponent<AudioSource>();
+        disabledAudioSource = gameObject.AddComponent<AudioSource>();
         
         // Assign targets depending on move type
         AssignTargets(moveType);
@@ -106,6 +105,7 @@ public class DT_MovingEnemy : MonoBehaviour
         EnemyToggle(true);
         
         // Start moving
+        _canCoroutineRun = true;
         StartCoroutine(Move());
 
         // Start self-destruct countdown
@@ -149,30 +149,30 @@ public class DT_MovingEnemy : MonoBehaviour
 
     private IEnumerator Move()
     {
-        if (!_canCoroutineRun)
+        if (!_canCoroutineRun) // Pause coroutine
         {
-            yield return null; // Coroutine is paused
+            yield return null;
         }
 
         // Start counting
         float elapsedTime = 0f;
 
-        while (elapsedTime < moveSpeed)
+        while (elapsedTime < (5f/moveSpeed))
         {
-            if (!_canCoroutineRun)
+            if (_canCoroutineRun)
             {
-                yield return null; // Coroutine is paused
+                // Move enemy in assigned direction
+                transform.position = Vector3.Lerp(_startPoint, _endPoint, elapsedTime / (5f/moveSpeed));
+
+                // Increment for next frame
+                elapsedTime += Time.deltaTime;
+
+                // Wait for next frame
+                yield return null;
             }
-
-            // Move enemy in assigned direction
-            transform.position = Vector3.Lerp(_startPoint, _endPoint, elapsedTime / moveSpeed);
-
-            // Increment for next frame
-            elapsedTime += Time.deltaTime;
-
-            // Wait
-            yield return null;
         }
+        
+        yield return null;
     }
 
     private void AlwaysOn(bool toggle)
@@ -202,8 +202,9 @@ public class DT_MovingEnemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Don't damage already damaged player
+            // Don't damage already damaged player, or player in Bard Mode
             if (GameManager.CurrentPlayerState == GameManager.PlayerState.Damaged) return;
+            if (GameManager.CurrentPlayerState == GameManager.PlayerState.BardMode) return;
             
             // Cause damage to player (OnPlayerCrouch handles crouching)
             _playerDamage.DamagePlayer();
@@ -233,29 +234,22 @@ public class DT_MovingEnemy : MonoBehaviour
         }
     }
     
-    public void OnPlayerAttack()
+    public void OnPlayerDefend()
     {
-        // If not attackable enemy, ignore
-        if (!playerCanAttack) return;
+        // If not defendable enemy, ignore
+        if (!playerCanDefend) return;
         
-        // Calculate distance from player
-        float distance = Vector3.Distance(_player.transform.position, transform.position);
-
-        // If player is close enough
-        if (distance <= maxAttackableDistance)
+        if (disabledParticles != null)
+        {disabledParticles.Play();}
+        if (disabledSound != null)
         {
-            if (destroyedParticles != null)
-            {destroyedParticles.Play();}
-            if (destroyedSound != null)
-            {
-                destroyedAudioSource.Play();
-            }
-            damageCollider.enabled = false;
-            damageCollider.isTrigger = false;
-            
-            // Destroy yoself
-            Destroy(gameObject);
+            disabledAudioSource.Play();
         }
+        damageCollider.enabled = false;
+        damageCollider.isTrigger = false;
+            
+        // Destroy yoself
+        Destroy(gameObject);
     }
 
     public void OnPlayerCrouch(bool isCrouching)

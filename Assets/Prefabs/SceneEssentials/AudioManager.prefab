@@ -73,6 +73,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 846335e88fe19604fbb816666231952c, type: 3}
     volume: 0.7
     source: {fileID: 0}
+  - name: Kalimba_fail
+    clip: {fileID: 8300000, guid: af30f9032b3dc4a42ad9698331d6ea1f, type: 3}
+    volume: 0
+    source: {fileID: 0}
   kalimbaNotes:
   - buttonKey: 1
     kalimbaNote: A
@@ -111,6 +115,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - buttonKey: fail
     kalimbaNote: Failed Twang Sound
-    noteClip: {fileID: 0}
+    noteClip: {fileID: 8300000, guid: 846335e88fe19604fbb816666231952c, type: 3}
+    volume: 0.7
+    source: {fileID: 0}
+  - buttonKey: B
+    kalimbaNote: Bard Button
+    noteClip: {fileID: 8300000, guid: 7925b530c10094d4babec3c9046fdf59, type: 3}
     volume: 0.7
     source: {fileID: 0}

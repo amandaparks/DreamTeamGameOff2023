@@ -7,26 +7,29 @@ public class DT_LevelManager : MonoBehaviour
     
     [Header("What is this scene?")]
     [SerializeField] private GameManager.GameScene _gameScene;
-    [Header("What should the player state be on start?")]
-    [SerializeField] private GameManager.PlayerState _playerState;
-    [Header("What is the player's level?")]
-    [SerializeField] private GameManager.PlayerLevel _playerLevel;
-    [Header("On completion, what will be the player's level?")]
-    [SerializeField] private GameManager.PlayerLevel _playerGetLevel;
+    [Header("Display a scroll on start?")] 
+    [SerializeField] private bool _showScroll;
+    [Header("Player's current level:")]
+    [SerializeField] private GameManager.PlayerLevel _startLevel;
+    [Header("Level after completing this scene:")]
+    [SerializeField] private GameManager.PlayerLevel _endLevel;
 
+    private DT_GameTextManager _gameTextManager;
+    
     // Start is called before the first frame update
     void Awake()
     {
         GameManager.CurrentGameState = GameManager.GameState.Playing;
-        GameManager.CurrentPlayerState = _playerState;
         GameManager.CurrentScene = _gameScene;
-        GameManager.CurrentPlayerLevel = _playerLevel;
-        GameManager.EndLevelPlayerLevel = _playerGetLevel;
+        GameManager.CurrentPlayerLevel = _startLevel;
+        GameManager.EndLevelPlayerLevel = _endLevel;
+        _gameTextManager = FindObjectOfType<DT_GameTextManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
         
+        // Load text if expected
+        if (!_showScroll) return;
+        _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Scroll,_gameScene.ToString());
     }
 }
