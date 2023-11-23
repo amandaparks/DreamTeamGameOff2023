@@ -20,13 +20,13 @@ public class DT_InputManager : MonoBehaviour
 
     /*   This script handles GAMEPLAY and BARD and TALKING input
      *      1. Listens for which the UI buttons are being clicked
-     *      2. Receives keyboard input
-     *      3. Invokes the relevant methods on these scripts attached to the player:
+     *      2. Receives keyboard input and..
+     *      3. Mimics UI input
+     *      4. Invokes the relevant methods on these scripts attached to the player:
      *          (or ignore if game is paused)
      *              - DT_PlayerActions
      *              - DT_PlayerMovement
      *              - DT_BardMode
-     *      4. Mimics UI clicks based on keyboard input
      *      5. Holds method for switching action map
      *      6. Hides kalimba keys that Player doesn't have yet
      */
@@ -199,165 +199,99 @@ public class DT_InputManager : MonoBehaviour
         // GAMEPLAY
             case "Defend":
             {
-                // Do action
-                if (context.performed)
-                {
-                    _playerActions.Defend();
-                }
-
-                // Make button appear clicked
+                // Click button
                 SelectDeselect(button1, context);
                 break;
             }
             case "Crouch":
             {
-                if (context.performed)
-                {
-                    _playerActions.Crouch();
-                }
-
+                // Click button
                 SelectDeselect(button2, context);
                 break;
             }
             case "StepBkd":
             {
-                if (context.performed)
-                {
-                    _playerMovement.StepBkd();
-                }
-
+                // Click button
                 SelectDeselect(button3, context);
                 break;
             }
             case "Climb":
             {
-                if (context.performed)
-                {
-                    _playerMovement.Climb();
-                }
-
+                // Click button
                 SelectDeselect(button4, context);
                 break;
             }
             case "StepFwd":
             {
-                if (context.performed)
-                {
-                    _playerMovement.StepFwd();
-                }
-
+                // Click button
                 SelectDeselect(button5, context);
                 break;
             }
             case "Attack":
             {
-                if (context.performed)
-                {
-                    _playerActions.Attack();
-                }
-
+                // Click button
                 SelectDeselect(button6, context);
                 break;
             }
             case "Magic":
             {
-                if (context.performed)
-                {
-                    _playerActions.Magic();
-                }
-
+                // Click button
                 SelectDeselect(button7, context);
                 break;
             }
             case "Bard":
             {
-                if (context.performed)
-                {
-                    _playerActions.Bard();
-                }
-
+                // Click button
                 SelectDeselect(buttonB, context);
                 break;
             }
         // TALKING
             case "Next":
             {
-                if (context.performed)
-                {
-                    _playerActions.Next();
-                }
-
+                // Click button
                 SelectDeselect(button5, context);
                 break;
             }
         // BARD MODE
             case "1":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("1");
-                }
-
+                // Click button
                 SelectDeselect(button1, context);
                 break;
             }
             case "2":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("2");
-                }
-
+                // Click button
                 SelectDeselect(button2, context);
                 break;
             }
             case "3":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("3");
-                }
-
+                // Click button
                 SelectDeselect(button3, context);
                 break;
             }
             case "4":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("4");
-                }
-
+                // Click button
                 SelectDeselect(button4, context);
                 break;
             }
             case "5":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("5");
-                }
-
+                // Click button
                 SelectDeselect(button5, context);
                 break;
             }
             case "6":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("6");
-                }
-
+                // Click button
                 SelectDeselect(button6, context);
                 break;
             }
             case "7":
             {
-                if (context.performed)
-                {
-                    _bardMode.PlayNote("7");
-                }
-
+                // Click button
                 SelectDeselect(button7, context);
                 break;
             }

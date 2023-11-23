@@ -10,6 +10,7 @@ TagManager:
   - LadderTop
   - UI_Info
   - NPC
+  - HotSpring
   layers:
   - Default
   - TransparentFX

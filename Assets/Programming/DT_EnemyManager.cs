@@ -28,8 +28,8 @@ public class DT_EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        // Don't do anything if no enemies assigned
-        if (stationaryEnemies.Length == 0 || movingEnemies.Length == 0) return;
+        // Don't do anything if no enemies at all
+        if (stationaryEnemies.Length == 0 && movingEnemies.Length == 0) return;
         
         // Turn on spawner
         ToggleMovingEnemies(true);
@@ -169,15 +169,6 @@ public class DT_EnemyManager : MonoBehaviour
 
     private void HandlePlayerStateChanged(GameManager.PlayerState newPlayerState)
     {
-        // If player was crouching but isn't anymore
-        if (_oldPlayerState == GameManager.PlayerState.Crouching && newPlayerState != GameManager.PlayerState.Crouching)
-        {
-            //Tell moving enemies
-            foreach (var movingEnemy in _spawnedEnemies)
-            {
-                movingEnemy.GetComponent<DT_MovingEnemy>().OnPlayerCrouch(false);
-            }
-        }
         // If player was bard mode but isn't anymore
         if (_oldPlayerState == GameManager.PlayerState.BardMode && newPlayerState != GameManager.PlayerState.BardMode)
         {
@@ -189,17 +180,6 @@ public class DT_EnemyManager : MonoBehaviour
 
         switch (newPlayerState)
         {
-            case GameManager.PlayerState.Crouching:
-            {
-                if (_spawnedEnemies == null) return;
-                // Tell moving enemies that player is crouching
-                foreach (var movingEnemy in _spawnedEnemies)
-                {
-                    movingEnemy.GetComponent<DT_MovingEnemy>().OnPlayerCrouch(true);
-                }
-            }
-                break;
-            
             case GameManager.PlayerState.Defending: // NOTE: Player cannot defend stationary Enemies
             {
                 if (_spawnedEnemies == null) return;
@@ -232,6 +212,9 @@ public class DT_EnemyManager : MonoBehaviour
                 break;
             case GameManager.PlayerState.Talking:
                 // This behaviour is handled by DT_TriggerHandler on LevelManager
+                break;
+            case GameManager.PlayerState.Crouching:
+            // This check is done OnTriggerEnter
                 break;
             case GameManager.PlayerState.Idle:
             case GameManager.PlayerState.Stepping:

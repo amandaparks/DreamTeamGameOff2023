@@ -32,8 +32,9 @@ public class DT_MovingEnemy : MonoBehaviour
     [SerializeField] private AudioClip alwaysOnSound;
     [SerializeField] private ParticleSystem alwaysOnParticles;
     [HideInInspector] public AudioSource alwaysOnAudioSource;
-    
-    [Header("== Collide Environment Settings ==")]
+
+    [Header("== Collide Environment Settings ==")] 
+    [SerializeField] private Animation collisionAnimation;
     [SerializeField] private ParticleSystem collisionParticles;
     [SerializeField] private AudioClip collisionSound;
     [HideInInspector] public AudioSource collisionAudioSource;
@@ -202,9 +203,10 @@ public class DT_MovingEnemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Don't damage already damaged player, or player in Bard Mode
+            // Don't damage already damaged player, or player in Bard Mode, or player Crouching & Crouching is safe
             if (GameManager.CurrentPlayerState == GameManager.PlayerState.Damaged) return;
             if (GameManager.CurrentPlayerState == GameManager.PlayerState.BardMode) return;
+            if (crouchIsSafe && GameManager.CurrentPlayerState == GameManager.PlayerState.Crouching) return;
             
             // Cause damage to player (OnPlayerCrouch handles crouching)
             _playerDamage.DamagePlayer();
@@ -215,25 +217,33 @@ public class DT_MovingEnemy : MonoBehaviour
             if (damageSound == null) return;
             damageAudioSource.clip = damageSound;
             damageAudioSource.Play();
-            
-            // Destroy yoself
-            Destroy(gameObject);
         }
 
         if (other.CompareTag(environmentTag))
         {
+            // Turn off collider
+            damageCollider.enabled = false;
+            damageCollider.isTrigger = false;
+            
             // Do effects and sound
             if (collisionParticles != null)
-            {collisionParticles.Play();}
-            if (collisionSound == null) return;
-            collisionAudioSource.clip = damageSound;
-            collisionAudioSource.Play();
-            
-            // Destroy yoself
-            Destroy(gameObject);
+            {
+                collisionParticles.Play();
+            }
+
+            if (collisionSound != null)
+            {
+                collisionAudioSource.clip = damageSound;
+                collisionAudioSource.Play();
+            }
+
+            if (collisionAnimation != null)
+            {
+                collisionAnimation.Play();
+            }
         }
     }
-    
+
     public void OnPlayerDefend()
     {
         // If not defendable enemy, ignore
@@ -250,24 +260,6 @@ public class DT_MovingEnemy : MonoBehaviour
             
         // Destroy yoself
         Destroy(gameObject);
-    }
-
-    public void OnPlayerCrouch(bool isCrouching)
-    {
-        // Ignore if player isn't protected by crouching
-        if (!crouchIsSafe) return;
-        
-        // Disable damage collider while player is crouching
-        if (isCrouching)
-        {
-            damageCollider.enabled = false;
-            damageCollider.isTrigger = false;
-        }
-        else
-        {
-            damageCollider.enabled = true;
-            damageCollider.isTrigger = true;
-        }
     }
 
 }
