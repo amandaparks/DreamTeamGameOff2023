@@ -11,6 +11,7 @@ TagManager:
   - UI_Info
   - NPC
   - HotSpring
+  - WindBreak
   layers:
   - Default
   - TransparentFX

@@ -6,14 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Geyser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Geyser.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/MovingEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/MovingEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/StationaryEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/StationaryEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/MAT_DungeonFlloor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/MAT_DungeonFlloor.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/Yellow.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Bec/iceblue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Bec/iceblue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

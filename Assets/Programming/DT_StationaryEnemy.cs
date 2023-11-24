@@ -35,7 +35,10 @@ public class DT_StationaryEnemy : MonoBehaviour
     [SerializeField] private bool playerCanAttack;
     [SerializeField] private float maxAttackableDistance;
     [SerializeField] private ParticleSystem destroyedParticles;
+    [SerializeField] private Animation destroyedAnimation;
     [SerializeField] private AudioClip destroyedSound;
+    [SerializeField] private GameObject objectToEnable;
+    [SerializeField] private GameObject objectToDisable;
     [Range(0f, 1f)] public float destroyedVolume;
     [HideInInspector] public AudioSource destroyedAudioSource;
 
@@ -55,30 +58,7 @@ public class DT_StationaryEnemy : MonoBehaviour
     *    - Poison bramble
     */
 
-    public void OnPlayerAttack()
-    {
-        // If not attackable enemy, ignore
-        if (!playerCanAttack) return;
-        
-        // Calculate distance from player
-        float distance = Vector3.Distance(_player.transform.position, transform.position);
-
-        // If player is close enough
-        if (distance <= maxAttackableDistance)
-        {
-            if (destroyedParticles != null)
-            {destroyedParticles.Play();}
-            if (destroyedSound != null)
-            {
-                destroyedAudioSource.Play();
-            }
-            damageCollider.enabled = false;
-            damageCollider.isTrigger = false;
-            
-            gameObject.SetActive(false);
-        }
-    }
-
+    
     void Start()
     {
         // Find the player and scripts
@@ -96,9 +76,58 @@ public class DT_StationaryEnemy : MonoBehaviour
             intervalAudioSource.clip = intervalSound;
             intervalAudioSource.volume = intervalVolume;
         }
-        
+
         EnemyToggle(true);
     }
+    
+    public void OnPlayerAttack()
+    {
+        // If not attackable enemy, ignore
+        if (!playerCanAttack) return;
+        
+        // Calculate distance from player
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
+
+        // If player is close enough
+        if (distance <= maxAttackableDistance)
+        {
+            
+            if (destroyedAnimation != null)
+            {
+                destroyedAnimation.Play();
+            }
+            
+            if (objectToEnable != null)
+            {
+                Debug.Log($"Enabling {objectToEnable}");
+                objectToEnable.SetActive(true);
+            }
+            if (objectToDisable != null)
+            {
+                Debug.Log($"Disabling {objectToDisable}");
+                objectToDisable.SetActive(false);
+            }
+            
+            if (destroyedParticles != null)
+            {
+                destroyedParticles.Play();
+            }
+            if (destroyedSound != null)
+            {
+                destroyedAudioSource.Play();
+            }
+            
+            damageCollider.enabled = false;
+            damageCollider.isTrigger = false;
+
+            if (objectToDisable == null)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+  
 
     public void EnemyToggle(bool isEnemyActive)
     {

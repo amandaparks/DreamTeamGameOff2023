@@ -39,7 +39,8 @@ public class DT_MovingEnemy : MonoBehaviour
     [SerializeField] private AudioClip collisionSound;
     [HideInInspector] public AudioSource collisionAudioSource;
     [SerializeField] private string environmentTag;
-    
+    [SerializeField] private bool dropOnCollide;
+
     [Header("== Defendable Enemy Settings ==")]
     [SerializeField] private bool playerCanDefend;
     [SerializeField] private ParticleSystem disabledParticles;
@@ -171,7 +172,7 @@ public class DT_MovingEnemy : MonoBehaviour
                 if (playerCanDefend)
                 {
                     OnPlayerDefend();
-                    yield break;
+                    yield break; 
                 }
             }
             
@@ -181,7 +182,7 @@ public class DT_MovingEnemy : MonoBehaviour
             // If current distance is equal to or greater than max distance, disable and drop
             if (_distanceFromStart >= maxMoveDistance)
             {
-                StartCoroutine(DisableThenDrop(0f));
+                StartCoroutine(DisableWaitDrop(0f));
                 yield break;
             }
             
@@ -254,25 +255,29 @@ public class DT_MovingEnemy : MonoBehaviour
         if (string.IsNullOrEmpty(environmentTag)) return;
         if (other.CompareTag(environmentTag))
         {
-            // Turn off collider
-            damageCollider.enabled = false;
-            damageCollider.isTrigger = false;
-
             // Do effects and sound
             if (collisionParticles != null)
             {
                 collisionParticles.Play();
             }
-
             if (collisionSound != null)
             {
                 collisionAudioSource.clip = damageSound;
                 collisionAudioSource.Play();
             }
-
             if (collisionAnimation != null)
             {
                 collisionAnimation.Play();
+            }
+            if (dropOnCollide)
+            {
+                StartCoroutine(DisableWaitDrop(0f));
+            }
+            else
+            {
+                // Just turn off collider
+                damageCollider.enabled = false;
+                damageCollider.isTrigger = false;
             }
         }
     }
@@ -291,10 +296,10 @@ public class DT_MovingEnemy : MonoBehaviour
             disabledAudioSource.Play();
         }
 
-        StartCoroutine(DisableThenDrop(0.5f));
+        StartCoroutine(DisableWaitDrop(0.5f));
     }
 
-    private IEnumerator DisableThenDrop(float seconds)
+    private IEnumerator DisableWaitDrop(float seconds)
     {
         // Turn off collider
         damageCollider.enabled = false;
