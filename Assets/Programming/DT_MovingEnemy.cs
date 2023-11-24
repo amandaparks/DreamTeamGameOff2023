@@ -51,14 +51,16 @@ public class DT_MovingEnemy : MonoBehaviour
     private bool _canCoroutineRun;
     private Collider _damageCollider;
     private DT_PlayerDamage _playerDamage;
-    private float _minMoveDistance = 100f; // hard coding to save time
-
+    public float maxMoveDistance;
+    
     // For use in calculating targets
+    // Serialized for debugging
     [SerializeField] private Vector3 _startPoint;
     [SerializeField] private Vector3 _endPoint;
     [SerializeField] private Vector3 _playerPosition;
     [SerializeField] private Vector3 _enemyStartPosition;
-    [SerializeField] private float _distance;
+   // [SerializeField] private float _distance;
+   [SerializeField] private float _distanceFromStart;
     
     /* NOTE:
   *  Moving enemies are:
@@ -118,26 +120,31 @@ public class DT_MovingEnemy : MonoBehaviour
         _enemyStartPosition = transform.position;
         _startPoint = _enemyStartPosition;
         _playerPosition = _player.transform.position;
-        
+        // if max move distance hasn't been set, set it to 100
+        if (maxMoveDistance == 0)
+        {
+            maxMoveDistance = 100f;
+        }
+
         switch (type)
         {
             case MovementType.fallStraightDown:
                 // End point is further down on the Y axis
-                _endPoint = new Vector3(_enemyStartPosition.x, _enemyStartPosition.y - _minMoveDistance, _enemyStartPosition.z);
+                _endPoint = new Vector3(_enemyStartPosition.x, _enemyStartPosition.y - maxMoveDistance, _enemyStartPosition.z);
                 // Distance
-                _distance = Vector3.Distance(_startPoint, _endPoint);
+               // _distance = Vector3.Distance(_startPoint, _endPoint);
                 break;
             case MovementType.screenRightToLeft:
                 // End point is further left on the X axis
-                _endPoint = new Vector3(_enemyStartPosition.x - _minMoveDistance, _enemyStartPosition.y, _enemyStartPosition.z);
+                _endPoint = new Vector3(_enemyStartPosition.x - maxMoveDistance, _enemyStartPosition.y, _enemyStartPosition.z);
                 // Distance
-                _distance = Vector3.Distance(_startPoint, _endPoint);
+                //_distance = Vector3.Distance(_startPoint, _endPoint);
                 break;
             case MovementType.shootTowardPlayer:
                 // Work out direction to player
                 Vector3 direction = (_playerPosition - _startPoint).normalized;
                 // Set end point somewhere past that
-                _endPoint = _playerPosition + direction * _minMoveDistance;
+                _endPoint = _playerPosition + direction * maxMoveDistance;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -163,9 +170,19 @@ public class DT_MovingEnemy : MonoBehaviour
             {
                 if (playerCanDefend)
                 {
-                    StartCoroutine(OnPlayerDefend());
+                    OnPlayerDefend();
                     yield break;
                 }
+            }
+            
+            // Calculate distance travelled (Math.Abs = positive value)
+            _distanceFromStart = Math.Abs(Vector3.Distance(_startPoint, transform.position));
+            
+            // If current distance is equal to or greater than max distance, disable and drop
+            if (_distanceFromStart >= maxMoveDistance)
+            {
+                StartCoroutine(DisableThenDrop(0f));
+                yield break;
             }
             
             // Move enemy in assigned direction
@@ -176,7 +193,6 @@ public class DT_MovingEnemy : MonoBehaviour
             {
                 transform.LookAt(_player.transform.position);
             }
-
 
             // Increment for next frame
             elapsedTime += Time.deltaTime;
@@ -261,17 +277,11 @@ public class DT_MovingEnemy : MonoBehaviour
         }
     }
 
-    private IEnumerator OnPlayerDefend()
+    private void OnPlayerDefend()
     {
         // If not defendable enemy, ignore
-        if (!playerCanDefend) yield break;
-        // Stop running coroutine
-        _canCoroutineRun = false;
+        if (!playerCanDefend) return;
         
-        // Turn off collider
-        damageCollider.enabled = false;
-        damageCollider.isTrigger = false;
-
         if (disabledParticles != null)
         {
             disabledParticles.Play();
@@ -281,7 +291,20 @@ public class DT_MovingEnemy : MonoBehaviour
             disabledAudioSource.Play();
         }
 
-        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(DisableThenDrop(0.5f));
+    }
+
+    private IEnumerator DisableThenDrop(float seconds)
+    {
+        // Turn off collider
+        damageCollider.enabled = false;
+        damageCollider.isTrigger = false;
+        
+        // Stop running coroutine
+        _canCoroutineRun = false;
+        
+        // Allow Unity to catch up
+        yield return new WaitForSeconds(seconds);
         
         // Turn off kinematic so it falls with gravity
         gameObject.GetComponent<Rigidbody>().isKinematic = false;

@@ -64,9 +64,10 @@ public class DT_EnemyManager : MonoBehaviour
                 // Spawn an enemy there
                 GameObject newEnemy = Instantiate(group.enemyToSpawn, point.transform.position, rotation);
                 
-                // Set it's move speed and max lifespan
+                // Set it's move speed and max lifespan and max distance
                 newEnemy.GetComponent<DT_MovingEnemy>().moveSpeed = group.moveSpeed;
                 newEnemy.GetComponent<DT_MovingEnemy>().maxLifeSpan = group.maxLifeSpan;
+                newEnemy.GetComponent<DT_MovingEnemy>().maxMoveDistance = group.maxMoveDistance;
                 
                 // Add enemy to a list
                 _spawnedEnemies.Add(newEnemy);
@@ -233,5 +234,6 @@ public class DT_EnemyGroup
     [Range(0.1f, 3.0f)] public float spawnRate;
     [Range(0.1f, 1.0f)] public float moveSpeed;
     [Tooltip("(in seconds)")] public float maxLifeSpan;
+    [Tooltip("Use spawn point guides")] public float maxMoveDistance;
     public GameObject[] spawnPoints;
 }
