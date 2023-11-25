@@ -137,17 +137,25 @@ PrefabInstance:
       value: 2.647842
       objectReference: {fileID: 0}
     - target: {fileID: 2984697299645968188, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: m_Size.z
+      value: 0.34570876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984697299645968188, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: m_Center.x
-      value: -0.0063709617
+      value: -0.0063710213
       objectReference: {fileID: 0}
     - target: {fileID: 2984697299645968188, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: m_Center.z
-      value: -0.022206843
+      value: -0.024407431
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: moveType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 320f04d4c8845294597d7c77d9f4dea6, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: dropOnCollide
       value: 1
@@ -162,7 +170,7 @@ PrefabInstance:
       objectReference: {fileID: 9163741494683076885}
     - target: {fileID: 8446087185476981497, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: m_Name
-      value: WindGust
+      value: ME_WindGust
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

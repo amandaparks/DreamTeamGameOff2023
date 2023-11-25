@@ -16,7 +16,7 @@ public class DT_MovingEnemy : MonoBehaviour
         shootTowardPlayer
     }
     [HideInInspector] public float moveSpeed;
-    [HideInInspector] public float maxLifeSpan;
+    [HideInInspector] public float maxLifeSpan = 5f;
     
     
     [Header("== Player Interaction ==")]
@@ -52,6 +52,8 @@ public class DT_MovingEnemy : MonoBehaviour
     private bool _canCoroutineRun;
     private Collider _damageCollider;
     private DT_PlayerDamage _playerDamage;
+    private GameManager.PlayerState _oldPlayerState = GameManager.PlayerState.Idle; // Initialise as idle
+    private GameManager.GameState _previousGameState = GameManager.GameState.Playing; // Initialise as playing
     public float maxMoveDistance;
     
     // For use in calculating targets
@@ -152,6 +154,51 @@ public class DT_MovingEnemy : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // If game state has changed
+        if (_previousGameState != GameManager.CurrentGameState)
+        {
+            switch (GameManager.CurrentGameState)
+            {
+                case GameManager.GameState.Playing:
+                    EnemyToggle(true);
+                    break;
+                case GameManager.GameState.Paused:
+                    EnemyToggle(false);
+                    break;
+            }
+            _previousGameState = GameManager.CurrentGameState;
+        }
+
+        // If player state has changed
+        if (_oldPlayerState != GameManager.CurrentPlayerState)
+        {
+            if (_oldPlayerState == GameManager.PlayerState.BardMode &&
+                GameManager.CurrentPlayerState != GameManager.PlayerState.BardMode)
+            {
+                EnemyToggle(true);
+            }
+            
+            switch (GameManager.CurrentPlayerState)
+            {
+                case GameManager.PlayerState.Defending:
+                    if (playerCanDefend)
+                    {
+                        OnPlayerDefend();
+                    }
+                    break;
+                case GameManager.PlayerState.BardMode:
+                    EnemyToggle(false);
+                    break;
+            }
+            
+            _oldPlayerState = GameManager.CurrentPlayerState;
+            
+        }
+    }
+    
+
     private IEnumerator Move()
     {
         if (!_canCoroutineRun) // Pause coroutine
@@ -165,17 +212,7 @@ public class DT_MovingEnemy : MonoBehaviour
         while (elapsedTime < (5f/moveSpeed))
         {
             if (!_canCoroutineRun) yield return null; // skip the rest of the loop
-            
-            // Check if player is defending
-            if (GameManager.CurrentPlayerState == GameManager.PlayerState.Defending)
-            {
-                if (playerCanDefend)
-                {
-                    OnPlayerDefend();
-                    yield break; 
-                }
-            }
-            
+
             // Calculate distance travelled (Math.Abs = positive value)
             _distanceFromStart = Math.Abs(Vector3.Distance(_startPoint, transform.position));
             

@@ -5,6 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Bramble.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Bramble.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_01.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_01.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_02.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/FallingRock_02.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Geyser.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Geyser.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Icicle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/Icicle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/MagicArrow.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/MagicArrow.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/WindGust.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/WindGust.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TEMPLATE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TEMPLATE.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

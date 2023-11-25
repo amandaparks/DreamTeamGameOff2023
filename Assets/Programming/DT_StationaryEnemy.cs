@@ -51,6 +51,7 @@ public class DT_StationaryEnemy : MonoBehaviour
     private Collider _damageCollider;
     private DT_PlayerDamage _playerDamage;
     private bool _isEnemyActive;
+    private GameManager.PlayerState _oldPlayerState = GameManager.PlayerState.Idle; // Initialise as idle
 
     /* NOTE:
     *  Stationary enemies are:
@@ -58,7 +59,57 @@ public class DT_StationaryEnemy : MonoBehaviour
     *    - Poison bramble
     */
 
-    
+    private void Awake()
+    {
+        // Subscribe to know when game is paused/unpaused
+        GameManager.OnGameStateChanged += HandleGameStateChanged;
+        GameManager.OnPlayerStateChanged += HandlePlayerStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        // Unsub
+        GameManager.OnGameStateChanged -= HandleGameStateChanged;
+        GameManager.OnPlayerStateChanged -= HandlePlayerStateChanged;
+    }
+
+    private void HandleGameStateChanged(GameManager.GameState state)
+    {
+        // Start/stop activities depending on play/pause
+        switch (state)
+        {
+            case GameManager.GameState.Playing:
+                EnemyToggle(true);
+                break;
+            case GameManager.GameState.Paused:
+                EnemyToggle(false);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
+    }
+
+    private void HandlePlayerStateChanged(GameManager.PlayerState newPLayerState)
+    {
+        // If old state was bard mode and new mode isn't, turn enemies back on
+        if (_oldPlayerState == GameManager.PlayerState.BardMode && newPLayerState != GameManager.PlayerState.BardMode)
+        {
+            EnemyToggle(true);
+        }
+
+        switch (newPLayerState)
+        {
+            case GameManager.PlayerState.Attacking:
+                OnPlayerAttack();
+                break;
+            case GameManager.PlayerState.BardMode:
+                EnemyToggle(false);
+                break;
+        }
+        
+        _oldPlayerState = newPLayerState;
+    }
+
     void Start()
     {
         // Find the player and scripts
