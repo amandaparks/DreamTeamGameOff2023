@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6573459053370724543, guid: 7289c3eabd112344ca2c0362d4792117, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 800929489, guid: ad56ca042efd2a740ac3361323b31143, type: 3}
+    - target: {fileID: 6573459053370724543, guid: 7289c3eabd112344ca2c0362d4792117, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758816121710033317, guid: 7289c3eabd112344ca2c0362d4792117, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1d229b5bed2417a42b137844a8e862e4, type: 2}
     - target: {fileID: 7165266997149655218, guid: 7289c3eabd112344ca2c0362d4792117, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: D5_Amazon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
