@@ -237,8 +237,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7025302560906223207, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
+      propertyPath: m_Volume
+      value: 0.684
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025302560906223207, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1099,11 +1103,11 @@ PrefabInstance:
     - target: {fileID: 1925360076927019986, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_Follow
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 618517945}
     - target: {fileID: 1925360076927019986, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 618517945}
     - target: {fileID: 3071605120844951634, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1154,15 +1158,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8756888648176236213, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.41
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8756888648176236213, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.53
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 8756888648176236213, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.28
+      value: -9.7
       objectReference: {fileID: 0}
     - target: {fileID: 8756888648176236213, guid: 562903be04a819e449d810c2fff68817, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1254,6 +1258,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
+--- !u!4 &618517945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3436483925329256312, guid: 5417aff16c00df3409d74c25fa013108, type: 3}
+  m_PrefabInstance: {fileID: 1638356587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &657529077
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,8 +3663,8 @@ SceneRoots:
   - {fileID: 14491548}
   - {fileID: 440348535}
   - {fileID: 1060504159}
-  - {fileID: 2115570403}
   - {fileID: 560464451}
+  - {fileID: 2115570403}
   - {fileID: 1517095604}
   - {fileID: 1638356587}
   - {fileID: 356230707}

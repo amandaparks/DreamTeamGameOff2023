@@ -5,38 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameText/GameText.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameText/GameText.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/NPC.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/EnemyManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/EnemyManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/Info UI.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/Info UI.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_TriggerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_TriggerHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TEMPLATE.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TEMPLATE.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/AmandasTestScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/MAT_DungeonBox.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/MAT_DungeonBox.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Gameplay UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Gameplay UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/info.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/info.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/parchment.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/parchment.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
