@@ -4,6 +4,9 @@ using Vector3 = UnityEngine.Vector3;
 
 public class DT_PlayerMovement : MonoBehaviour
 {
+    [Header("PLAYER MOVEMENT SETTINGS")]
+    [Header(" -Script controls stepping and climbing")]
+    [Space]
     public float stepDuration;
     public float stepArcHeight;
     public float climbDuration;

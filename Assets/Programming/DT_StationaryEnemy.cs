@@ -35,7 +35,10 @@ public class DT_StationaryEnemy : MonoBehaviour
     [SerializeField] private bool playerCanAttack;
     [SerializeField] private float maxAttackableDistance;
     [SerializeField] private ParticleSystem destroyedParticles;
+    [SerializeField] private Animation destroyedAnimation;
     [SerializeField] private AudioClip destroyedSound;
+    [SerializeField] private GameObject objectToEnable;
+    [SerializeField] private GameObject objectToDisable;
     [Range(0f, 1f)] public float destroyedVolume;
     [HideInInspector] public AudioSource destroyedAudioSource;
 
@@ -48,6 +51,7 @@ public class DT_StationaryEnemy : MonoBehaviour
     private Collider _damageCollider;
     private DT_PlayerDamage _playerDamage;
     private bool _isEnemyActive;
+    private GameManager.PlayerState _oldPlayerState = GameManager.PlayerState.Idle; // Initialise as idle
 
     /* NOTE:
     *  Stationary enemies are:
@@ -55,28 +59,55 @@ public class DT_StationaryEnemy : MonoBehaviour
     *    - Poison bramble
     */
 
-    public void OnPlayerAttack()
+    private void Awake()
     {
-        // If not attackable enemy, ignore
-        if (!playerCanAttack) return;
-        
-        // Calculate distance from player
-        float distance = Vector3.Distance(_player.transform.position, transform.position);
+        // Subscribe to know when game is paused/unpaused
+        GameManager.OnGameStateChanged += HandleGameStateChanged;
+        GameManager.OnPlayerStateChanged += HandlePlayerStateChanged;
+    }
 
-        // If player is close enough
-        if (distance <= maxAttackableDistance)
+    private void OnDestroy()
+    {
+        // Unsub
+        GameManager.OnGameStateChanged -= HandleGameStateChanged;
+        GameManager.OnPlayerStateChanged -= HandlePlayerStateChanged;
+    }
+
+    private void HandleGameStateChanged(GameManager.GameState state)
+    {
+        // Start/stop activities depending on play/pause
+        switch (state)
         {
-            if (destroyedParticles != null)
-            {destroyedParticles.Play();}
-            if (destroyedSound != null)
-            {
-                destroyedAudioSource.Play();
-            }
-            damageCollider.enabled = false;
-            damageCollider.isTrigger = false;
-            
-            gameObject.SetActive(false);
+            case GameManager.GameState.Playing:
+                EnemyToggle(true);
+                break;
+            case GameManager.GameState.Paused:
+                EnemyToggle(false);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
+    }
+
+    private void HandlePlayerStateChanged(GameManager.PlayerState newPLayerState)
+    {
+        // If old state was bard mode and new mode isn't, turn enemies back on
+        if (_oldPlayerState == GameManager.PlayerState.BardMode && newPLayerState != GameManager.PlayerState.BardMode)
+        {
+            EnemyToggle(true);
+        }
+
+        switch (newPLayerState)
+        {
+            case GameManager.PlayerState.Attacking:
+                OnPlayerAttack();
+                break;
+            case GameManager.PlayerState.BardMode:
+                EnemyToggle(false);
+                break;
+        }
+        
+        _oldPlayerState = newPLayerState;
     }
 
     void Start()
@@ -96,9 +127,58 @@ public class DT_StationaryEnemy : MonoBehaviour
             intervalAudioSource.clip = intervalSound;
             intervalAudioSource.volume = intervalVolume;
         }
-        
+
         EnemyToggle(true);
     }
+    
+    public void OnPlayerAttack()
+    {
+        // If not attackable enemy, ignore
+        if (!playerCanAttack) return;
+        
+        // Calculate distance from player
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
+
+        // If player is close enough
+        if (distance <= maxAttackableDistance)
+        {
+            
+            if (destroyedAnimation != null)
+            {
+                destroyedAnimation.Play();
+            }
+            
+            if (objectToEnable != null)
+            {
+                Debug.Log($"Enabling {objectToEnable}");
+                objectToEnable.SetActive(true);
+            }
+            if (objectToDisable != null)
+            {
+                Debug.Log($"Disabling {objectToDisable}");
+                objectToDisable.SetActive(false);
+            }
+            
+            if (destroyedParticles != null)
+            {
+                destroyedParticles.Play();
+            }
+            if (destroyedSound != null)
+            {
+                destroyedAudioSource.Play();
+            }
+            
+            damageCollider.enabled = false;
+            damageCollider.isTrigger = false;
+
+            if (objectToDisable == null)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+  
 
     public void EnemyToggle(bool isEnemyActive)
     {

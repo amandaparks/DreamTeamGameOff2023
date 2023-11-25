@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class DT_LevelManager : MonoBehaviour
 {
-    
-    [Header("What is this scene?")]
-    [SerializeField] private GameManager.GameScene _gameScene;
-    [Header("Display a scroll on start?")] 
+    [Header("LEVEL SETTINGS")]
+    [Space]
+    [Header("Where is the Player?")]
+    [SerializeField] private GameManager.GameScene _sceneName;
+    [Header("Show instructions at the start?")] [Tooltip("You may wish to disable scrolls during testing.")]
     [SerializeField] private bool _showScroll;
-    [Header("Player's current level:")]
-    [SerializeField] private GameManager.PlayerLevel _startLevel;
-    [Header("Level after completing this scene:")]
-    [SerializeField] private GameManager.PlayerLevel _endLevel;
+    [Header("How many notes will the player ENTER with?")]
+    [SerializeField] private GameManager.PlayerLevel _entersWith;
+    [Header("How many notes will the player LEAVE with?")]
+    [SerializeField] private GameManager.PlayerLevel _leavesWith;
 
     private DT_GameTextManager _gameTextManager;
     
@@ -20,9 +21,9 @@ public class DT_LevelManager : MonoBehaviour
     void Awake()
     {
         GameManager.CurrentGameState = GameManager.GameState.Playing;
-        GameManager.CurrentScene = _gameScene;
-        GameManager.CurrentPlayerLevel = _startLevel;
-        GameManager.EndLevelPlayerLevel = _endLevel;
+        GameManager.CurrentScene = _sceneName;
+        GameManager.CurrentPlayerLevel = _entersWith;
+        GameManager.EndLevelPlayerLevel = _leavesWith;
         _gameTextManager = FindObjectOfType<DT_GameTextManager>();
     }
     void Start()
@@ -30,6 +31,6 @@ public class DT_LevelManager : MonoBehaviour
         
         // Load text if expected
         if (!_showScroll) return;
-        _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Scroll,_gameScene.ToString());
+        _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Scroll,GameManager.GameScene.None);
     }
 }

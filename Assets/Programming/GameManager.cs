@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -8,13 +9,23 @@ using Image = UnityEngine.UIElements.Image;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("GAME MANAGER")]
+    [Header("Leave settings as is.")]
+    [Space]
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button quitButton;
+    [SerializeField] private GameObject sceneFadeCanvas;
+    [SerializeField] private float sceneFadeSpeed = 1.0f;
+    private Graphic _blackPanel;
+    
     // Static variable so any script can access this script by using GameManager.Instance
     public static GameManager Instance;
     
     // EVENT for Game State
     public delegate void GameStateChangedHandler(GameState newGameState);
     public static event GameStateChangedHandler OnGameStateChanged;
-
+    
     private static GameState _currentGameState;
     public static GameState CurrentGameState
     {
@@ -77,9 +88,8 @@ public class GameManager : MonoBehaviour
     public static PlayerLevel EndLevelPlayerLevel;
     public static Vector3 PlayerStartPos;
     
-    // PRIVATE Variables
-    [SerializeField] private float sceneFadeSpeed = 1.0f;
-    private Graphic _blackPanel;
+    
+    
 
     public enum PlayerLevel
     {
@@ -103,6 +113,7 @@ public class GameManager : MonoBehaviour
 
     public enum GameScene
     {
+        None,
         MainMenu,
         WorldMap,
         Dungeon_1,
@@ -147,14 +158,36 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        _blackPanel = GetComponentInChildren<Graphic>();
+        _blackPanel = sceneFadeCanvas.GetComponent<Graphic>();
+        pauseMenu.gameObject.SetActive(false);
+        // Set up listeners on pause menu buttons
+        resumeButton.onClick.AddListener(delegate {ClickInput("resume");});
+        quitButton.onClick.AddListener(delegate {ClickInput("quit");});
+    }
+
+    public void PauseUnpause()
+    {
+        // If game is already paused
+        if (CurrentGameState == GameState.Paused)
+        {
+            // Unpause the game
+            pauseMenu.gameObject.SetActive(false);
+            CurrentGameState = GameState.Playing;
+        }
+        // If game is not paused
+        else if (CurrentGameState != GameState.Paused)
+        {
+            // Pause the game
+            pauseMenu.gameObject.SetActive(true);
+            CurrentGameState = GameState.Paused;
+        }
         
     }
 
     // This is triggered by the start button on the MainMenu
     public void StartGame()
     {
-        StartCoroutine(LoadScene("WorldMap"));
+        StartCoroutine(LoadScene(GameScene.WorldMap));
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -171,18 +204,55 @@ public class GameManager : MonoBehaviour
             CurrentGameState = GameState.Playing;
         }
     }
-    
-    // Any script can use this method to load scenes
-    public static IEnumerator LoadScene(string scene)
+
+    private void ClickInput(string button)
     {
+        switch (button)
+        {
+            case "resume":
+            {
+                PauseUnpause();
+            }
+                break;
+            case "quit":
+            {
+                StartCoroutine(LoadScene(GameScene.MainMenu));
+            }
+                break;
+        }
+    }
+
+    // Any script can use this method to load scenes
+    public static IEnumerator LoadScene(GameScene scene)
+    {
+        // If there's no scene to load, break
+        if (scene == GameScene.None) yield break;
+        
         Debug.Log($"Loading {scene}");
+        
+        // Start Fade Out
         Instance.StartCoroutine(Instance.FadeOut());
+        
         yield return new WaitForSeconds(0.5f);
-        //Update the player's level
-        CurrentPlayerLevel = EndLevelPlayerLevel;
-        SceneManager.LoadScene(scene);
+
+        // Update the player's level
+        switch (scene)
+        {
+            case GameScene.MainMenu:
+                CurrentPlayerLevel = PlayerLevel.NewGame;
+                break;
+            default:
+                CurrentPlayerLevel = EndLevelPlayerLevel;
+                break;
+        }
+        
+        // Then load the scene
+        SceneManager.LoadScene(scene.ToString());
+        
         // Start all new scenes on Idle
         CurrentPlayerState = PlayerState.Idle;
+        
+        // Fade back in
         Instance.StartCoroutine(Instance.FadeIn());
     }
     

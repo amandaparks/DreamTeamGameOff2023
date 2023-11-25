@@ -8,8 +8,16 @@ using TMPro;
 
 public class DT_GameTextManager : MonoBehaviour
 {
+    [Header("GAME TEXT MANAGER")]
+    [Header(" -All text stored in GameTextAsset")]
+    [Header(" -UI EventSystem lives here")]
+    [Header(" -Scroll lives here")]
+    [Header(" -Bubbles live on characters")]
+    [Space(25)]
     [SerializeField] private DT_SO_GameText gameTextAsset;
     private DT_SO_GameText.GameText[] _gameText;
+    [Tooltip("Prevents player from accidentally skipping dialogue")]
+    public float cooldownTime = 0.5f;
 
     private TextMeshProUGUI _infoTextField;
     private TextMeshProUGUI _playerTextField;
@@ -24,11 +32,11 @@ public class DT_GameTextManager : MonoBehaviour
     private int _currentLineIndex;
     private DT_SO_GameText.TextLines.Speaker _currentSpeaker;
     private Canvas _currentCanvas;
-    private string _sceneToLoad;
+    private GameManager.GameScene _sceneToLoad;
     
     private DT_InputManager _inputManager;
     private bool _canAdvance = true;
-    public float cooldownTime = 0.5f;
+   
     
     private void Awake()
     {
@@ -43,10 +51,10 @@ public class DT_GameTextManager : MonoBehaviour
         
         // Assign the data from the asset
         _gameText = gameTextAsset.gameText;
-
+        
         // Find the relevant canvases and text boxes
         _infoCanvas = GameObject.FindGameObjectWithTag("UI_Info").GetComponentInChildren<Canvas>();
-        _playerCanvas = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Canvas>();
+        _playerCanvas = GameObject.FindGameObjectWithTag("PlayerBubble").GetComponentInChildren<Canvas>();
         _npcCanvas = GameObject.FindGameObjectWithTag("NPC").GetComponentInChildren<Canvas>();
 
         _infoTextField = _infoCanvas.GetComponentInChildren<TextMeshProUGUI>();
@@ -70,7 +78,7 @@ public class DT_GameTextManager : MonoBehaviour
 
     // Other game objects can also use this method to trigger text to appear
     // method takes parameters : text type (info or dialogue), scene to be loaded after (if not null)
-    public void MakeTextSceneRequest(DT_SO_GameText.GameText.TextType textType, string sceneToLoad)
+    public void MakeTextSceneRequest(DT_SO_GameText.GameText.TextType textType, GameManager.GameScene sceneToLoad)
     {
         Debug.Log($"REQUEST RECEIVED");
         
@@ -78,19 +86,22 @@ public class DT_GameTextManager : MonoBehaviour
         _matchingEntry = FindEntry(textType);
         _sceneToLoad = sceneToLoad;
 
-        // If there isn't...
+        // If there is no matching text entry
         if (_matchingEntry == null)
         {
             // Load the scene if there is a request
-            if (sceneToLoad != null)
+            if (sceneToLoad != GameManager.GameScene.None)
             {
                 StartCoroutine(GameManager.LoadScene(_sceneToLoad));
             }
-            // Otherwise, make sure player set to idle so they aren't stuck.
-            Debug.Log("No text to run. No scene to load.");
-            GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
+            else
+            {
+                // Otherwise, make sure player set to idle so they aren't stuck.
+                Debug.Log("No text to run. No scene to load.");
+                GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
+            }
         }
-        // If there is...
+        // If there is a matching text entry, run request
         else if (_matchingEntry != null)
         {
             // Run the text and then change scene if requested
@@ -221,16 +232,18 @@ public class DT_GameTextManager : MonoBehaviour
         _matchingLines = null;
 
         // if there's a scene to load, do that
-        if (_sceneToLoad != null)
+        if (_sceneToLoad != GameManager.GameScene.None)
         {
             StartCoroutine(GameManager.LoadScene(_sceneToLoad));
-            _sceneToLoad = null;
-            return;
+            _sceneToLoad = GameManager.GameScene.None;
         }
-        // otherwise, set player back to idle
-        GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
-        // and switch back to the gameplay action map
-        _inputManager.SwitchActionMap("Gameplay");
+        else
+        {
+            // otherwise, set player back to idle
+            GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
+            // and switch back to the gameplay action map
+            _inputManager.SwitchActionMap("Gameplay");
+        }
     }
     
 }

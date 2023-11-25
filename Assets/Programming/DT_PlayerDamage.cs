@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class DT_PlayerDamage : MonoBehaviour
 {
+    [Header("DAMAGE RECEIVER")]
+    [Header(" -Makes Player fly back to start after damage")]
+    [Space]
+    
     [SerializeField] private float timeToReturn;
     public void DamagePlayer()
     {

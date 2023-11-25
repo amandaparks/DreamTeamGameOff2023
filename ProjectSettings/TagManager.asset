@@ -11,6 +11,8 @@ TagManager:
   - UI_Info
   - NPC
   - HotSpring
+  - WindBreak
+  - PlayerBubble
   layers:
   - Default
   - TransparentFX
