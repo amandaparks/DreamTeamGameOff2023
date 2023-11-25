@@ -62,12 +62,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6920500850324965503, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: m_Name
-      value: Bramble
+      value: SE_Bramble
       objectReference: {fileID: 0}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: damageType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: intervalSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 320f04d4c8845294597d7c77d9f4dea6, type: 3}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: objectToEnable
       value: 
