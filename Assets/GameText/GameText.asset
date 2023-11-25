@@ -13,21 +13,139 @@ MonoBehaviour:
   m_Name: GameText
   m_EditorClassIdentifier: 
   gameText:
+  - sceneName: 2
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: Six little dragons have lost their way, a curse their bane.
+    - speaker: 2
+      text: A song crafted of their scales will call them home.
+    - speaker: 2
+      text: Venture forth, brave the cavernous perils to find them all.
   - sceneName: 3
     textBoxType: 1
     textLines:
     - speaker: 2
-      text: You have entered a level
-    - speaker: 2
-      text: This is a nice level
+      text: Time your steps to avoid your peril.
   - sceneName: 3
     textBoxType: 2
     textLines:
-    - speaker: 0
-      text: Hello, are you dragon?
     - speaker: 1
-      text: Oh hai thar, yis I is dragon.
+      text: Ooooi, impressive!
     - speaker: 0
-      text: I have come to save you!
+      text: Dragon, I am here to help.
+    - speaker: 0
+      text: Please, lend me a scale.
     - speaker: 1
-      text: 'Oh yay! Ok bai. '
+      text: "The name\u2019s Crimson. And you can keep it! :) "
+  - sceneName: 4
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: A cautious ascent to avoid the swirling gales.
+  - sceneName: 4
+    textBoxType: 2
+    textLines:
+    - speaker: 1
+      text: Who goessss there?
+    - speaker: 0
+      text: I have been sent to break the curse.
+    - speaker: 1
+      text: You mean to help ussss, help poor Dusk?
+    - speaker: 1
+      text: Have a scale for your troublesss. Good luck.
+  - sceneName: 5
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: "Don\u2019t let glimmers fool you, be sure to mind your head."
+  - sceneName: 5
+    textBoxType: 2
+    textLines:
+    - speaker: 0
+      text: Dragon! I ask for your help. .
+    - speaker: 1
+      text: 'Help, you say, hmm? '
+    - speaker: 0
+      text: A scale for my troubles, that is all.
+    - speaker: 1
+      text: Is that all? Very well. Fandango thanks you~
+  - sceneName: 6
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: "Onward, our hero ventures\u2026"
+  - sceneName: 7
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: Steam and ice can both leave burns, never forget that.
+  - sceneName: 7
+    textBoxType: 2
+    textLines:
+    - speaker: 1
+      text: Hmm, a visitor...
+    - speaker: 1
+      text: Can we play? Please, please, pleaseeeeeee?
+    - speaker: 0
+      text: I could play you a tune! But I'll need a scale.
+    - speaker: 1
+      text: A scale? Fine. One Glacius scale.
+    - speaker: 1
+      text: Don't forget your promise!
+    - speaker: 0
+      text: I certainly won't.
+  - sceneName: 8
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: Twisted brambles loathe a touch of magic.
+  - sceneName: 8
+    textBoxType: 2
+    textLines:
+    - speaker: 1
+      text: Whomst disturbs the great Amazon? Huff.
+    - speaker: 0
+      text: Do I disturb you?
+    - speaker: 1
+      text: ...no. Hmph, you are far too small.
+    - speaker: 0
+      text: Indeed. Can the great Amazon spare one measly scale?
+    - speaker: 1
+      text: ...very well. But I don't give autographs.
+  - sceneName: 9
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: True heroes dodge not an arrow, but disarm them.
+  - sceneName: 9
+    textBoxType: 2
+    textLines:
+    - speaker: 1
+      text: Rawr, it is I, Blazon!
+    - speaker: 1
+      text: And Blazon is very impressed, what a show!
+    - speaker: 1
+      text: My gold horde is mine, but have a scale!
+    - speaker: 0
+      text: Thank you, it's worth more than any gold, anyway.
+    - speaker: 1
+      text: ...hm. A greedless human. Haha, what a show!
+  - sceneName: 10
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: Play from the heart, free them from the curse. [Play a magical SCALE]
+  - sceneName: 10
+    textBoxType: 2
+    textLines:
+    - speaker: 1
+      text: Oh thank you, oh bravest knight!
+    - speaker: 1
+      text: The curse has been broken, and my children can come home.
+    - speaker: 1
+      text: Your song has saved us all.
+    - speaker: 0
+      text: With the lands hanging in the balance... I must answer my call.
+    - speaker: 0
+      text: I am happy to have assisted.
