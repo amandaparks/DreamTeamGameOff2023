@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: GameText
   m_EditorClassIdentifier: 
   gameText:
-  - sceneName: 2
-    textBoxType: 0
+  - sceneName: 3
+    textBoxType: 1
     textLines:
     - speaker: 2
       text: You have entered a level
     - speaker: 2
       text: This is a nice level
-  - sceneName: 2
-    textBoxType: 1
+  - sceneName: 3
+    textBoxType: 2
     textLines:
     - speaker: 0
       text: Hello, are you dragon?

@@ -6,11 +6,15 @@ using UnityEngine.InputSystem;
 
 public class DT_PlayerActions : MonoBehaviour
 {
+    [Header("PLAYER ACTION SETTINGS")]
+    [Header(" -Script controls crouching, magic etc.")]
+    [Space]
+    [SerializeField] private float _magicTime = 1f;
     private GameManager _gameManager;
     private bool _isBardMode;
     private DT_InputManager _inputManager;
     private DT_GameTextManager _gameTextManager;
-    [SerializeField] private float _magicTime = 1f;
+    
     
     // Start is called before the first frame update
     void Start()

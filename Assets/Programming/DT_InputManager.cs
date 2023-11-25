@@ -9,14 +9,18 @@ using UnityEngine.UI;
 
 public class DT_InputManager : MonoBehaviour
 {
-    [Header("Gameplay UI Buttons")]
-    [SerializeField] private Button button1, button2, button3, button4, button5, button6, button7, buttonB;
-
+    [Header("INPUT MANAGER")]
+    [Header(" -Buttons should already be assigned")]
+    [Space]
+    [SerializeField] private PlayerInput _playerInput;
+    private GameManager _gameManager;
     private DT_BardMode _bardMode;
     private DT_PlayerActions _playerActions;
     private DT_PlayerMovement _playerMovement;
-    private PlayerInput _playerInput;
     private bool _isTalkControls;
+    [SerializeField] private Button buttonPause, button1, button2, button3, button4, button5, button6, button7, buttonB;
+
+    
 
     /*   This script handles GAMEPLAY and BARD and TALKING input
      *      1. Listens for which the UI buttons are being clicked
@@ -34,10 +38,10 @@ public class DT_InputManager : MonoBehaviour
     private void Awake()
     {
         // Assign components
+        _gameManager = FindObjectOfType<GameManager>();
         _bardMode = GetComponent<DT_BardMode>();
         _playerActions = GetComponent<DT_PlayerActions>();
         _playerMovement = GetComponent<DT_PlayerMovement>();
-        _playerInput = GetComponent<PlayerInput>();
         
         if (_playerInput == null)
         {
@@ -53,6 +57,7 @@ public class DT_InputManager : MonoBehaviour
         GameManager.OnPlayerStateChanged += CheckButtons;
         
         // Set up listeners to run methods when clicked
+        buttonPause.onClick.AddListener(delegate {ClickInput("ButtonPause");});
         button1.onClick.AddListener(delegate {ClickInput("Button1");});
         button2.onClick.AddListener(delegate {ClickInput("Button2");});
         button3.onClick.AddListener(delegate {ClickInput("Button3");});
@@ -77,7 +82,7 @@ public class DT_InputManager : MonoBehaviour
             // But new status is talking
             if (newPlayerState == GameManager.PlayerState.Talking)
             {
-                    // Hide buttons (except Next)
+                    // Hide buttons (except Next and Pause)
                     HideButtons();
                     _isTalkControls = true;
             }
@@ -95,6 +100,17 @@ public class DT_InputManager : MonoBehaviour
         }
     }
 
+    private void HideButtons()
+    {
+        // Hide everything except for step fwd (button 5) and pause
+        button1.gameObject.SetActive(false);
+        button2.gameObject.SetActive(false);
+        button3.gameObject.SetActive(false);
+        button4.gameObject.SetActive(false);
+        button6.gameObject.SetActive(false);
+        button7.gameObject.SetActive(false);
+        buttonB.gameObject.SetActive(false);
+    }
     private void ShowButtons(GameManager.PlayerLevel newPlayerLevel)
     {
         switch (newPlayerLevel)
@@ -157,18 +173,6 @@ public class DT_InputManager : MonoBehaviour
         }
     }
 
-    private void HideButtons()
-    {
-        // Hide everything except for step fwd (button 5)
-        button1.gameObject.SetActive(false);
-        button2.gameObject.SetActive(false);
-        button3.gameObject.SetActive(false);
-        button4.gameObject.SetActive(false);
-        button6.gameObject.SetActive(false);
-        button7.gameObject.SetActive(false);
-        buttonB.gameObject.SetActive(false);
-    }
-
     private void OnDestroy()
     {
         // Unsubscribe from these events on destroy
@@ -191,13 +195,19 @@ public class DT_InputManager : MonoBehaviour
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
-        // We'll use default controls for menus so can ignore any action input
+        // We'll use default UI input controls for menus so can ignore any action input
         if (IsGamePaused()) return;
 
         switch (context.action.name)
         {
         // GAMEPLAY
-            case "Defend":
+        case "Pause":
+            {   
+                // Click button
+                SelectDeselect(buttonPause, context);
+                break;
+            }
+        case "Defend":
             {
                 // Click button
                 SelectDeselect(button1, context);
@@ -331,6 +341,9 @@ public class DT_InputManager : MonoBehaviour
         
         switch (button)
         {
+            case "ButtonPause":
+                _gameManager.PauseUnpause();
+                break;
             case "Button1":
                 if (isBardMode)
                 {

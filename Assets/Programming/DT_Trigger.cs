@@ -31,40 +31,44 @@ public class DT_Trigger : MonoBehaviour
     }
 
     // Trigger handler will tell this object to prepare if it is to be a trigger in this scene
-    public void PrepareTrigger(bool displayText, DT_SO_GameText.GameText.TextType textType,
-        bool changeScene, GameManager.GameScene sceneToLoad, bool pauseMovingEnemies, bool pauseStationaryEnemies)
+    public void PrepareTrigger(DT_SO_GameText.GameText.TextType textToLoad, GameManager.GameScene sceneToLoad)
     {
         // Make sure collider is on and trigger enabled
         _thisCollider.enabled = true;
         _thisCollider.isTrigger = true;
 
         // Assign values received
-        _myTextType = textType;
+        _myTextType = textToLoad;
         _mySceneToLoad = sceneToLoad;
-        _pauseMovingEnemies = pauseMovingEnemies;
-        _pauseStationaryEnemies = pauseStationaryEnemies;
 
         // Determine trigger type
-        _triggerType = TriggerType(displayText,changeScene);
+        _triggerType = TriggerType(textToLoad,sceneToLoad);
 
-        // Mark as prepped
-        _isPrepared = true;
+        if (_triggerType != null)
+        {
+            // Mark as prepped
+            _isPrepared = true;
+        }
     }
 
-    private string TriggerType(bool isTextTrigger, bool isSceneTrigger)
+    private string TriggerType(DT_SO_GameText.GameText.TextType textToLoad, GameManager.GameScene sceneToLoad)
     {
-        if (isTextTrigger && isSceneTrigger)
+        // If both are not None
+        if (textToLoad != DT_SO_GameText.GameText.TextType.None && sceneToLoad != GameManager.GameScene.None)
         {
+            Debug.Log($"Trigger prepped: load {textToLoad} text and {sceneToLoad} scene.");
             return "both";
         }
-        
-        if (isTextTrigger) 
+        // If text is not None
+        if (textToLoad != DT_SO_GameText.GameText.TextType.None) 
         {
+            Debug.Log($"Trigger prepped: load {textToLoad} text only.");
             return "textOnly";
         }
-
-        if (isSceneTrigger)
+        // If scene is not None
+        if (sceneToLoad != GameManager.GameScene.None)
         {
+            Debug.Log($"Trigger prepped: load {sceneToLoad} scene only.");
             return "sceneOnly";
         }
 
@@ -85,26 +89,16 @@ public class DT_Trigger : MonoBehaviour
             switch (_triggerType)
             {
                 case "both":
-                    _gameTextManager.MakeTextSceneRequest(_myTextType, _mySceneToLoad.ToString());
+                    _gameTextManager.MakeTextSceneRequest(_myTextType, _mySceneToLoad);
                     break;
                 case "textOnly":
-                    _gameTextManager.MakeTextSceneRequest(_myTextType, null);
+                    _gameTextManager.MakeTextSceneRequest(_myTextType, GameManager.GameScene.None);
                     break;
                 case "sceneOnly":
-                    GameManager.LoadScene(_mySceneToLoad.ToString());
+                    StartCoroutine(GameManager.LoadScene(_mySceneToLoad));
                     break;
             }
-
-            if (_pauseMovingEnemies)
-            {
-                _enemyManager.ToggleMovingEnemies(false);
-            }
-
-            if (_pauseStationaryEnemies)
-            {
-                _enemyManager.ToggleStationaryEnemies(false);
-            }
-
+            
             // Disable the collider so the trigger can't be set off again
             _thisCollider.enabled = false;
         }

@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class DT_PlayerAnimations : MonoBehaviour
 {
-    private GameManager _gameManager;
-    private GameManager.PlayerState _currentState;
+    [Header("PLAYER ANIMATIONS")]
+    [Header(" -Script changes animation based on Player state")]
+    [Space]
     [SerializeField] private Animator spriteAnimator;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    private GameManager _gameManager;
+    private GameManager.PlayerState _currentState;
     private static readonly int Damaged = Animator.StringToHash("Damaged");
     private static readonly int Crouch = Animator.StringToHash("Crouch");
     private static readonly int Climb = Animator.StringToHash("Climb");

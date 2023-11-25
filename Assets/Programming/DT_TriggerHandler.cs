@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class DT_TriggerHandler : MonoBehaviour
 {
-    [Header("Add game objects and assign text and/or scene to trigger.")]
+    [Header("LEVEL TRIGGERS")]
+    [Header(" -Drag in a StepStone")]
+    [Header(" -Choose text and/or scene change")]
+    
+    [Space]
     [SerializeField] private DT_TriggerSettings[] triggers;
 
     private Collider _thisCollider;
@@ -28,9 +32,8 @@ public class DT_TriggerHandler : MonoBehaviour
     {
         foreach (DT_TriggerSettings trigger in triggers)
         {
-            //Send all the details to the trigger object
-            trigger.objectWithTrigger.GetComponent<DT_Trigger>().PrepareTrigger(trigger.displayText, trigger.textType,
-                trigger.changeScene, trigger.sceneToLoad, trigger._pauseMovingEnemies, trigger._pauseStationaryEnemies);
+            //Send the details to the trigger object
+            trigger.stepStone.GetComponent<DT_Trigger>().PrepareTrigger(trigger.textToLoad,trigger.sceneToLoad);
         }
     }
 }
@@ -39,14 +42,7 @@ public class DT_TriggerHandler : MonoBehaviour
 
 public class DT_TriggerSettings
 {
-    public GameObject objectWithTrigger;
-    [Header("== Display text? ==")]
-    public bool displayText;
-    public DT_SO_GameText.GameText.TextType textType;
-    [Header("== Change scene? ==")]
-    public bool changeScene;
+    public GameObject stepStone;
+    public DT_SO_GameText.GameText.TextType textToLoad;
     public GameManager.GameScene sceneToLoad;
-    [Header("== Permanently Pause Enemies? ==")]
-    public bool _pauseMovingEnemies;
-    public bool _pauseStationaryEnemies;
 }

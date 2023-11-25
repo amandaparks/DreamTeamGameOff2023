@@ -45,6 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingEnemies: []
-  stationaryEnemies:
-  - {fileID: 0}
-  - {fileID: 0}
+  stationaryEnemies: []

@@ -25,6 +25,7 @@ public class DT_SO_GameText : ScriptableObject
         
         public enum TextType
         {
+            None,
             Scroll,
             SpeechBubbles
         }
