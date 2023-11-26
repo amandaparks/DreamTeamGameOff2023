@@ -80,6 +80,9 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: Steam and ice can both leave burns, never forget that.
+    - speaker: 2
+      text: Submerging in the warm water of the hot springs seem to protect from
+        daggerous icicles.
   - sceneName: 7
     textBoxType: 2
     textLines:

@@ -5046,6 +5046,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 63bf4114c3df2d543a51397adc68c5e3, type: 3}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: environmentTag
       value: HotSpring
       objectReference: {fileID: 0}
@@ -5063,7 +5067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446087185476981497, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: m_Name
-      value: Icicle
+      value: ME_Icicle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
