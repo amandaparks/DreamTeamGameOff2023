@@ -235,27 +235,53 @@ public class GameManager : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
 
-        // Update the player's level
-        switch (scene)
+        // If request is not coming from the world map, update player's level
+        if (CurrentScene != GameScene.WorldMap)
         {
-            case GameScene.MainMenu:
-                CurrentPlayerLevel = PlayerLevel.NewGame;
-                break;
-            default:
-                CurrentPlayerLevel = EndLevelPlayerLevel;
-                break;
+            switch (scene)
+            {
+                // If loading main menu, game has been restarted so set to newgame
+                case GameScene.MainMenu:
+                    CurrentPlayerLevel = PlayerLevel.NewGame;
+                    break;
+                default:
+                    CurrentPlayerLevel = EndLevelPlayerLevel;
+                    break;
+            }
         }
-        
+
         // Then load the scene
-        SceneManager.LoadScene(scene.ToString());
-        
+        LoadTheScene(scene);
+
         // Start all new scenes on Idle
         CurrentPlayerState = PlayerState.Idle;
         
         // Fade back in
         Instance.StartCoroutine(Instance.FadeIn());
     }
-    
+
+    private static void LoadTheScene(GameScene scene)
+    {
+        switch (scene)
+        {
+            case GameScene.WorldMap:
+            case GameScene.WorldMapRotated:
+            case GameScene.Summit:
+                SceneManager.LoadScene("WorldMap");
+                break;
+            case GameScene.Dungeon_1:
+            case GameScene.Dungeon_2:
+            case GameScene.Dungeon_3:
+            case GameScene.Dungeon_4:
+            case GameScene.Dungeon_5:
+            case GameScene.Dungeon_6:
+                SceneManager.LoadScene(scene.ToString());
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(scene), scene, null);
+        }
+    }
+
     private IEnumerator FadeOut()
     {
         Color color = _blackPanel.color;

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 265f10371cdb3904b835b6681477a53d, type: 2}
+  - {fileID: 2100000, guid: de6644c62575cfb4697a6b9d54a9eab7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -129,9 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c390c4b3b4edf7c41b79b808f702a567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDialogueTrigger: 0
-  isSceneLoadTrigger: 0
-  sceneToLoad: 0
 --- !u!65 &8790797247412876311
 BoxCollider:
   m_ObjectHideFlags: 0

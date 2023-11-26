@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/NPC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ladder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Ladder.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StepStone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/StepStone.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +37,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/0c/1f3f1986/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/finalDeath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DT_WorldMapManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/finalPathBool.cs" root0="SKIP_HIGHLIGHTING" />

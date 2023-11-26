@@ -27,6 +27,13 @@ public class DT_Trigger : MonoBehaviour
         
         // Find the enemy manager
         _enemyManager = FindObjectOfType<DT_EnemyManager>();
+        
+        
+        // Check if _gameTextManager is null
+        if (_thisCollider == null)
+        {
+            Debug.LogError("NO COLLIDER");
+        }
 
     }
 
@@ -49,6 +56,22 @@ public class DT_Trigger : MonoBehaviour
             // Mark as prepped
             _isPrepared = true;
         }
+    }
+    
+    // World Map Manager uses this method
+    public void WorldMapTrigger(GameManager.GameScene sceneToLoad)
+    {
+        // Make sure collider is on and trigger enabled
+       // _thisCollider.enabled = true;
+       // _thisCollider.isTrigger = true;
+
+        // Assign scene
+        _mySceneToLoad = sceneToLoad;
+
+        _triggerType = "worldMap";
+        _myTextType = DT_SO_GameText.GameText.TextType.Scroll;
+
+        _isPrepared = true;
     }
 
     private string TriggerType(DT_SO_GameText.GameText.TextType textToLoad, GameManager.GameScene sceneToLoad)
@@ -96,6 +119,9 @@ public class DT_Trigger : MonoBehaviour
                     break;
                 case "sceneOnly":
                     StartCoroutine(GameManager.LoadScene(_mySceneToLoad));
+                    break;
+                case "worldMap":
+                    _gameTextManager.WorldMapRequest(_mySceneToLoad);
                     break;
             }
             
