@@ -17,11 +17,15 @@ MonoBehaviour:
     textBoxType: 1
     textLines:
     - speaker: 2
-      text: Six little dragons have lost their way, a curse their bane.
+      text: 'A broken kalimba.
+
+        Play it?'
     - speaker: 2
-      text: A song crafted of their scales will call them home.
+      text: '"Six little dragons have lost their way, a curse their bane."'
     - speaker: 2
-      text: Venture forth, brave the cavernous perils to find them all.
+      text: '"A song crafted of their scales will call them home."'
+    - speaker: 2
+      text: '"Venture forth, brave the cavernous perils to find them all."'
   - sceneName: 3
     textBoxType: 1
     textLines:

@@ -45,16 +45,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: {fileID: 0}
-  start: {fileID: 0}
-  dungeon1: {fileID: 0}
-  dungeon2: {fileID: 0}
-  dungeon3: {fileID: 0}
-  dungeon3exit: {fileID: 0}
-  dungeon4: {fileID: 0}
-  dungeon4exit: {fileID: 0}
-  dungeon5: {fileID: 0}
-  dungeon5exit: {fileID: 0}
-  dungeon6: {fileID: 0}
-  summit: {fileID: 0}
+  _portals:
+  - _playerLevel: 1
+    isWorldFlipped: 0
+    _startStep: {fileID: 0}
+    _dungeonStep: {fileID: 0}
+    _dungeonToLoad: 3
+  - _playerLevel: 2
+    isWorldFlipped: 0
+    _startStep: {fileID: 0}
+    _dungeonStep: {fileID: 0}
+    _dungeonToLoad: 4
+  - _playerLevel: 3
+    isWorldFlipped: 0
+    _startStep: {fileID: 0}
+    _dungeonStep: {fileID: 0}
+    _dungeonToLoad: 5
+  - _playerLevel: 4
+    isWorldFlipped: 1
+    _startStep: {fileID: 0}
+    _dungeonStep: {fileID: 0}
+    _dungeonToLoad: 7
   testingMode: 1
-  setLevelTo: 6
+  setLevelTo: 3

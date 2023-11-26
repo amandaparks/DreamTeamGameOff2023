@@ -9,6 +9,7 @@ public class DT_WorldMapManager : MonoBehaviour
     [Header("World Map")]
     [SerializeField] private GameObject world;
 
+    [SerializeField] private GameObject startPanel;
     [SerializeField] private DT_MapPortals[] _portals;
     
     [Header("For Testing")] public bool testingMode;
@@ -19,9 +20,11 @@ public class DT_WorldMapManager : MonoBehaviour
     private GameObject _player;
     private Vector3 _playerStartPosition;
     private Quaternion _worldFlippedRotation = new Quaternion(0, 180, 0, 0);
-
+    private DT_GameTextManager _gameTextManager;
     private void Awake()
     {
+        GameManager.CurrentScene = GameManager.GameScene.WorldMap;
+        
         if (testingMode)
         {
             GameManager.CurrentPlayerLevel = setLevelTo;
@@ -31,8 +34,12 @@ public class DT_WorldMapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Find Player
+        // Make sure black panel disabled
+        startPanel.SetActive(false);
+
+        // Find Player and Game Text Manager
         _player = GameObject.FindGameObjectWithTag("Player");
+        _gameTextManager = FindObjectOfType<DT_GameTextManager>();
 
         // Find which portal to set up
         foreach (var portal in _portals)
@@ -45,6 +52,18 @@ public class DT_WorldMapManager : MonoBehaviour
             _player.transform.position = portal._startStep.transform.position;
             portal._dungeonStep.GetComponent<DT_Trigger>().WorldMapTrigger(portal._dungeonToLoad);
         }
+        
+        if (GameManager.CurrentPlayerLevel == GameManager.PlayerLevel.NewGame)
+        {
+            StartStory();
+        }
+    }
+
+    void StartStory()
+    {
+        startPanel.SetActive(true);
+        _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Scroll,GameManager.GameScene.None);
+        GameManager.CurrentPlayerLevel = GameManager.PlayerLevel.OneNote;
     }
 }
 
