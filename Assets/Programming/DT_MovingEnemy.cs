@@ -320,7 +320,7 @@ public class DT_MovingEnemy : MonoBehaviour
 
             if (collisionSound != null)
             {
-                collisionAudioSource.clip = damageSound;
+                collisionAudioSource.clip = collisionSound;
                 collisionAudioSource.Play();
             }
 
