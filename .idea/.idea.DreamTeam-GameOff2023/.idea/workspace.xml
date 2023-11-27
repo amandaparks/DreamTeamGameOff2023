@@ -6,32 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/NPC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/NPC.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TEMPLATE.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TEMPLATE.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_6.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_2.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_2.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_3.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_3.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_4.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_4.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_5.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_5.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_6.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Jane/Dungeon_6.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InfoUI.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/InfoUI.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +37,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/215a3d79f22d4716a26783e9b63e881e175600/54/5a677ccf/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/66/84f8bd8e/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/0c/1f3f1986/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/finalDeath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
@@ -67,6 +52,7 @@
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/lifeScore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/StarterAssets/ThirdPersonController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Button.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,7 +72,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3117207" />
-    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.52369076" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -99,10 +85,10 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7980">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="7980" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -141,5 +127,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints">
+          <properties exception="UnityEngine.MissingReferenceException" isInternal="false" displayValue="MissingReferenceException" namespaceName="UnityEngine">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#UnityEngine.MonoBehaviour" memberName="useGUILayout" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DT_InputManager : MonoBehaviour
@@ -47,10 +48,14 @@ public class DT_InputManager : MonoBehaviour
         {
             Debug.LogError("PlayerInput not found on " + gameObject.name);
         }
-        
+    }
+
+    private void OnEnable()
+    {
+        // Subscribe to the sceneLoaded event when the script is enabled
+        SceneManager.sceneLoaded += OnSceneLoaded;
         // Subscribe to be notified when any input action is triggered
         _playerInput.onActionTriggered += OnActionTriggered;
-        
         // Subscribe to be notified when Player Level changes
         GameManager.OnPlayerLevelChanged += ShowButtons;
         // Subscribe to be notified when Player Status changes
@@ -66,11 +71,26 @@ public class DT_InputManager : MonoBehaviour
         button6.onClick.AddListener(delegate {ClickInput("Button6");});
         button7.onClick.AddListener(delegate {ClickInput("Button7");});
         buttonB.onClick.AddListener(delegate {ClickInput("ButtonB");});
-        
-        HideButtons();
-        ShowButtons(GameManager.CurrentPlayerLevel);
     }
 
+    private void OnDisable()
+    {
+        // Unsubscribe from the sceneLoaded event when the script is disabled
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        // Unsubscribe from these events on disable
+        _playerInput.onActionTriggered -= OnActionTriggered;
+        GameManager.OnPlayerLevelChanged -= ShowButtons;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        HideButtons();
+    }
+
+    private void Start()
+    {
+        ShowButtons(GameManager.CurrentPlayerLevel);
+    }
 
     private void CheckButtons(GameManager.PlayerState newPlayerState)
     {
@@ -112,13 +132,6 @@ public class DT_InputManager : MonoBehaviour
 
     private void ShowButtons(GameManager.PlayerLevel newPlayerLevel)
     {
-        StartCoroutine(DelayedShowButtons(newPlayerLevel));
-    }
-
-    private IEnumerator DelayedShowButtons(GameManager.PlayerLevel newPlayerLevel)
-    {
-        yield return null; // Wait for a frame
-        
         switch (newPlayerLevel)
         {
             case GameManager.PlayerLevel.NewGame:
@@ -178,14 +191,7 @@ public class DT_InputManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
     }
-
-    private void OnDestroy()
-    {
-        // Unsubscribe from these events on destroy
-        _playerInput.onActionTriggered -= OnActionTriggered;
-        GameManager.OnPlayerLevelChanged -= ShowButtons;
-    }
-
+    
     private bool IsGamePaused()
     {
         // return bool value of whether or not game is paused

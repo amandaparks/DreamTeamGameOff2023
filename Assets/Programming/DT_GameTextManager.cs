@@ -29,7 +29,7 @@ public class DT_GameTextManager : MonoBehaviour
 
     private DT_SO_GameText.GameText _matchingEntry;
     private DT_SO_GameText.TextLines[] _matchingLines;
-    private int _currentLineIndex;
+    private int _currentLineIndex = -1;
     private DT_SO_GameText.TextLines.Speaker _currentSpeaker;
     private GameObject _currentCanvasGameObject;
     private GameManager.GameScene _sceneToLoad;
@@ -117,7 +117,7 @@ public class DT_GameTextManager : MonoBehaviour
         {
             // Run the text and then change scene if requested
             PerformRequest();
-            Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+            
         }
     }
 
@@ -142,7 +142,7 @@ public class DT_GameTextManager : MonoBehaviour
         //Just seems a little too snappy so...
         yield return new WaitForSeconds(0.7f);
         
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         
         // Display line
         NextLine();
@@ -151,7 +151,7 @@ public class DT_GameTextManager : MonoBehaviour
     private DT_SO_GameText.GameText FindEntry(DT_SO_GameText.GameText.TextType textType)
     {
         Debug.Log($"Looking for {textType} for {GameManager.CurrentScene}");
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         //Search through game text and find the one with matching:
         //Text Type + Current Scene and Level Bool + Required Level
         var entry =
@@ -172,7 +172,7 @@ public class DT_GameTextManager : MonoBehaviour
     }
     private void PerformRequest()
     {
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         // Set the player to Talking
         GameManager.CurrentPlayerState = GameManager.PlayerState.Talking;
         Debug.Log("PLAYER STATE: TALKING");
@@ -190,7 +190,7 @@ public class DT_GameTextManager : MonoBehaviour
     
     public void NextLine()
     {
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         // If too soon to press key, do nothing
         if (!_canAdvance) return;
         // Otherwise, accept input and initiate cooldown
@@ -219,7 +219,7 @@ public class DT_GameTextManager : MonoBehaviour
                 }
                 else // Finish up
                 {
-                    Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+                    
                     FinishUp();
                 }
                 break;
@@ -229,7 +229,7 @@ public class DT_GameTextManager : MonoBehaviour
 
     private void Confirmation()
     {
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         
         //Populate text
         _infoTextField.text = "Enter the Dungeon";
@@ -244,16 +244,16 @@ public class DT_GameTextManager : MonoBehaviour
 
     private IEnumerator Cooldown()
     {
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         _canAdvance = false;
         yield return new WaitForSeconds(cooldownTime);
         _canAdvance = true;
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
     }
 
     private void DisplayText()
     {
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         // Figure out who the speaker is
         DT_SO_GameText.TextLines.Speaker newSpeaker = _matchingLines[_currentLineIndex].speaker;
         // If the speaker has changed (and a speech bubble is active), disable the old speaker's bubble
@@ -312,21 +312,21 @@ public class DT_GameTextManager : MonoBehaviour
                 Debug.LogError("Speaker type missing");
                 break;
         }
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
     }
 
     private void FinishUp()
     {
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         // deactivate the current speaker's canvas
         _currentCanvasGameObject.SetActive(false);
         // reset everything we were tracking
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         _currentLineIndex = -1;
         _matchingEntry = null;
         _matchingLines = null;
         _currentCanvasGameObject = null;
-        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         // if there's a scene to load, do that
         if (_sceneToLoad != GameManager.GameScene.None)
         {
