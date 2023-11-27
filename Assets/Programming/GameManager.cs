@@ -1,23 +1,9 @@
-using System;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using Image = UnityEngine.UIElements.Image;
 
 public class GameManager : MonoBehaviour
 {
     [Header("GAME MANAGER")]
-    [Header("Leave settings as is.")]
-    [Space]
-    [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private Button resumeButton;
-    [SerializeField] private Button quitButton;
-    [SerializeField] private GameObject sceneFadeCanvas;
-    [SerializeField] private float sceneFadeSpeed = 1.0f;
-    private Graphic _blackPanel;
+    [Header("Keeps track of player progress.")]
     
     // Static variable so any script can access this script by using GameManager.Instance
     public static GameManager Instance;
@@ -60,7 +46,7 @@ public class GameManager : MonoBehaviour
                 _currentPlayerState = value;
                 // Notify subscribers
                 OnPlayerStateChanged?.Invoke(_currentPlayerState);
-                Debug.LogWarning($"PLAYER STATE CHANGED TO: {_currentPlayerState}");
+                //Debug.LogWarning($"PLAYER STATE CHANGED TO: {_currentPlayerState}");
             }
         }
     }
@@ -69,7 +55,7 @@ public class GameManager : MonoBehaviour
     public delegate void PlayerLevelChangeHandler(PlayerLevel newPlayerLevel);
     public static event PlayerLevelChangeHandler OnPlayerLevelChanged;
 
-    private static PlayerLevel _currentPlayerLevel;
+    private static PlayerLevel _currentPlayerLevel = PlayerLevel.NewGame; // Instantiate as New Game
     public static PlayerLevel CurrentPlayerLevel
     {
         get { return _currentPlayerLevel; }
@@ -89,9 +75,6 @@ public class GameManager : MonoBehaviour
     public static PlayerLevel EndLevelPlayerLevel;
     public static Vector3 PlayerStartPos;
     
-    
-    
-
     public enum PlayerLevel
     {
         NewGame,
@@ -156,165 +139,4 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    void Start()
-    {
-        _blackPanel = sceneFadeCanvas.GetComponent<Graphic>();
-        pauseMenu.gameObject.SetActive(false);
-        // Set up listeners on pause menu buttons
-        resumeButton.onClick.AddListener(delegate {ClickInput("resume");});
-        quitButton.onClick.AddListener(delegate {ClickInput("quit");});
-    }
-
-    public void PauseUnpause()
-    {
-        // If game is already paused
-        if (CurrentGameState == GameState.Paused)
-        {
-            // Unpause the game
-            pauseMenu.gameObject.SetActive(false);
-            CurrentGameState = GameState.Playing;
-        }
-        // If game is not paused
-        else if (CurrentGameState != GameState.Paused)
-        {
-            // Pause the game
-            pauseMenu.gameObject.SetActive(true);
-            CurrentGameState = GameState.Paused;
-        }
-        
-    }
-
-    // This is triggered by the start button on the MainMenu
-    public void StartGame()
-    {
-        StartCoroutine(LoadScene(GameScene.WorldMap));
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // This method will be called every time a new scene is loaded
-        Debug.Log("Scene loaded: " + scene.name);
-        
-        PlayerStartPos = transform.position;
-        Debug.Log($"Player starting position is {PlayerStartPos}");
-        
-        // If there is no Level Manager, set these as default:
-        if (!FindObjectOfType<DT_LevelManager>())
-        {
-            CurrentPlayerState = PlayerState.Idle;
-            CurrentGameState = GameState.Playing;
-        }
-    }
-
-    private void ClickInput(string button)
-    {
-        switch (button)
-        {
-            case "resume":
-            {
-                PauseUnpause();
-            }
-                break;
-            case "quit":
-            {
-                StartCoroutine(LoadScene(GameScene.MainMenu));
-            }
-                break;
-        }
-    }
-
-    // Any script can use this method to load scenes
-    public static IEnumerator LoadScene(GameScene scene)
-    {
-        // If there's no scene to load, break
-        if (scene == GameScene.None) yield break;
-        
-        Debug.Log($"Loading {scene}");
-        
-        // Start Fade Out
-        Instance.StartCoroutine(Instance.FadeOut());
-        
-        yield return new WaitForSeconds(0.5f);
-
-        // If request is not coming from the world map, update player's level
-        if (CurrentScene != GameScene.WorldMap)
-        {
-            switch (scene)
-            {
-                // If loading main menu, game has been restarted so set to newgame
-                case GameScene.MainMenu:
-                    CurrentPlayerLevel = PlayerLevel.NewGame;
-                    break;
-                default:
-                    CurrentPlayerLevel = EndLevelPlayerLevel;
-                    break;
-            }
-        }
-
-        // Then load the scene
-        LoadTheScene(scene);
-
-        // Start all new scenes on Idle
-        CurrentPlayerState = PlayerState.Idle;
-        
-        // Fade back in
-        Instance.StartCoroutine(Instance.FadeIn());
-    }
-
-    private static void LoadTheScene(GameScene scene)
-    {
-        switch (scene)
-        {
-            case GameScene.WorldMap:
-            case GameScene.WorldMapRotated:
-            case GameScene.Summit:
-                SceneManager.LoadScene("WorldMap");
-                break;
-            case GameScene.Dungeon_1:
-            case GameScene.Dungeon_2:
-            case GameScene.Dungeon_3:
-            case GameScene.Dungeon_4:
-            case GameScene.Dungeon_5:
-            case GameScene.Dungeon_6:
-                SceneManager.LoadScene(scene.ToString());
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(scene), scene, null);
-        }
-    }
-
-    private IEnumerator FadeOut()
-    {
-        Color color = _blackPanel.color;
-        while (color.a < 1)
-        {
-            color.a += Time.deltaTime * sceneFadeSpeed;
-            _blackPanel.color = color;
-            yield return null;
-        }
-    }
-    
-    private IEnumerator FadeIn()
-    {
-        Color color = _blackPanel.color;
-        while (color.a > 0)
-        {
-            color.a -= Time.deltaTime * sceneFadeSpeed;
-            _blackPanel.color = color;
-            yield return null;
-        }
-    }
-    
-    private void OnEnable()
-    {
-        // Subscribe to the sceneLoaded event when the script is enabled
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        // Unsubscribe from the sceneLoaded event when the script is disabled
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
 }

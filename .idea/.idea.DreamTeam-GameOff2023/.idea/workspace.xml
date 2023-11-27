@@ -6,16 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameTextManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DT_WorldMapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_WorldMapManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DT_WorldMapManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_WorldMapManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/GameManager.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/Input System/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/Input System/Controls.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_4.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_5.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Gameplay UI.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tests etc/Amanda/UI Placeholder/Placeholder Gameplay UI.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,11 +48,13 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/66/84f8bd8e/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_DestroyCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/0c/1f3f1986/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/finalDeath.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DT_WorldMapManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_WorldMapManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_GameplayUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SO_GameText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/finalPathBool.cs" root0="SKIP_HIGHLIGHTING" />
@@ -57,6 +69,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_Trigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/timeControl.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/globalVariables.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,6 +77,8 @@
     <setting file="file://$USER_HOME$/Desktop/Exports/Hunter/Damn It Hunter/ExportedProject/Assets/MonoScript/Assembly-CSharp/dialogueTrigger.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2Xsv6o5YC0S4qROesvcN3f1oWqF" />
   <component name="ProjectViewState">
@@ -71,7 +86,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3117207" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3125" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -85,10 +100,10 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="7980">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="26744">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="7980" />
+      <option name="pid" value="26744" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -142,6 +157,8 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#UnityEngine.MonoBehaviour" memberName="useGUILayout" />
+        <PinnedItemInfo parentTag="Type#UnityEngine.Object" memberName="name" />
+        <PinnedItemInfo parentTag="Type#UnityEngine.Object" memberName="m_InstanceID" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
