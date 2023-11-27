@@ -410,7 +410,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2448956947201176896}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtonPause
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &985428717060213841
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7959593634404466308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2336147803001599963
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,8 +963,9 @@ GameObject:
   - component: {fileID: 6524097474426163413}
   - component: {fileID: 4656892517897762826}
   - component: {fileID: 6231303082017872961}
+  - component: {fileID: 5038553735468805603}
   m_Layer: 5
-  m_Name: Placeholder Gameplay UI
+  m_Name: Gameplay UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1029,6 +1054,27 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5038553735468805603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2779681373748775235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc30529bde189e043a97111cc8a140f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPause: {fileID: 833920767196633374}
+  button1: {fileID: 8311815242973712318}
+  button2: {fileID: 2214639614880867538}
+  button3: {fileID: 3803379535126988456}
+  button4: {fileID: 6200877673440108675}
+  button5: {fileID: 5142592826656556873}
+  button6: {fileID: 6316063998541897790}
+  button7: {fileID: 9067861636193436197}
+  buttonB: {fileID: 6480913630145113910}
 --- !u!1 &3803379535126988456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1195,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8144158532951212797}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4262236143534763331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,7 +1407,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3631466523304868306}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button5
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5586410729895388218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,7 +1585,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3632438894592221836}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button4
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6316063998541897790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,7 +1718,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8506129658259185644}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button6
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6480913630145113910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1757,7 +1851,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8467369654955531187}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ButtonB
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6747495844814779990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,7 +2213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1081938171269068052}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9067861636193436197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,4 +2346,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6977264817550814840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DT_InputManager, Assembly-CSharp
+        m_MethodName: ClickInput
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button7
+          m_BoolArgument: 0
+        m_CallState: 2

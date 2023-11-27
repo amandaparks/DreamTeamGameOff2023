@@ -33,6 +33,7 @@ public class DT_GameTextManager : MonoBehaviour
     private DT_SO_GameText.TextLines.Speaker _currentSpeaker;
     private GameObject _currentCanvasGameObject;
     private GameManager.GameScene _sceneToLoad;
+    private DT_SceneLoader _sceneLoader;
     
     private DT_InputManager _inputManager;
     private bool _canAdvance = true;
@@ -42,8 +43,9 @@ public class DT_GameTextManager : MonoBehaviour
     
     private void Awake()
     {
-        // Find the input manager
+        // Find the input manager and scene loader
         _inputManager = FindObjectOfType<DT_InputManager>();
+        _sceneLoader = FindObjectOfType<DT_SceneLoader>();
         
         // Make sure game text asset has been assigned
         if (gameTextAsset == null)
@@ -103,7 +105,7 @@ public class DT_GameTextManager : MonoBehaviour
             // Load the scene if there is a request
             if (sceneToLoad != GameManager.GameScene.None)
             {
-                StartCoroutine(GameManager.LoadScene(_sceneToLoad));
+                StartCoroutine(_sceneLoader.LoadScene(_sceneToLoad));
             }
             else
             {
@@ -330,7 +332,7 @@ public class DT_GameTextManager : MonoBehaviour
         // if there's a scene to load, do that
         if (_sceneToLoad != GameManager.GameScene.None)
         {
-            StartCoroutine(GameManager.LoadScene(_sceneToLoad));
+            StartCoroutine(_sceneLoader.LoadScene(_sceneToLoad));
             _sceneToLoad = GameManager.GameScene.None;
         }
         else

@@ -16,6 +16,7 @@ public class DT_Trigger : MonoBehaviour
     private string _triggerType;
     private bool _pauseMovingEnemies;
     private bool _pauseStationaryEnemies;
+    private DT_SceneLoader _sceneLoader;
 
     public void Start()
     {
@@ -118,7 +119,7 @@ public class DT_Trigger : MonoBehaviour
                     _gameTextManager.MakeTextSceneRequest(_myTextType, GameManager.GameScene.None);
                     break;
                 case "sceneOnly":
-                    StartCoroutine(GameManager.LoadScene(_mySceneToLoad));
+                    StartCoroutine(_sceneLoader.LoadScene(_mySceneToLoad));
                     break;
                 case "worldMap":
                     _gameTextManager.WorldMapRequest(_mySceneToLoad);

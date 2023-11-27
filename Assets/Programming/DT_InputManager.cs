@@ -18,11 +18,11 @@ public class DT_InputManager : MonoBehaviour
     private DT_BardMode _bardMode;
     private DT_PlayerActions _playerActions;
     private DT_PlayerMovement _playerMovement;
+    private DT_PauseMenu _pauseMenu;
+    private DT_GameplayUI _gameplayUI;
     private bool _isTalkControls;
-    [SerializeField] private Button buttonPause, button1, button2, button3, button4, button5, button6, button7, buttonB;
-
+    private Button buttonPause, button1, button2, button3, button4, button5, button6, button7, buttonB;
     
-
     /*   This script handles GAMEPLAY and BARD and TALKING input
      *      1. Listens for which the UI buttons are being clicked
      *      2. Receives keyboard input and..
@@ -33,12 +33,12 @@ public class DT_InputManager : MonoBehaviour
      *              - DT_PlayerMovement
      *              - DT_BardMode
      *      5. Holds method for switching action map
-     *      6. Hides kalimba keys that Player doesn't have yet
      */
 
     private void Awake()
     {
         // Assign components
+        _gameplayUI = FindObjectOfType<DT_GameplayUI>();
         _gameManager = FindObjectOfType<GameManager>();
         _bardMode = GetComponent<DT_BardMode>();
         _playerActions = GetComponent<DT_PlayerActions>();
@@ -50,146 +50,28 @@ public class DT_InputManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        button1 = _gameplayUI.button1.GetComponent<Button>();
+        button2 = _gameplayUI.button2.GetComponent<Button>();
+        button3 = _gameplayUI.button3.GetComponent<Button>();
+        button4 = _gameplayUI.button4.GetComponent<Button>();
+        button5 = _gameplayUI.button5.GetComponent<Button>();
+        button6 = _gameplayUI.button6.GetComponent<Button>();
+        button7 = _gameplayUI.button7.GetComponent<Button>();
+        buttonB = _gameplayUI.buttonB.GetComponent<Button>();
+    }
+
     private void OnEnable()
     {
-        // Subscribe to the sceneLoaded event when the script is enabled
-        SceneManager.sceneLoaded += OnSceneLoaded;
         // Subscribe to be notified when any input action is triggered
         _playerInput.onActionTriggered += OnActionTriggered;
-        // Subscribe to be notified when Player Level changes
-        GameManager.OnPlayerLevelChanged += ShowButtons;
-        // Subscribe to be notified when Player Status changes
-        GameManager.OnPlayerStateChanged += CheckButtons;
-        
-        // Set up listeners to run methods when clicked
-        buttonPause.onClick.AddListener(delegate {ClickInput("ButtonPause");});
-        button1.onClick.AddListener(delegate {ClickInput("Button1");});
-        button2.onClick.AddListener(delegate {ClickInput("Button2");});
-        button3.onClick.AddListener(delegate {ClickInput("Button3");});
-        button4.onClick.AddListener(delegate {ClickInput("Button4");});
-        button5.onClick.AddListener(delegate {ClickInput("Button5");});
-        button6.onClick.AddListener(delegate {ClickInput("Button6");});
-        button7.onClick.AddListener(delegate {ClickInput("Button7");});
-        buttonB.onClick.AddListener(delegate {ClickInput("ButtonB");});
     }
 
     private void OnDisable()
     {
-        // Unsubscribe from the sceneLoaded event when the script is disabled
-        SceneManager.sceneLoaded -= OnSceneLoaded;
         // Unsubscribe from these events on disable
         _playerInput.onActionTriggered -= OnActionTriggered;
-        GameManager.OnPlayerLevelChanged -= ShowButtons;
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        HideButtons();
-    }
-
-    private void Start()
-    {
-        ShowButtons(GameManager.CurrentPlayerLevel);
-    }
-
-    private void CheckButtons(GameManager.PlayerState newPlayerState)
-    {
-        // If player not currently talking
-        if (!_isTalkControls)
-        {
-            // But new status is talking
-            if (newPlayerState == GameManager.PlayerState.Talking)
-            {
-                    // Hide buttons (except Next and Pause)
-                    HideButtons();
-                    _isTalkControls = true;
-            }
-        }
-        // If player is currently talking
-        else if (_isTalkControls)
-        {
-            // And new status is not talking
-            if (newPlayerState != GameManager.PlayerState.Talking)
-            {
-                // Show controls for player's current level
-                ShowButtons(GameManager.CurrentPlayerLevel);
-                _isTalkControls = false;
-            }
-        }
-    }
-
-    private void HideButtons()
-    {
-        // Hide everything except for step fwd (button 5) and pause
-        button1.gameObject.SetActive(false);
-        button2.gameObject.SetActive(false);
-        button3.gameObject.SetActive(false);
-        button4.gameObject.SetActive(false);
-        button6.gameObject.SetActive(false);
-        button7.gameObject.SetActive(false);
-        buttonB.gameObject.SetActive(false);
-    }
-
-    private void ShowButtons(GameManager.PlayerLevel newPlayerLevel)
-    {
-        switch (newPlayerLevel)
-        {
-            case GameManager.PlayerLevel.NewGame:
-                button5.gameObject.SetActive(true); // step fwd
-                break;
-            case GameManager.PlayerLevel.OneNote:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                break;
-            case GameManager.PlayerLevel.TwoNotes:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                button4.gameObject.SetActive(true); // climb
-                break;
-            case GameManager.PlayerLevel.ThreeNotes:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                button4.gameObject.SetActive(true); // climb
-                button3.gameObject.SetActive(true); // step bkd
-                break;
-            case GameManager.PlayerLevel.FourNotes:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                button4.gameObject.SetActive(true); // climb
-                button3.gameObject.SetActive(true); // step bkd
-                button2.gameObject.SetActive(true); // crouch
-                break;
-            case GameManager.PlayerLevel.FiveNotes:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                button4.gameObject.SetActive(true); // climb
-                button3.gameObject.SetActive(true); // step bkd
-                button2.gameObject.SetActive(true); // crouch
-                button6.gameObject.SetActive(true); // attack
-                break;
-            case GameManager.PlayerLevel.SixNotes:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                button4.gameObject.SetActive(true); // climb
-                button3.gameObject.SetActive(true); // step bkd
-                button2.gameObject.SetActive(true); // crouch
-                button6.gameObject.SetActive(true); // attack
-                button1.gameObject.SetActive(true); // defend
-                break;
-            case GameManager.PlayerLevel.SevenNotes:
-            case GameManager.PlayerLevel.Winner:
-                button5.gameObject.SetActive(true); // step fwd
-                buttonB.gameObject.SetActive(true); // bard mode
-                button4.gameObject.SetActive(true); // climb
-                button3.gameObject.SetActive(true); // step bkd
-                button2.gameObject.SetActive(true); // crouch
-                button6.gameObject.SetActive(true); // attack
-                button1.gameObject.SetActive(true); // defend
-                button7.gameObject.SetActive(true); // magic
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
     }
     
     private bool IsGamePaused()
@@ -201,24 +83,27 @@ public class DT_InputManager : MonoBehaviour
     public void SwitchActionMap(string mapName)
     {
         _playerInput.SwitchCurrentActionMap(mapName);
+        Debug.Log($"Input map is now: {mapName}");
     }
     
     // KEYBOARD INPUT SECTION 
 
     private void OnActionTriggered(InputAction.CallbackContext context)
     {
-        // We'll use default UI input controls for menus so can ignore any action input
+        if (context.action.name == "Pause")
+        {   
+            // Do Pause/Unpause
+            SelectDeselect(buttonPause, context);
+            Debug.Log("Pause Registered");
+            return;
+        }
+        
+        // Ignore other input actions if game paused
         if (IsGamePaused()) return;
 
         switch (context.action.name)
         {
         // GAMEPLAY
-        case "Pause":
-            {   
-                // Click button
-                SelectDeselect(buttonPause, context);
-                break;
-            }
         case "Defend":
             {
                 // Click button
@@ -340,9 +225,15 @@ public class DT_InputManager : MonoBehaviour
     }
 
     // CLICK INPUT SECTION
-    private void ClickInput (string button)
+    public void ClickInput (string button)
     {
-        // If game is paused, ignore input
+        if (button == "ButtonPause")
+        {
+            _pauseMenu.PauseUnpause();
+            return;
+        }
+        
+        // If game is paused, ignore action input
         if (IsGamePaused()) return;
 
         // Check if we're in Bard Mode
@@ -353,9 +244,6 @@ public class DT_InputManager : MonoBehaviour
         
         switch (button)
         {
-            case "ButtonPause":
-                _gameManager.PauseUnpause();
-                break;
             case "Button1":
                 if (isBardMode)
                 {
