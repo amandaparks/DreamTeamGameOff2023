@@ -66,13 +66,11 @@ public class DT_InputManager : MonoBehaviour
         button6.onClick.AddListener(delegate {ClickInput("Button6");});
         button7.onClick.AddListener(delegate {ClickInput("Button7");});
         buttonB.onClick.AddListener(delegate {ClickInput("ButtonB");});
-    }
-
-    private void Start()
-    {
+        
         HideButtons();
         ShowButtons(GameManager.CurrentPlayerLevel);
     }
+
 
     private void CheckButtons(GameManager.PlayerState newPlayerState)
     {
@@ -111,8 +109,16 @@ public class DT_InputManager : MonoBehaviour
         button7.gameObject.SetActive(false);
         buttonB.gameObject.SetActive(false);
     }
+
     private void ShowButtons(GameManager.PlayerLevel newPlayerLevel)
     {
+        StartCoroutine(DelayedShowButtons(newPlayerLevel));
+    }
+
+    private IEnumerator DelayedShowButtons(GameManager.PlayerLevel newPlayerLevel)
+    {
+        yield return null; // Wait for a frame
+        
         switch (newPlayerLevel)
         {
             case GameManager.PlayerLevel.NewGame:

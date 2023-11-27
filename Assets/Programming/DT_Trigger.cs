@@ -41,8 +41,8 @@ public class DT_Trigger : MonoBehaviour
     public void PrepareTrigger(DT_SO_GameText.GameText.TextType textToLoad, GameManager.GameScene sceneToLoad)
     {
         // Make sure collider is on and trigger enabled
-        _thisCollider.enabled = true;
-        _thisCollider.isTrigger = true;
+        //_thisCollider.enabled = true;
+        //_thisCollider.isTrigger = true;
 
         // Assign values received
         _myTextType = textToLoad;

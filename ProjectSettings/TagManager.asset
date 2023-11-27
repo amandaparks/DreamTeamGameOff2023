@@ -8,11 +8,12 @@ TagManager:
   - Ladder
   - LadderBase
   - LadderTop
-  - UI_Info
   - NPC
   - HotSpring
   - WindBreak
-  - PlayerBubble
+  - InfoCanvas
+  - NPCCanvas
+  - PlayerCanvas
   layers:
   - Default
   - TransparentFX

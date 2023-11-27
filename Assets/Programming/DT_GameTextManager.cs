@@ -23,15 +23,15 @@ public class DT_GameTextManager : MonoBehaviour
     private TextMeshProUGUI _playerTextField;
     private TextMeshProUGUI _npcTextField;
 
-    private Canvas _infoCanvas;
-    private Canvas _playerCanvas;
-    private Canvas _npcCanvas;
+    private GameObject _infoCanvasGameObject;
+    private GameObject _playerCanvasGameObject;
+    private GameObject _npcCanvasGameObject;
 
     private DT_SO_GameText.GameText _matchingEntry;
     private DT_SO_GameText.TextLines[] _matchingLines;
     private int _currentLineIndex;
     private DT_SO_GameText.TextLines.Speaker _currentSpeaker;
-    private Canvas _currentCanvas;
+    private GameObject _currentCanvasGameObject;
     private GameManager.GameScene _sceneToLoad;
     
     private DT_InputManager _inputManager;
@@ -54,43 +54,37 @@ public class DT_GameTextManager : MonoBehaviour
         // Assign the data from the asset
         _gameText = gameTextAsset.gameText;
         
+        
         // Find the relevant objects
-        var infoCanvas = GameObject.FindGameObjectWithTag("UI_Info");
-        var playerCanvas = GameObject.FindGameObjectWithTag("PlayerBubble");
-        var npcCanvas = GameObject.FindGameObjectWithTag("NPC");
-
+        _infoCanvasGameObject = GameObject.FindGameObjectWithTag("InfoCanvas");
+        _playerCanvasGameObject = GameObject.FindGameObjectWithTag("PlayerCanvas");
+        _npcCanvasGameObject= GameObject.FindGameObjectWithTag("NPCCanvas");
+        
         // Find canvases and text boxes and turn them all off for now
-        if (infoCanvas != null)
-        {
-            Debug.Log($"Info Canvas Found: {_infoCanvas}");
-            _infoCanvas = infoCanvas.GetComponentInChildren<Canvas>();
-            _infoTextField = _infoCanvas.GetComponentInChildren<TextMeshProUGUI>();
-            _infoCanvas.gameObject.SetActive(false);
-        }
-        else { Debug.LogWarning("Just FYI, no info canvas in this scene."); }
 
-        if (playerCanvas != null)
+        if (_playerCanvasGameObject != null)
         {
-            Debug.Log($"Player Canvas Found: {_playerCanvas}");
-            _playerCanvas = playerCanvas.GetComponentInChildren<Canvas>();
-            _playerTextField = _playerCanvas.GetComponentInChildren<TextMeshProUGUI>();
-            _playerCanvas.gameObject.SetActive(false);
+            Debug.Log($"Player Canvas GO: {_playerCanvasGameObject.name}");
+            _playerTextField = _playerCanvasGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _playerCanvasGameObject.SetActive(false);
         }
         else { Debug.LogWarning("Just FYI, no player canvas in this scene."); }
 
-        if (npcCanvas != null)
+        if (_npcCanvasGameObject != null)
         {
-            Debug.Log($"NPC Canvas Found: {_npcCanvas}");
-            _npcCanvas = playerCanvas.GetComponentInChildren<Canvas>();
-            _npcTextField = _npcCanvas.GetComponentInChildren<TextMeshProUGUI>();
-            _npcCanvas.gameObject.SetActive(false);
+            Debug.Log($"NPC Canvas GO: {_npcCanvasGameObject.name}");
+            _npcTextField = _npcCanvasGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _npcCanvasGameObject.SetActive(false);
         }
         else { Debug.LogWarning("Just FYI, no npc canvas in this scene."); }
-    }
-
-    private void Start()
-    {
-        _currentCanvas = null;
+        
+        if (_infoCanvasGameObject != null)
+        {
+            Debug.Log($"Info Canvas GO: {_infoCanvasGameObject.name}");
+            _infoTextField = _infoCanvasGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _infoCanvasGameObject.SetActive(false);
+        }
+        else { Debug.LogWarning("Just FYI, no info canvas in this scene."); }
     }
 
     // Other game objects can also use this method to trigger text to appear
@@ -123,6 +117,7 @@ public class DT_GameTextManager : MonoBehaviour
         {
             // Run the text and then change scene if requested
             PerformRequest();
+            Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         }
     }
 
@@ -131,7 +126,7 @@ public class DT_GameTextManager : MonoBehaviour
         Debug.Log($"WORLD MAP REQUEST RECEIVED");
         _isWorldMapRequest = true;
         _sceneToLoad = scene;
-
+        
         StartCoroutine(RunWorldMapRequest());
     }
 
@@ -147,6 +142,8 @@ public class DT_GameTextManager : MonoBehaviour
         //Just seems a little too snappy so...
         yield return new WaitForSeconds(0.7f);
         
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         // Display line
         NextLine();
     }
@@ -154,7 +151,7 @@ public class DT_GameTextManager : MonoBehaviour
     private DT_SO_GameText.GameText FindEntry(DT_SO_GameText.GameText.TextType textType)
     {
         Debug.Log($"Looking for {textType} for {GameManager.CurrentScene}");
-        
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         //Search through game text and find the one with matching:
         //Text Type + Current Scene and Level Bool + Required Level
         var entry =
@@ -175,6 +172,7 @@ public class DT_GameTextManager : MonoBehaviour
     }
     private void PerformRequest()
     {
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         // Set the player to Talking
         GameManager.CurrentPlayerState = GameManager.PlayerState.Talking;
         Debug.Log("PLAYER STATE: TALKING");
@@ -192,6 +190,7 @@ public class DT_GameTextManager : MonoBehaviour
     
     public void NextLine()
     {
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         // If too soon to press key, do nothing
         if (!_canAdvance) return;
         // Otherwise, accept input and initiate cooldown
@@ -220,6 +219,7 @@ public class DT_GameTextManager : MonoBehaviour
                 }
                 else // Finish up
                 {
+                    Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
                     FinishUp();
                 }
                 break;
@@ -229,32 +229,37 @@ public class DT_GameTextManager : MonoBehaviour
 
     private void Confirmation()
     {
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
+        
         //Populate text
         _infoTextField.text = "Enter the Dungeon";
         //Turn on canvas
-        _infoCanvas.gameObject.SetActive(true);
+        _infoCanvasGameObject.SetActive(true);
         // Remember new current speaker and new current canvas
         _currentSpeaker = DT_SO_GameText.TextLines.Speaker.Info;
-        _currentCanvas = _infoCanvas;
+        _currentCanvasGameObject = _infoCanvasGameObject;
 
         _isConfirmed = true;
     }
 
     private IEnumerator Cooldown()
     {
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         _canAdvance = false;
         yield return new WaitForSeconds(cooldownTime);
         _canAdvance = true;
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
     }
 
     private void DisplayText()
     {
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         // Figure out who the speaker is
         DT_SO_GameText.TextLines.Speaker newSpeaker = _matchingLines[_currentLineIndex].speaker;
-        // If the speaker has changed (and current canvas is not null), disable the old speaker's canvas
-        if (_currentCanvas != null && !_currentSpeaker.Equals(newSpeaker))
+        // If the speaker has changed (and a speech bubble is active), disable the old speaker's bubble
+        if (_currentCanvasGameObject != null && !_currentSpeaker.Equals(newSpeaker))
         {
-            _currentCanvas.gameObject.SetActive(false);
+            _currentCanvasGameObject.SetActive(false);
         }
 
         // Choose text field depending on speaker
@@ -262,62 +267,66 @@ public class DT_GameTextManager : MonoBehaviour
         {
             case DT_SO_GameText.TextLines.Speaker.Info:
             {
-                if (_infoCanvas == null)
+                if (_infoCanvasGameObject == null)
                 {
                     Debug.LogError("Next speaker is Info but no Info text box exists.");
                     break;
                 }
+                // Remember new current speaker and new current canvas
+                _currentSpeaker = DT_SO_GameText.TextLines.Speaker.Info;
+                _currentCanvasGameObject = _infoCanvasGameObject;
+                
                 //Populate text
                 _infoTextField.text = _matchingLines[_currentLineIndex].text;
                 //Turn on canvas
-                _infoCanvas.gameObject.SetActive(true);
-                // Remember new current speaker and new current canvas
-                _currentSpeaker = DT_SO_GameText.TextLines.Speaker.Info;
-                _currentCanvas = _infoCanvas;
+                _infoCanvasGameObject.SetActive(true);
                 break;
             }
             case DT_SO_GameText.TextLines.Speaker.Player:
             {
-                if (_infoCanvas == null)
+                if (_playerCanvasGameObject == null)
                 {
                     Debug.LogError("Next speaker is Player but no Player text box exists.");
                     break;
                 }
                 _playerTextField.text = _matchingLines[_currentLineIndex].text;
-                _playerCanvas.gameObject.SetActive(true);
+                _playerCanvasGameObject.SetActive(true);
                 _currentSpeaker = DT_SO_GameText.TextLines.Speaker.Player;
-                _currentCanvas = _playerCanvas;
+                _currentCanvasGameObject = _playerCanvasGameObject;
                 break;
             }
             case DT_SO_GameText.TextLines.Speaker.NPC:
             {
-                if (_infoCanvas == null)
+                if (_npcCanvasGameObject == null)
                 {
                     Debug.LogError("Next speaker is NPC but no NPC text box exists.");
                     break;
                 }
                 _npcTextField.text = _matchingLines[_currentLineIndex].text;
-                _npcCanvas.gameObject.SetActive(true);
+                _npcCanvasGameObject.SetActive(true);
                 _currentSpeaker = DT_SO_GameText.TextLines.Speaker.NPC;
-                _currentCanvas = _npcCanvas;
+                _currentCanvasGameObject = _npcCanvasGameObject;
                 break;
             }
             default:
                 Debug.LogError("Speaker type missing");
                 break;
         }
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
     }
 
     private void FinishUp()
     {
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         // deactivate the current speaker's canvas
-        _currentCanvas.gameObject.SetActive(false);
+        _currentCanvasGameObject.SetActive(false);
         // reset everything we were tracking
-        _currentCanvas = null;
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         _currentLineIndex = -1;
         _matchingEntry = null;
         _matchingLines = null;
-
+        _currentCanvasGameObject = null;
+        Debug.LogWarning($"Current Canvas is {_currentCanvasGameObject}");
         // if there's a scene to load, do that
         if (_sceneToLoad != GameManager.GameScene.None)
         {

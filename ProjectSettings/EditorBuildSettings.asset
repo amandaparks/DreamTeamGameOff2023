@@ -12,10 +12,22 @@ EditorBuildSettings:
     path: Assets/Scenes/WorldMap.unity
     guid: 9c405eb03e6985748a804a35cb6cd095
   - enabled: 1
-    path: Assets/Tests etc/Amanda/AmandasTestScene.unity
-    guid: 5adb2e87331a1d04c9727dd149ef1a22
-  - enabled: 0
-    path: Assets/Scenes/TEMPLATE.unity
-    guid: a58e12465fcdb1a44891b61198cbb9aa
+    path: Assets/Scenes/Dungeon_1.unity
+    guid: 44a714629029d484d97c92b7cbde88f2
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_2.unity
+    guid: 3c27df7b2ec68574c94da5d23f8ccc9d
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_3.unity
+    guid: 6da115ae6c41e9c46b8a3ec8faa41388
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_4.unity
+    guid: f8d3c9d5547f1fa4ab811459d393a9bd
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_5.unity
+    guid: 739c651990265e04182f953bd3d9f6dd
+  - enabled: 1
+    path: Assets/Scenes/Dungeon_6.unity
+    guid: 37056c6bde61d6846b2b5966f8544237
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 491411754249a254db9490ae17fa7294, type: 2}

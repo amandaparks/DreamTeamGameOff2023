@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
                 _currentPlayerState = value;
                 // Notify subscribers
                 OnPlayerStateChanged?.Invoke(_currentPlayerState);
+                Debug.LogWarning($"PLAYER STATE CHANGED TO: {_currentPlayerState}");
             }
         }
     }
