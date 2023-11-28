@@ -14,6 +14,8 @@ TagManager:
   - InfoCanvas
   - NPCCanvas
   - PlayerCanvas
+  - RockBreak
+  - ArrowBreak
   layers:
   - Default
   - TransparentFX
