@@ -17,7 +17,7 @@ public class DT_EnemyManager : MonoBehaviour
     private GameManager.PlayerState _oldPlayerState;
     private bool _isSpawnerActive;
     
-    private void Start()
+    private void OnEnable()
     {
         // Don't do anything if no enemies at all
         if (enemiesToSpawn.Length == 0) return;

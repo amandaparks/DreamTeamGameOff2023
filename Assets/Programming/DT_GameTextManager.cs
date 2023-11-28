@@ -34,6 +34,7 @@ public class DT_GameTextManager : MonoBehaviour
     private GameObject _currentCanvasGameObject;
     private GameManager.GameScene _sceneToLoad;
     private DT_SceneLoader _sceneLoader;
+    private DT_EnemyManager _enemyManager;
     
     private DT_InputManager _inputManager;
     private bool _canAdvance = true;
@@ -46,6 +47,7 @@ public class DT_GameTextManager : MonoBehaviour
         // Find the input manager and scene loader
         _inputManager = FindObjectOfType<DT_InputManager>();
         _sceneLoader = FindObjectOfType<DT_SceneLoader>();
+        _enemyManager = FindObjectOfType<DT_EnemyManager>();
         
         // Make sure game text asset has been assigned
         if (gameTextAsset == null)
@@ -55,7 +57,6 @@ public class DT_GameTextManager : MonoBehaviour
         
         // Assign the data from the asset
         _gameText = gameTextAsset.gameText;
-        
         
         // Find the relevant objects
         _infoCanvasGameObject = GameObject.FindGameObjectWithTag("InfoCanvas");
@@ -118,7 +119,7 @@ public class DT_GameTextManager : MonoBehaviour
         else if (_matchingEntry != null)
         {
             // Run the text and then change scene if requested
-            PerformRequest();
+            StartCoroutine(PerformRequest());
             
         }
     }
@@ -172,14 +173,23 @@ public class DT_GameTextManager : MonoBehaviour
         Debug.Log("No text to run.");
         return null;
     }
-    private void PerformRequest()
+    private IEnumerator PerformRequest()
     {
-        
+        // turn off enemy spawner if there is one
+        if (_enemyManager != null)
+        {
+            _enemyManager.gameObject.SetActive(false);
+        }
+
         // Set the player to Talking
         GameManager.CurrentPlayerState = GameManager.PlayerState.Talking;
         Debug.Log("PLAYER STATE: TALKING");
         // Switch to the Talking Action Map
         _inputManager.SwitchActionMap("Talking");
+        
+        //Just seems a little too snappy so...
+        yield return new WaitForSeconds(0.7f);
+        
         // Grab the set of lines for that entry
         _matchingLines = _matchingEntry.textLines;
         // Set the line index to -1 so NextLine loads at 0
@@ -341,6 +351,13 @@ public class DT_GameTextManager : MonoBehaviour
             GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
             // and switch back to the gameplay action map
             _inputManager.SwitchActionMap("Gameplay");
+            
+            // and turn enemy spawner back on
+            // turn off enemy spawner if there is one
+            if (_enemyManager != null)
+            {
+                _enemyManager.gameObject.SetActive(true);
+            }
         }
     }
     

@@ -29,9 +29,6 @@ public class DT_SceneLoader : MonoBehaviour
         
         // This method will be called every time a new scene is loaded
         Debug.Log("Scene loaded: " + scene.name);
-        
-        GameManager.PlayerStartPos = transform.position;
-        Debug.Log($"Player starting position is {GameManager.PlayerStartPos}");
     }
 
     private void Start()

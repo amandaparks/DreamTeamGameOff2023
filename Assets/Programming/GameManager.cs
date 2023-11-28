@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
                 _currentPlayerLevel = value;
                 // Notify subscribers
                 OnPlayerLevelChanged?.Invoke(_currentPlayerLevel);
+                Debug.Log($"PLAYER LEVEL is {_currentPlayerLevel}");
             }
         }
     }

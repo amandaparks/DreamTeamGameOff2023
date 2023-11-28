@@ -28,6 +28,9 @@ public class DT_LevelManager : MonoBehaviour
     }
     void Start()
     {
+        // Tell game manager where the player is
+        GameManager.PlayerStartPos = transform.position;
+        Debug.Log($"Player starting position is {GameManager.PlayerStartPos}");
         
         // Load text if expected
         if (!_showScroll) return;
