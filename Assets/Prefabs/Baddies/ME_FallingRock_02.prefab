@@ -129,26 +129,26 @@ PrefabInstance:
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnSound
       value: 
-      objectReference: {fileID: 8300000, guid: cd11e88e4e7f4c246adc61191a8eae9f, type: 3}
+      objectReference: {fileID: 8300000, guid: d588ce67ce25a9d4796c21eb3b219d90, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: dropOnCollide
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnVolume
-      value: 0.264
+      value: 0.612
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionSound
       value: 
-      objectReference: {fileID: 8300000, guid: cd11e88e4e7f4c246adc61191a8eae9f, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: environmentTag
       value: RockBreak
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionVolume
-      value: 0.206
+      value: 0.586
       objectReference: {fileID: 0}
     - target: {fileID: 8446087185476981497, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: m_Name

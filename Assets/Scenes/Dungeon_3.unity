@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Geyser 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
+      propertyPath: intervalVolume
+      value: 0.226
+      objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.21
@@ -288,6 +292,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
       propertyPath: m_Name
       value: SM_Planks_Platform (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -406,6 +414,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
       propertyPath: m_Name
       value: SM_Planks_Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1250,6 +1262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Planks_Platform (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1593,6 +1609,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Planks_Platform (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1661,7 +1681,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2109860447}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2986833381065263241, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_Name
@@ -1674,6 +1694,10 @@ PrefabInstance:
     - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: offDuration
       value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
+      propertyPath: intervalVolume
+      value: 0.264
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1693,15 +1717,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1720,11 +1744,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
---- !u!4 &605092089 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
-  m_PrefabInstance: {fileID: 605092088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &618517945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3436483925329256312, guid: 5417aff16c00df3409d74c25fa013108, type: 3}
@@ -2124,7 +2143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4514066534432851384, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6428075863436645500, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
       propertyPath: defaultTrack
@@ -3457,6 +3476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Planks_Platform (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3998,6 +4021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Planks_Platform (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4147,6 +4174,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
       propertyPath: m_Name
       value: SM_Planks_Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95943825422a6d843ab5c2cc8fa206f5, type: 3}
+      propertyPath: m_TagString
+      value: RockBreak
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4361,6 +4392,10 @@ PrefabInstance:
     - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: offDuration
       value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
+      propertyPath: intervalVolume
+      value: 0.251
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4832,7 +4867,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2986833381065263241, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_Name
-      value: Geyser 3
+      value: Geyser 4
       objectReference: {fileID: 0}
     - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: onDuration
@@ -4841,6 +4876,10 @@ PrefabInstance:
     - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: offDuration
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
+      propertyPath: intervalVolume
+      value: 0.284
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4917,7 +4956,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 869112248}
-  - {fileID: 605092089}
   - {fileID: 1651404824}
   - {fileID: 2000138819}
   - {fileID: 829271700}
@@ -5162,6 +5200,7 @@ SceneRoots:
   - {fileID: 657529078}
   - {fileID: 17543683}
   - {fileID: 1891319018}
+  - {fileID: 605092088}
   - {fileID: 2084489983}
   - {fileID: 1888085693}
   - {fileID: 1755505066}
