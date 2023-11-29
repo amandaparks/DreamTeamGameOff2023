@@ -2078,19 +2078,19 @@ PrefabInstance:
       objectReference: {fileID: 4654631363938122103, guid: c0d1280657a317a44b5608890a43565e, type: 3}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[0].moveSpeed
-      value: 0.448
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[0].spawnRate
-      value: 0.5
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[1].moveSpeed
-      value: 0.448
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[1].spawnRate
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[2].moveSpeed
@@ -2130,7 +2130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[6].spawnRate
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[0].maxLifeSpan
@@ -2872,6 +2872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SE_Geyser
       objectReference: {fileID: 0}
+    - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
+      propertyPath: onDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.13
@@ -3331,6 +3335,10 @@ PrefabInstance:
     - target: {fileID: 2986833381065263241, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_Name
       value: SE_Geyser (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3775694224919654983, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
+      propertyPath: onDuration
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8958631155529160028, guid: 1b7f6a3ab2cf0f943a797f83bc6eb41d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4407,7 +4415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1101451274204805644, guid: 1cfc4fd4a86edb34baa2a9fd5bc70611, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 1101451274204805644, guid: 1cfc4fd4a86edb34baa2a9fd5bc70611, type: 3}
       propertyPath: m_LocalPosition.z

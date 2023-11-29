@@ -42,11 +42,15 @@ MonoBehaviour:
       text: Please, lend me a scale.
     - speaker: 1
       text: "The name\u2019s Crimson. And you can keep it! :) "
+    - speaker: 1
+      text: Crimson's scale should help you get up the mountain :)
   - sceneName: 4
     textBoxType: 1
     textLines:
     - speaker: 2
       text: A cautious ascent to avoid the swirling gales.
+    - speaker: 2
+      text: Play the CRIMSON SCALE to ASCEND/DESCEND LADDERS.
   - sceneName: 4
     textBoxType: 2
     textLines:
@@ -58,11 +62,15 @@ MonoBehaviour:
       text: You mean to help ussss, help poor Dusk?
     - speaker: 1
       text: Have a scale for your troublesss. Good luck.
+    - speaker: 1
+      text: You ssshould be able to dodge backwardsss now.
   - sceneName: 5
     textBoxType: 1
     textLines:
     - speaker: 2
       text: "Don\u2019t let glimmers fool you, be sure to mind your head."
+    - speaker: 2
+      text: Play the DUSK SCALE to STEP BACKWARDS
   - sceneName: 5
     textBoxType: 2
     textLines:
@@ -74,6 +82,8 @@ MonoBehaviour:
       text: A scale for my troubles, that is all.
     - speaker: 1
       text: Is that all? Very well. Fandango thanks you~
+    - speaker: 1
+      text: Don't forget to dance the Fandango with your new move~
   - sceneName: 6
     textBoxType: 1
     textLines:
@@ -87,6 +97,8 @@ MonoBehaviour:
     - speaker: 2
       text: Submerging in the warm water of the hot springs seem to protect from
         daggerous icicles.
+    - speaker: 2
+      text: Play the FANDANGO SCALE to DUCK.
   - sceneName: 7
     textBoxType: 2
     textLines:
@@ -125,6 +137,8 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: True heroes dodge not an arrow, but disarm them.
+    - speaker: 2
+      text: Play the AMAZON SCALE to DISARM ARROWS with magic vines.
   - sceneName: 9
     textBoxType: 2
     textLines:
@@ -156,3 +170,10 @@ MonoBehaviour:
       text: With the lands hanging in the balance... I must answer my call.
     - speaker: 0
       text: I am happy to have assisted.
+  - sceneName: 10
+    textBoxType: 1
+    textLines:
+    - speaker: 2
+      text: And so our hero has saved the day.
+    - speaker: 2
+      text: With the dragons restored, the land of Octavia is saved.
