@@ -11,10 +11,12 @@ public class DT_SceneLoader : MonoBehaviour
     [SerializeField] private GameObject sceneFadeCanvas;
     [SerializeField] private float sceneFadeSpeed = 1.0f;
     private Graphic _blackPanel;
+    private MusicManager _musicManager;
 
     private void Awake()
     {
         _blackPanel = sceneFadeCanvas.GetComponent<Graphic>();
+        _musicManager = FindObjectOfType<MusicManager>();
     }
     private void OnEnable()
     {
@@ -88,7 +90,7 @@ public class DT_SceneLoader : MonoBehaviour
     }
 
     private void LoadTheScene(GameManager.GameScene scene)
-    {
+    {        
         switch (scene)
         {
             case GameManager.GameScene.WorldMap:
@@ -107,6 +109,8 @@ public class DT_SceneLoader : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException(nameof(scene), scene, null);
         }
+        Debug.Log($"change BGM to {scene}");
+        _musicManager.ChangeBGM(scene);
     }
 
     private IEnumerator FadeOut()
