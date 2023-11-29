@@ -37,6 +37,7 @@ public class DT_SO_GameText : ScriptableObject
         public Speaker speaker;
         [TextAreaAttribute]
         public string text;
+        public AudioClip voiceover;
         
         public enum Speaker
         {

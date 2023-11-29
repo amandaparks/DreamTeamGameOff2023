@@ -32,10 +32,12 @@ public class DT_MovingEnemy : MonoBehaviour
     private ParticleSystem damageParticles;
 
     [SerializeField] private AudioClip damageSound;
+    [Range(0f, 1f)] public float damageVolume;
     [HideInInspector] public AudioSource damageAudioSource;
 
     [Header("== Always-On Sound / Effects ==")] [SerializeField]
     private AudioClip alwaysOnSound;
+    [Range(0f, 1f)] public float alwaysOnVolume;
 
     [SerializeField] private ParticleSystem alwaysOnParticles;
     [HideInInspector] public AudioSource alwaysOnAudioSource;
@@ -45,6 +47,7 @@ public class DT_MovingEnemy : MonoBehaviour
 
     [SerializeField] private ParticleSystem collisionParticles;
     [SerializeField] private AudioClip collisionSound;
+    [Range(0f, 1f)] public float collisionVolume;
     [HideInInspector] public AudioSource collisionAudioSource;
     [SerializeField] private string environmentTag;
     [SerializeField] private bool dropOnCollide;
@@ -54,6 +57,7 @@ public class DT_MovingEnemy : MonoBehaviour
 
     [SerializeField] private ParticleSystem disabledParticles;
     [SerializeField] private AudioClip disabledSound;
+    [Range(0f, 1f)] public float disabledVolume;
     [HideInInspector] public AudioSource disabledAudioSource;
 
     private GameObject _player;
@@ -268,6 +272,7 @@ public class DT_MovingEnemy : MonoBehaviour
 
             if (alwaysOnSound == null) return;
             alwaysOnAudioSource.clip = alwaysOnSound;
+            alwaysOnAudioSource.volume = alwaysOnVolume;
             alwaysOnAudioSource.Play();
 
         }
@@ -306,6 +311,7 @@ public class DT_MovingEnemy : MonoBehaviour
 
             if (damageSound == null) return;
             damageAudioSource.clip = damageSound;
+            damageAudioSource.volume = damageVolume;
             damageAudioSource.Play();
         }
 
@@ -354,6 +360,8 @@ public class DT_MovingEnemy : MonoBehaviour
 
         if (disabledSound != null)
         {
+            disabledAudioSource.clip = disabledSound;
+            disabledAudioSource.volume = disabledVolume;
             disabledAudioSource.Play();
         }
 

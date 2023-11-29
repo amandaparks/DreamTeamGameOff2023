@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    //sets up the first track to be played in this scene, editable in inspector
     public AudioClip defaultTrack;
-    private AudioSource source;
+    [Range(0f, 1f)] public float defaultTrackVol;
+
+    //sets up variables which will be assigned later
     private AudioClip trackToPlay;
     private float trackToPlayVol;
+
     //sets number of seconds audio fades over, used in function FadeTrack()
     [Range(0f, 5f)] public float audioFadeTime;
 
-
+    //create two AudioSource components so we can fade between the two
     private AudioSource track01, track02;
     private bool isPlayingTrack01;
 
@@ -25,34 +29,35 @@ public class MusicManager : MonoBehaviour
     {
         //if there is no other MusicManager instance
         if (instance == null) 
-        {
-            
-            Debug.Log("first musicManager!");
+        {          
             //then make this the MusicManager instance and don't destroy when loading new scene
             instance = this;
             DontDestroyOnLoad(instance);                        
         }
-        //else if there is already a MusicManager instance, then destroy this gameObject
+        //else if there is already another MusicManager instance, then destroy this gameObject IMMEDIATELY (doesn't work otherwise)
         else if (instance != null && instance != this)
         {
             DestroyImmediate(gameObject);
-            Debug.Log("destroyed musicManager!");
             return;
         }
 
     }
 
+
     private void Start()
     {
+        //creates AudioSource components for track01 and track02 and makes them loop
         track01 = gameObject.AddComponent<AudioSource>();
+        track01.loop = true;
         track02 = gameObject.AddComponent<AudioSource>();
+        track02.loop = true;
         isPlayingTrack01 = true;
         
-        SwapTrack(defaultTrack, 1);
-        Debug.Log("MusicManager Start");
+        //plays music for first time
+        SwapTrack(defaultTrack, 1);        
     }
 
-    public void SwapTrack(AudioClip newClip, float newClipVol)
+    private void SwapTrack(AudioClip newClip, float newClipVol)
     {
         //StopAllCoroutines();
         StartCoroutine(FadeTrack(newClip, newClipVol));
@@ -102,11 +107,6 @@ public class MusicManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     //Changes the music based on scene and calls the SwapTrack function
     public void ChangeBGM (GameManager.GameScene newScene)
@@ -120,7 +120,7 @@ public class MusicManager : MonoBehaviour
                 trackToPlayVol = entry.volume;                
             }
         }
-        
+        //calls the SwapTrack function to fade into the next track at the volume set in the inspector element
         SwapTrack(trackToPlay, trackToPlayVol);
         Debug.Log("Changing BGM");
     }
@@ -130,13 +130,12 @@ public class MusicManager : MonoBehaviour
 //Pick which tracks go with which scenes in inspector
 [System.Serializable]
 
-
 public class Soundtracks
 {
     //Corresponding scene
     public string trackScene;
     public GameManager.GameScene sceneName;
-    //Audio clip
+    //Audio clip and adjustable volume
     public AudioClip sceneMusic;
     [Range(0f, 1f)] public float volume;
     public AudioSource source;

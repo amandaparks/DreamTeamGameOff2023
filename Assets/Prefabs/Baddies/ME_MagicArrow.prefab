@@ -5110,12 +5110,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 320f04d4c8845294597d7c77d9f4dea6, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: damageVolume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnSound
       value: 
       objectReference: {fileID: 8300000, guid: 116eb5646f53dfb479fa80caf1739f47, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: dropOnCollide
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: alwaysOnVolume
+      value: 0.437
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionSound
