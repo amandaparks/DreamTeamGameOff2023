@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6589913829146155988}
   - component: {fileID: 7025302560906223207}
+  - component: {fileID: 6428075863436645500}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -128,3 +129,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6428075863436645500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4514066534432851384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7cfe4d37e2e4845a230166e604e7d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tracks:
+  - _sceneName: 1
+    sceneMusic: {fileID: 8300000, guid: a7f779c4e7a2475459aae7613b850990, type: 3}
+  - _sceneName: 2
+    sceneMusic: {fileID: 8300000, guid: 22d38bfbbcc6c704c857ec1176f6cca8, type: 3}
+  - _sceneName: 6
+    sceneMusic: {fileID: 8300000, guid: 22d38bfbbcc6c704c857ec1176f6cca8, type: 3}
+  - _sceneName: 3
+    sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+  - _sceneName: 4
+    sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+  - _sceneName: 5
+    sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+  - _sceneName: 7
+    sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+  - _sceneName: 8
+    sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+  - _sceneName: 9
+    sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+  - _sceneName: 10
+    sceneMusic: {fileID: 8300000, guid: 22d38bfbbcc6c704c857ec1176f6cca8, type: 3}
