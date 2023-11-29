@@ -9,7 +9,7 @@ public class DT_SceneLoader : MonoBehaviour
 {
     
     [SerializeField] private GameObject sceneFadeCanvas;
-    [SerializeField] private float sceneFadeSpeed = 1.0f;
+    [SerializeField] private float sceneFadeSpeed;
     private Graphic _blackPanel;
 
     private void Awake()

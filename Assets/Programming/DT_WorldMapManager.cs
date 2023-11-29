@@ -7,8 +7,7 @@ using UnityEngine;
 public class DT_WorldMapManager : MonoBehaviour
 {
     [Header("World Map")] [SerializeField] private GameObject world;
-
-    [SerializeField] private GameObject startPanel;
+    
     [SerializeField] private DT_MapPortals[] _portals;
 
     [Header("For Testing")] public bool testingMode;
@@ -21,6 +20,7 @@ public class DT_WorldMapManager : MonoBehaviour
     private Quaternion _worldFlippedRotation = new Quaternion(0, 180, 0, 0);
     private DT_GameTextManager _gameTextManager;
     private bool _hasScroll;
+    private bool _isIntroFinished;
 
     private void Awake()
     {
@@ -49,9 +49,6 @@ public class DT_WorldMapManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // Make sure black panel disabled
-        startPanel.SetActive(false);
-
         // Find Player and Game Text Manager
         _player = GameObject.FindGameObjectWithTag("Player");
         _gameTextManager = FindObjectOfType<DT_GameTextManager>();
@@ -71,14 +68,7 @@ public class DT_WorldMapManager : MonoBehaviour
     void StartStory()
     {
         if (!_hasScroll) return;
-        
         _gameTextManager.MakeTextSceneRequest(DT_SO_GameText.GameText.TextType.Scroll, GameManager.GameScene.None);
-
-        // If new game, change to one note
-        if (GameManager.CurrentPlayerLevel == GameManager.PlayerLevel.NewGame)
-        {
-            GameManager.CurrentPlayerLevel = GameManager.PlayerLevel.OneNote;
-        }
     }
 
     void SetUpPortals()
