@@ -15,8 +15,7 @@ public class DT_SceneLoader : MonoBehaviour
 
     private void Awake()
     {
-        _blackPanel = sceneFadeCanvas.GetComponent<Graphic>();
-        _musicManager = FindObjectOfType<MusicManager>();
+        _blackPanel = sceneFadeCanvas.GetComponent<Graphic>();        
     }
     private void OnEnable()
     {
@@ -40,6 +39,7 @@ public class DT_SceneLoader : MonoBehaviour
         color.a = 1f;
         _blackPanel.color = color;
         StartCoroutine(FadeIn());
+        _musicManager = FindObjectOfType<MusicManager>();
     }
 
 

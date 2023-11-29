@@ -16,7 +16,7 @@ public class MusicManager : MonoBehaviour
     private AudioSource track01, track02;
     private bool isPlayingTrack01;
 
-    private static MusicManager instance;
+    public static MusicManager instance;
 
     public Soundtracks[] tracks;
 
@@ -24,16 +24,20 @@ public class MusicManager : MonoBehaviour
     void Awake()
     {
         //if there is no other MusicManager instance
-        if(instance == null) 
+        if (instance == null) 
         {
+            
+            Debug.Log("first musicManager!");
             //then make this the MusicManager instance and don't destroy when loading new scene
             instance = this;
-            DontDestroyOnLoad(instance);
+            DontDestroyOnLoad(instance);                        
         }
         //else if there is already a MusicManager instance, then destroy this gameObject
-        else if (instance != this)
+        else if (instance != null && instance != this)
         {
-            Destroy(gameObject);
+            DestroyImmediate(gameObject);
+            Debug.Log("destroyed musicManager!");
+            return;
         }
 
     }
@@ -43,13 +47,14 @@ public class MusicManager : MonoBehaviour
         track01 = gameObject.AddComponent<AudioSource>();
         track02 = gameObject.AddComponent<AudioSource>();
         isPlayingTrack01 = true;
-
+        
         SwapTrack(defaultTrack, 1);
+        Debug.Log("MusicManager Start");
     }
 
     public void SwapTrack(AudioClip newClip, float newClipVol)
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine(FadeTrack(newClip, newClipVol));
         isPlayingTrack01 = !isPlayingTrack01;
     }
@@ -112,12 +117,12 @@ public class MusicManager : MonoBehaviour
             if(entry.sceneName == newScene) 
             {
                 trackToPlay = entry.sceneMusic;
-                trackToPlayVol = entry.volume;
-                Debug.LogWarning($"found {entry.trackScene}");                
+                trackToPlayVol = entry.volume;                
             }
         }
-        SwapTrack(trackToPlay, trackToPlayVol);
         
+        SwapTrack(trackToPlay, trackToPlayVol);
+        Debug.Log("Changing BGM");
     }
 }
 
