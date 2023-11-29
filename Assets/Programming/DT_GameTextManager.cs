@@ -23,6 +23,10 @@ public class DT_GameTextManager : MonoBehaviour
     private TextMeshProUGUI _playerTextField;
     private TextMeshProUGUI _npcTextField;
 
+    private DT_SmoothUI _infoSmoothUI;
+    private DT_SmoothUI _playerSmoothUI;
+    private DT_SmoothUI _npcSmoothUI;
+    
     private GameObject _infoCanvasGameObject;
     private GameObject _playerCanvasGameObject;
     private GameObject _npcCanvasGameObject;
@@ -40,7 +44,7 @@ public class DT_GameTextManager : MonoBehaviour
     private bool _canAdvance = true;
     private bool _isWorldMapRequest;
     private bool _isConfirmed;
-   
+    private bool _isFirstLine;
     
     private void Awake()
     {
@@ -63,12 +67,13 @@ public class DT_GameTextManager : MonoBehaviour
         _playerCanvasGameObject = GameObject.FindGameObjectWithTag("PlayerCanvas");
         _npcCanvasGameObject= GameObject.FindGameObjectWithTag("NPCCanvas");
         
-        // Find canvases and text boxes and turn them all off for now
+        // Find text boxes and smooth UI scripts and turn the game objects off for now
 
         if (_playerCanvasGameObject != null)
         {
             Debug.Log($"Player Canvas GO: {_playerCanvasGameObject.name}");
             _playerTextField = _playerCanvasGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _playerSmoothUI = _playerCanvasGameObject.GetComponentInChildren<DT_SmoothUI>();
             _playerCanvasGameObject.SetActive(false);
         }
         else { Debug.LogWarning("Just FYI, no player canvas in this scene."); }
@@ -77,6 +82,7 @@ public class DT_GameTextManager : MonoBehaviour
         {
             Debug.Log($"NPC Canvas GO: {_npcCanvasGameObject.name}");
             _npcTextField = _npcCanvasGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _npcSmoothUI = _npcCanvasGameObject.GetComponentInChildren<DT_SmoothUI>();
             _npcCanvasGameObject.SetActive(false);
         }
         else { Debug.LogWarning("Just FYI, no npc canvas in this scene."); }
@@ -85,6 +91,7 @@ public class DT_GameTextManager : MonoBehaviour
         {
             Debug.Log($"Info Canvas GO: {_infoCanvasGameObject.name}");
             _infoTextField = _infoCanvasGameObject.GetComponentInChildren<TextMeshProUGUI>();
+            _infoSmoothUI = _infoCanvasGameObject.GetComponentInChildren<DT_SmoothUI>();
             _infoCanvasGameObject.SetActive(false);
         }
         else { Debug.LogWarning("Just FYI, no info canvas in this scene."); }
@@ -145,8 +152,7 @@ public class DT_GameTextManager : MonoBehaviour
         //Just seems a little too snappy so...
         yield return new WaitForSeconds(0.7f);
         
-        
-        
+        _isFirstLine = true;
         // Display line
         NextLine();
     }
@@ -187,15 +193,17 @@ public class DT_GameTextManager : MonoBehaviour
         // Switch to the Talking Action Map
         _inputManager.SwitchActionMap("Talking");
         
-        //Just seems a little too snappy so...
-        yield return new WaitForSeconds(0.7f);
-        
         // Grab the set of lines for that entry
         _matchingLines = _matchingEntry.textLines;
         // Set the line index to -1 so NextLine loads at 0
         _currentLineIndex = -1;
         
+        // Unless it's the very first scene, pause a sec
+        if (GameManager.CurrentPlayerLevel != GameManager.PlayerLevel.NewGame)
+        {yield return new WaitForSeconds(0.5f);}
+        
         // Display the first line
+        _isFirstLine = true;
         NextLine();
         // Remaining lines will be triggered by player input
     }
@@ -241,12 +249,13 @@ public class DT_GameTextManager : MonoBehaviour
 
     private void Confirmation()
     {
-        
-        
+        _isFirstLine = true;
         //Populate text
         _infoTextField.text = "Enter the Dungeon";
-        //Turn on canvas
+        //Smooth Open and Turn On
         _infoCanvasGameObject.SetActive(true);
+        _infoSmoothUI.Open();
+        _isFirstLine = false;
         // Remember new current speaker and new current canvas
         _currentSpeaker = DT_SO_GameText.TextLines.Speaker.Info;
         _currentCanvasGameObject = _infoCanvasGameObject;
@@ -279,19 +288,29 @@ public class DT_GameTextManager : MonoBehaviour
         {
             case DT_SO_GameText.TextLines.Speaker.Info:
             {
-                if (_infoCanvasGameObject == null)
-                {
-                    Debug.LogError("Next speaker is Info but no Info text box exists.");
-                    break;
-                }
+                if (_infoCanvasGameObject == null) { break;}
+
                 // Remember new current speaker and new current canvas
                 _currentSpeaker = DT_SO_GameText.TextLines.Speaker.Info;
                 _currentCanvasGameObject = _infoCanvasGameObject;
                 
-                //Populate text
+                // Populate text
                 _infoTextField.text = _matchingLines[_currentLineIndex].text;
-                //Turn on canvas
-                _infoCanvasGameObject.SetActive(true);
+                
+                // Show text
+                if (_isFirstLine)
+                {
+                    // Turn on canvas and smooth ui animate
+                    _infoCanvasGameObject.SetActive(true);
+                    _infoSmoothUI.Open();
+                    _isFirstLine = false;
+                    Debug.Log("First line shown.");
+                }
+                else
+                {
+                    // Refresh without animation
+                    _infoCanvasGameObject.SetActive(true);
+                }
                 break;
             }
             case DT_SO_GameText.TextLines.Speaker.Player:
@@ -329,15 +348,22 @@ public class DT_GameTextManager : MonoBehaviour
 
     private void FinishUp()
     {
+        if (_currentCanvasGameObject == _infoCanvasGameObject)
+        {
+            _infoSmoothUI.Close();
+        }
+        else
+        {
+            // deactivate the current speaker's canvas
+            _currentCanvasGameObject.SetActive(false);
+        }
         
-        // deactivate the current speaker's canvas
-        _currentCanvasGameObject.SetActive(false);
         // reset everything we were tracking
-        
         _currentLineIndex = -1;
         _matchingEntry = null;
         _matchingLines = null;
         _currentCanvasGameObject = null;
+        _isFirstLine = true;
         
         // if there's a scene to load, do that
         if (_sceneToLoad != GameManager.GameScene.None)
@@ -358,6 +384,12 @@ public class DT_GameTextManager : MonoBehaviour
             {
                 _enemyManager.gameObject.SetActive(true);
             }
+        }
+
+        // If this was first text section of new game, update level to one note
+        if (GameManager.CurrentPlayerLevel == GameManager.PlayerLevel.NewGame)
+        {
+            GameManager.CurrentPlayerLevel = GameManager.PlayerLevel.OneNote;
         }
     }
     

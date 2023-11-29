@@ -17,7 +17,7 @@ MonoBehaviour:
     textBoxType: 1
     textLines:
     - speaker: 2
-      text: 'A broken kalimba.
+      text: 'A broken kalimba...
 
         Play it?'
     - speaker: 2
