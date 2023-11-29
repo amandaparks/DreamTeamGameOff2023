@@ -3783,6 +3783,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[1].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[6].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3898074726284684014, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
+      propertyPath: kalimbaNotes.Array.data[7].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5283345494505157798, guid: 28d8b3ad2daf14c41aeba3b73767b2cb, type: 3}
       propertyPath: m_Name
       value: AudioManager

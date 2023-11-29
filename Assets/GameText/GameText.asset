@@ -20,160 +20,215 @@ MonoBehaviour:
       text: 'A broken kalimba...
 
         Play it?'
+      voiceover: {fileID: 8300000, guid: 7925b530c10094d4babec3c9046fdf59, type: 3}
     - speaker: 2
       text: '"Six little dragons have lost their way, a curse their bane."'
+      voiceover: {fileID: 8300000, guid: 703b3c9c93049614ea2f252d9b0bd04d, type: 3}
     - speaker: 2
       text: '"A song crafted of their scales will call them home."'
+      voiceover: {fileID: 8300000, guid: 8e425284b4fd3f1439b0c8dd7ca877e2, type: 3}
     - speaker: 2
       text: '"Venture forth, brave the cavernous perils to find them all."'
+      voiceover: {fileID: 8300000, guid: 6adbf9cdf58c41b49ac9c1de91eb0267, type: 3}
   - sceneName: 3
     textBoxType: 1
     textLines:
     - speaker: 2
       text: Time your steps to avoid your peril.
+      voiceover: {fileID: 8300000, guid: f776080daf3cf8344b345a31759ed096, type: 3}
   - sceneName: 3
     textBoxType: 2
     textLines:
     - speaker: 1
       text: Ooooi, impressive!
+      voiceover: {fileID: 0}
     - speaker: 0
       text: Dragon, I am here to help.
+      voiceover: {fileID: 0}
     - speaker: 0
       text: Please, lend me a scale.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: "The name\u2019s Crimson. And you can keep it! :) "
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Crimson's scale should help you get up the mountain :)
+      voiceover: {fileID: 0}
   - sceneName: 4
     textBoxType: 1
     textLines:
     - speaker: 2
       text: A cautious ascent to avoid the swirling gales.
+      voiceover: {fileID: 8300000, guid: 4a159dc05ac3353469240cbd087335ee, type: 3}
     - speaker: 2
       text: Play the CRIMSON SCALE to ASCEND/DESCEND LADDERS.
+      voiceover: {fileID: 8300000, guid: 1449ae88bcf10c541a94df0bf54afa18, type: 3}
   - sceneName: 4
     textBoxType: 2
     textLines:
     - speaker: 1
       text: Who goessss there?
+      voiceover: {fileID: 0}
     - speaker: 0
       text: I have been sent to break the curse.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: You mean to help ussss, help poor Dusk?
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Have a scale for your troublesss. Good luck.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: You ssshould be able to dodge backwardsss now.
+      voiceover: {fileID: 0}
   - sceneName: 5
     textBoxType: 1
     textLines:
     - speaker: 2
       text: "Don\u2019t let glimmers fool you, be sure to mind your head."
+      voiceover: {fileID: 8300000, guid: ebd147cc37e002a4ca2be8f607b8aff3, type: 3}
     - speaker: 2
       text: Play the DUSK SCALE to STEP BACKWARDS
+      voiceover: {fileID: 0}
   - sceneName: 5
     textBoxType: 2
     textLines:
     - speaker: 0
       text: Dragon! I ask for your help. .
+      voiceover: {fileID: 0}
     - speaker: 1
       text: 'Help, you say, hmm? '
+      voiceover: {fileID: 0}
     - speaker: 0
       text: A scale for my troubles, that is all.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Is that all? Very well. Fandango thanks you~
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Don't forget to dance the Fandango with your new move~
+      voiceover: {fileID: 0}
   - sceneName: 6
     textBoxType: 1
     textLines:
     - speaker: 2
       text: "Onward, our hero ventures\u2026"
+      voiceover: {fileID: 8300000, guid: f58ec9762522d5540828431d4beb8e9b, type: 3}
   - sceneName: 7
     textBoxType: 1
     textLines:
     - speaker: 2
       text: Steam and ice can both leave burns, never forget that.
+      voiceover: {fileID: 8300000, guid: 170f39b05a515504fb36b37ec34c6f18, type: 3}
     - speaker: 2
       text: Submerging in the warm water of the hot springs seem to protect from
         daggerous icicles.
+      voiceover: {fileID: 8300000, guid: 3b5744c204b76ae4aa45e2dcfb715c77, type: 3}
     - speaker: 2
       text: Play the FANDANGO SCALE to DUCK.
+      voiceover: {fileID: 0}
   - sceneName: 7
     textBoxType: 2
     textLines:
     - speaker: 1
       text: Hmm, a visitor...
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Can we play? Please, please, pleaseeeeeee?
+      voiceover: {fileID: 0}
     - speaker: 0
       text: I could play you a tune! But I'll need a scale.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: A scale? Fine. One Glacius scale.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Don't forget your promise!
+      voiceover: {fileID: 0}
     - speaker: 0
       text: I certainly won't.
+      voiceover: {fileID: 0}
   - sceneName: 8
     textBoxType: 1
     textLines:
     - speaker: 2
       text: Twisted brambles loathe a touch of magic.
+      voiceover: {fileID: 8300000, guid: 06a45e9dd17a0b94db10795c14d4c7da, type: 3}
   - sceneName: 8
     textBoxType: 2
     textLines:
     - speaker: 1
       text: Whomst disturbs the great Amazon? Huff.
+      voiceover: {fileID: 0}
     - speaker: 0
       text: Do I disturb you?
+      voiceover: {fileID: 0}
     - speaker: 1
       text: ...no. Hmph, you are far too small.
+      voiceover: {fileID: 0}
     - speaker: 0
       text: Indeed. Can the great Amazon spare one measly scale?
+      voiceover: {fileID: 0}
     - speaker: 1
       text: ...very well. But I don't give autographs.
+      voiceover: {fileID: 0}
   - sceneName: 9
     textBoxType: 1
     textLines:
     - speaker: 2
       text: True heroes dodge not an arrow, but disarm them.
+      voiceover: {fileID: 8300000, guid: 1c41eeefd63983646ab3e5f12b23886a, type: 3}
     - speaker: 2
       text: Play the AMAZON SCALE to DISARM ARROWS with magic vines.
+      voiceover: {fileID: 0}
   - sceneName: 9
     textBoxType: 2
     textLines:
     - speaker: 1
       text: Rawr, it is I, Blazon!
+      voiceover: {fileID: 0}
     - speaker: 1
       text: And Blazon is very impressed, what a show!
+      voiceover: {fileID: 0}
     - speaker: 1
       text: My gold horde is mine, but have a scale!
+      voiceover: {fileID: 0}
     - speaker: 0
       text: Thank you, it's worth more than any gold, anyway.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: ...hm. A greedless human. Haha, what a show!
+      voiceover: {fileID: 0}
   - sceneName: 10
     textBoxType: 1
     textLines:
     - speaker: 2
       text: Play from the heart, free them from the curse. [Play a magical SCALE]
+      voiceover: {fileID: 8300000, guid: 5c67a2eee4ed51f45835d0414cc02d24, type: 3}
   - sceneName: 10
     textBoxType: 2
     textLines:
     - speaker: 1
       text: Oh thank you, oh bravest knight!
+      voiceover: {fileID: 0}
     - speaker: 1
       text: The curse has been broken, and my children can come home.
+      voiceover: {fileID: 0}
     - speaker: 1
       text: Your song has saved us all.
+      voiceover: {fileID: 0}
     - speaker: 0
       text: With the lands hanging in the balance... I must answer my call.
+      voiceover: {fileID: 0}
     - speaker: 0
       text: I am happy to have assisted.
+      voiceover: {fileID: 0}
   - sceneName: 10
     textBoxType: 1
     textLines:
     - speaker: 2
       text: And so our hero has saved the day.
+      voiceover: {fileID: 8300000, guid: 72c243a7ce9ead74d98d7f0728df41db, type: 3}
     - speaker: 2
       text: With the dragons restored, the land of Octavia is saved.
+      voiceover: {fileID: 8300000, guid: b0e277df5b5876948b229fa91bec7737, type: 3}

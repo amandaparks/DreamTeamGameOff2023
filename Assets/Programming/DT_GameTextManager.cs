@@ -18,6 +18,7 @@ public class DT_GameTextManager : MonoBehaviour
     private DT_SO_GameText.GameText[] _gameText;
     [Tooltip("Prevents player from accidentally skipping dialogue")]
     public float cooldownTime = 0.5f;
+    public AudioSource voiceLineAudioSource;
 
     private TextMeshProUGUI _infoTextField;
     private TextMeshProUGUI _playerTextField;
@@ -66,7 +67,10 @@ public class DT_GameTextManager : MonoBehaviour
         _infoCanvasGameObject = GameObject.FindGameObjectWithTag("InfoCanvas");
         _playerCanvasGameObject = GameObject.FindGameObjectWithTag("PlayerCanvas");
         _npcCanvasGameObject= GameObject.FindGameObjectWithTag("NPCCanvas");
-        
+
+        // Make AudioSource for lines sound effects
+        voiceLineAudioSource = gameObject.AddComponent<AudioSource>();
+
         // Find text boxes and smooth UI scripts and turn the game objects off for now
 
         if (_playerCanvasGameObject != null)
@@ -281,6 +285,17 @@ public class DT_GameTextManager : MonoBehaviour
         if (_currentCanvasGameObject != null && !_currentSpeaker.Equals(newSpeaker))
         {
             _currentCanvasGameObject.SetActive(false);
+        }
+
+        if (_matchingLines[_currentLineIndex].voiceover != null)
+        {
+            Debug.Log("Play voiceover");
+            voiceLineAudioSource.clip = _matchingLines[_currentLineIndex].voiceover;
+            voiceLineAudioSource.Play();
+        }
+        else 
+        {
+            Debug.Log("No audio voiceover");
         }
 
         // Choose text field depending on speaker
