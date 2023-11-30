@@ -17,6 +17,7 @@ TagManager:
   - RockBreak
   - ArrowBreak
   - PauseMenu
+  - BardMode
   layers:
   - Default
   - TransparentFX

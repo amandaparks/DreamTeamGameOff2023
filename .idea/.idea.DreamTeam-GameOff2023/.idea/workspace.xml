@@ -6,43 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Bramble_Brown.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Bramble_Brown.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Bramble_Green.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Bramble_Green.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Blue.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Blue.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Blue_Clump.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Blue_Clump.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Green.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Green.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Green_Clump.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Green_Clump.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Orange.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Orange.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Orange_Clump.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Orange_Clump.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Purple.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Purple.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Purple_Clump.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Purple_Clump.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Red.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Red.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Red_Clump.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Red_Clump.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Yellow.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Yellow.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Yellow_Clump.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Crystals_Yellow_Clump.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Ice_Block_A.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Ice_Block_A.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Ice_Block_B.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Ice_Block_B.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Ice_Block_C.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Ice_Block_C.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Icicle_A.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Icicle_A.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Icicle_B.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Icicle_B.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Icicle_C.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Icicle_C.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Lava_Geyser.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Lava_Geyser.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Spear.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Spear.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Props/Prop_Vine_A.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Props/Prop_Vine_A.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/SGM_waterfall_01.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/SGM_waterfall_01.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MAT_Samie.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MAT_Samie.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/ExecutiveAssistant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/ExecutiveAssistant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameplayUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameplayUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/Input System/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/Input System/Controls.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/SceneEssentials/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Gameplay UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gameplay UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/PauseMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/PauseMenu.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

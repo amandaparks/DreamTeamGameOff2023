@@ -14,19 +14,29 @@ public class DT_PlayerActions : MonoBehaviour
     private bool _isBardMode;
     private DT_InputManager _inputManager;
     private DT_GameTextManager _gameTextManager;
+    private GameObject _bardEffects;
+    private AudioManager _audioManager;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        //Bard mode off by default
-        _isBardMode = false;
+        
         
         //Find game text manager
         _gameTextManager = FindObjectOfType<DT_GameTextManager>();
         
         //Find input manager
         _inputManager = GetComponent<DT_InputManager>();
+        
+        // Find the Audio Manager
+        _audioManager = FindObjectOfType<AudioManager>();
+        
+        //Find bard effects
+        _bardEffects = GameObject.FindGameObjectWithTag("BardMode");
+        //Bard mode off by default
+        _isBardMode = false;
+        _bardEffects.SetActive(false);
     }
 
     public void Next()
@@ -47,7 +57,7 @@ public class DT_PlayerActions : MonoBehaviour
         {
             // Update Player State
             Debug.Log("PLAYER_STATE: CROUCHING");
-            // ♬♬ Put Play Sound Here ♬♬
+            _audioManager.PlayKalimba("2");
             GameManager.CurrentPlayerState = GameManager.PlayerState.Crouching;
         }
         // If already crouching
@@ -55,7 +65,7 @@ public class DT_PlayerActions : MonoBehaviour
         {
             // Update Player State
             Debug.Log("PLAYER_STATE: IDLE");
-            // ♬♬ Put Play Sound Here ♬♬
+            _audioManager.PlayKalimba("2");
             GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         }
     }
@@ -65,7 +75,7 @@ public class DT_PlayerActions : MonoBehaviour
         if (!CanPerformAction("Attack")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: ATTACKING");
-        // ♬♬ Put Play Sound Here ♬♬
+        _audioManager.PlayKalimba("6");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Attacking;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
@@ -76,7 +86,7 @@ public class DT_PlayerActions : MonoBehaviour
         if (!CanPerformAction("Defend")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: DEFENDING");
-        // ♬♬ Put Play Sound Here ♬♬
+        _audioManager.PlayKalimba("1");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Defending;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
@@ -87,7 +97,7 @@ public class DT_PlayerActions : MonoBehaviour
         if (!CanPerformAction("Magic")) return;
         // Update Player State
         Debug.Log("PLAYER_STATE: MAGIC");
-        // ♬♬ Put Play Sound Here ♬♬
+        _audioManager.PlayKalimba("7");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Magic;
         // Wait then go to Idle
         StartCoroutine(WaitAndReset());
@@ -112,10 +122,11 @@ public class DT_PlayerActions : MonoBehaviour
         {
             //Turn on Bard Mode
             _isBardMode = true;
+            _bardEffects.SetActive(true);
             ToggleBardMode();
             // Update Player State
             Debug.Log("PLAYER_STATE: BARD MODE");
-            // ♬♬ Put Play Sound Here ♬♬
+            _audioManager.PlayKalimba("B");
             GameManager.CurrentPlayerState = GameManager.PlayerState.BardMode;
         }
         // If already in bard mode
@@ -123,10 +134,11 @@ public class DT_PlayerActions : MonoBehaviour
         {
             //Turn off Bard Mode
             _isBardMode = false;
+            _bardEffects.SetActive(false);
             ToggleBardMode();
             // Update Player State
             Debug.Log("PLAYER_STATE: IDLE");
-            // ♬♬ Put Play Sound Here ♬♬
+            _audioManager.PlayKalimba("B");
             GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
         }
     }
@@ -165,7 +177,7 @@ public class DT_PlayerActions : MonoBehaviour
                         return true;
                     default:
                         Debug.Log($"FAIL: Player must be crouching or idle.");
-                        // ♬♬ Put Play Sound Here ♬♬
+                        _audioManager.PlayKalimba("fail");
                         return false;
                 }
             case "Bard":
@@ -176,7 +188,7 @@ public class DT_PlayerActions : MonoBehaviour
                         return true;
                     default:
                          Debug.Log($"FAIL: Player must be in bard mode or idle.");
-                         // ♬♬ Put Play Sound Here ♬♬
+                         _audioManager.PlayKalimba("fail");
                          return false;
                 }
             case "Next":
@@ -190,7 +202,7 @@ public class DT_PlayerActions : MonoBehaviour
         if (GameManager.CurrentPlayerState != GameManager.PlayerState.Idle)
         {
             Debug.Log($"FAIL: Player not Idle.");
-            // ♬♬ Put Play Sound Here ♬♬
+            _audioManager.PlayKalimba("fail");
             return false;
         }
 

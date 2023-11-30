@@ -46,6 +46,7 @@ public class DT_GameTextManager : MonoBehaviour
     private bool _isWorldMapRequest;
     private bool _isConfirmed;
     private bool _isFirstLine;
+    private AudioManager _audioManager;
     
     private void Awake()
     {
@@ -53,6 +54,8 @@ public class DT_GameTextManager : MonoBehaviour
         _inputManager = FindObjectOfType<DT_InputManager>();
         _sceneLoader = FindObjectOfType<DT_SceneLoader>();
         _enemyManager = FindObjectOfType<DT_EnemyManager>();
+        // Find the Audio Manager
+        _audioManager = FindObjectOfType<AudioManager>();
         
         // Make sure game text asset has been assigned
         if (gameTextAsset == null)
@@ -219,6 +222,12 @@ public class DT_GameTextManager : MonoBehaviour
         if (!_canAdvance) return;
         // Otherwise, accept input and initiate cooldown
         StartCoroutine(Cooldown());
+        
+        // Play kalimba sound here only if not first line
+        if (!_isFirstLine)
+        {
+            _audioManager.PlayKalimba("5");
+        }
 
         switch (_isWorldMapRequest)
         {
