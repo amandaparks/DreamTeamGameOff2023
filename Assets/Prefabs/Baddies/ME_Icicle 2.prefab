@@ -132,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5949967557677963295, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       propertyPath: collisionVolume
-      value: 0.129
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8710893225372027957, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       propertyPath: m_Name

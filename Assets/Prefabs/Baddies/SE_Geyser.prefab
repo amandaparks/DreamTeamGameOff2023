@@ -4896,7 +4896,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 7fa58639535215641928e80fd025e342, type: 3}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: intervalVolume
-      value: 0.713
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: playerCanAttack

@@ -35,7 +35,7 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: Time your steps to avoid your peril.
-      voiceover: {fileID: 8300000, guid: f776080daf3cf8344b345a31759ed096, type: 3}
+      voiceover: {fileID: 0}
   - sceneName: 3
     textBoxType: 2
     textLines:
@@ -59,7 +59,7 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: A cautious ascent to avoid the swirling gales.
-      voiceover: {fileID: 8300000, guid: 4a159dc05ac3353469240cbd087335ee, type: 3}
+      voiceover: {fileID: 0}
     - speaker: 2
       text: Play the CRIMSON SCALE to ASCEND/DESCEND LADDERS.
       voiceover: {fileID: 8300000, guid: 1449ae88bcf10c541a94df0bf54afa18, type: 3}
@@ -86,7 +86,7 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: "Don\u2019t let glimmers fool you, be sure to mind your head."
-      voiceover: {fileID: 8300000, guid: ebd147cc37e002a4ca2be8f607b8aff3, type: 3}
+      voiceover: {fileID: 0}
     - speaker: 2
       text: Play the DUSK SCALE to STEP BACKWARDS
       voiceover: {fileID: 0}
@@ -113,17 +113,17 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: "Onward, our hero ventures\u2026"
-      voiceover: {fileID: 8300000, guid: f58ec9762522d5540828431d4beb8e9b, type: 3}
+      voiceover: {fileID: 0}
   - sceneName: 7
     textBoxType: 1
     textLines:
     - speaker: 2
       text: Steam and ice can both leave burns, never forget that.
-      voiceover: {fileID: 8300000, guid: 170f39b05a515504fb36b37ec34c6f18, type: 3}
+      voiceover: {fileID: 0}
     - speaker: 2
       text: Submerging in the warm water of the hot springs seem to protect from
         daggerous icicles.
-      voiceover: {fileID: 8300000, guid: 3b5744c204b76ae4aa45e2dcfb715c77, type: 3}
+      voiceover: {fileID: 0}
     - speaker: 2
       text: Play the FANDANGO SCALE to DUCK.
       voiceover: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: True heroes dodge not an arrow, but disarm them.
-      voiceover: {fileID: 8300000, guid: 1c41eeefd63983646ab3e5f12b23886a, type: 3}
+      voiceover: {fileID: 0}
     - speaker: 2
       text: Play the AMAZON SCALE to DISARM ARROWS with magic vines.
       voiceover: {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
     textLines:
     - speaker: 2
       text: Play from the heart, free them from the curse. [Play a magical SCALE]
-      voiceover: {fileID: 8300000, guid: 5c67a2eee4ed51f45835d0414cc02d24, type: 3}
+      voiceover: {fileID: 0}
   - sceneName: 10
     textBoxType: 2
     textLines:

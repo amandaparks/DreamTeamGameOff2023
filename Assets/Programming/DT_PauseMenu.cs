@@ -8,6 +8,7 @@ public class DT_PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Button resumeButton;
+    [SerializeField] private Button restartButton;
     [SerializeField] private Button quitButton;
 
     private DT_SceneLoader _sceneLoader;
@@ -26,6 +27,7 @@ public class DT_PauseMenu : MonoBehaviour
     {
         // Set up listeners on pause menu buttons
         resumeButton.onClick.AddListener(delegate {ClickInput("resume");});
+        restartButton.onClick.AddListener(delegate {ClickInput("restart");});
         quitButton.onClick.AddListener(delegate {ClickInput("quit");});
     }
 
@@ -39,6 +41,7 @@ public class DT_PauseMenu : MonoBehaviour
     {
         // Remove listeners
         resumeButton.onClick.RemoveListener(delegate {ClickInput("resume");});
+        restartButton.onClick.RemoveListener(delegate {ClickInput("restart");});
         quitButton.onClick.RemoveListener(delegate {ClickInput("quit");});
     }
 
@@ -51,10 +54,15 @@ public class DT_PauseMenu : MonoBehaviour
                 PauseUnpause();
             }
                 break;
-            case "quit":
+            case "restart":
             {
-                StartCoroutine(_sceneLoader.LoadScene(GameManager.GameScene.MainMenu));
+                StartCoroutine(_sceneLoader.LoadScene(GameManager.CurrentScene));
             }
+                break;
+            case "quit":
+                {
+                    StartCoroutine(_sceneLoader.LoadScene(GameManager.GameScene.MainMenu));
+                }
                 break;
         }
     }
