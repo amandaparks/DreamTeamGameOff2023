@@ -129,7 +129,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ButtonB
+          m_StringArgument: BardButtonB
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &172915191375140267
@@ -678,7 +678,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button2
+          m_StringArgument: BardButton2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1853263899365357129
@@ -1092,7 +1092,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button7
+          m_StringArgument: BardButton7
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2779681373748775235
@@ -2402,7 +2402,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button4
+          m_StringArgument: BardButton4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6426149918412817002
@@ -2534,7 +2534,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button1
+          m_StringArgument: BardButton1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6480913630145113910
@@ -2798,7 +2798,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button6
+          m_StringArgument: BardButton6
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6654060302416439836
@@ -3292,7 +3292,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button5
+          m_StringArgument: BardButton5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &8290716099705964003
@@ -3856,7 +3856,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Button3
+          m_StringArgument: BardButton3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &9067861636193436197

@@ -194,7 +194,6 @@ public class DT_StationaryEnemy : MonoBehaviour
         {
             AlwaysOn(false);
             if (damageType != DamageType.interval) return;
-            Debug.Log("Stopping Coroutine Interval Damage");
             _isEnemyActive = false;
             TurnComponentsOff();
         }
