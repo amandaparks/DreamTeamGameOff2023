@@ -221,6 +221,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1077889189316089184, guid: b8828f63b74242a48b2f3eaa852deda4, type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 1924380626230159356, guid: b8828f63b74242a48b2f3eaa852deda4, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -17,18 +17,22 @@ public class DT_PauseMenu : MonoBehaviour
 
     private void Awake()
     {
+
         _sceneLoader = FindObjectOfType<DT_SceneLoader>();
 
     }
 
     private void OnEnable()
     {
-        //Hide menu
-        pauseMenu.gameObject.SetActive(false);
-
         // Set up listeners on pause menu buttons
         resumeButton.onClick.AddListener(delegate {ClickInput("resume");});
         quitButton.onClick.AddListener(delegate {ClickInput("quit");});
+    }
+
+    private void Start()
+    {
+        //Hide menu
+        pauseMenu.gameObject.SetActive(false);
     }
 
     private void OnDisable()

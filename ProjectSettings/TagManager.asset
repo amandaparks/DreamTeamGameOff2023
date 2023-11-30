@@ -16,6 +16,7 @@ TagManager:
   - PlayerCanvas
   - RockBreak
   - ArrowBreak
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

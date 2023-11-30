@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Bard",
+                    "name": "BardOn",
                     "type": "Button",
                     "id": "c038918e-d36d-40f0-a288-7d72132f93ed",
                     "expectedControlType": "Button",
@@ -146,7 +146,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controls",
-                    "action": "Bard",
+                    "action": "BardOn",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -506,7 +506,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Bard",
+                    "name": "BardOff",
                     "type": "Button",
                     "id": "50c108ca-3dbc-4119-9c54-5afb895f80a0",
                     "expectedControlType": "Button",
@@ -693,7 +693,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controls",
-                    "action": "Bard",
+                    "action": "BardOff",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
