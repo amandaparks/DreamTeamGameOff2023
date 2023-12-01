@@ -5159,6 +5159,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: enableGameObject
+      value: 
+      objectReference: {fileID: 5140194630814907129}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: disabledParticles
       value: 
       objectReference: {fileID: 3733265693877610300}
