@@ -166,7 +166,6 @@ public class DT_GameplayUI : MonoBehaviour
 
     private void BardControls()
     {
-        Debug.Log("ENTERING BARDCONTROLS()");
         switch (GameManager.CurrentPlayerLevel)
         {
             case GameManager.PlayerLevel.NewGame:
@@ -293,7 +292,6 @@ public class DT_GameplayUI : MonoBehaviour
         // Talk controls only need affect gameplay buttons
         if (state == "on")
         {
-            Debug.Log("ENTERING TALK CONTROLS ON");
             switch (GameManager.CurrentPlayerLevel)
             {
                 case GameManager.PlayerLevel.NewGame:
@@ -356,7 +354,6 @@ public class DT_GameplayUI : MonoBehaviour
         }
         else if (state == "off")
         {
-            Debug.Log("ENTERING TALK CONTROLS OFF");
             switch (GameManager.CurrentPlayerLevel)
             {
                 case GameManager.PlayerLevel.NewGame:

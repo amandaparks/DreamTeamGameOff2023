@@ -108,8 +108,7 @@ public class DT_GameTextManager : MonoBehaviour
     // method takes parameters : text type (info or dialogue), scene to be loaded after (if not null)
     public void MakeTextSceneRequest(DT_SO_GameText.GameText.TextType textType, GameManager.GameScene sceneToLoad)
     {
-        Debug.Log($"REQUEST RECEIVED");
-        
+
         // First, see if there is a matching entry:
         _matchingEntry = FindEntry(textType);
         _sceneToLoad = sceneToLoad;

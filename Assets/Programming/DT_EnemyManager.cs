@@ -77,7 +77,6 @@ public class DT_EnemyManager : MonoBehaviour
     public void ToggleSpawner(bool toggle)
     {
         if (enemiesToSpawn.Length == 0) return;
-        Debug.Log($"Moving enemy toggle is {toggle}.");
         
         if (toggle) //true
         {

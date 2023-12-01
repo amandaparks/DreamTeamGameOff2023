@@ -18,7 +18,7 @@ public class DT_Trigger : MonoBehaviour
     private bool _pauseStationaryEnemies;
     private DT_SceneLoader _sceneLoader;
 
-    public void Start()
+    public void Awake()
     {
         // Find the game text manager
         _gameTextManager = FindObjectOfType<DT_GameTextManager>();
@@ -29,21 +29,16 @@ public class DT_Trigger : MonoBehaviour
         // Find the enemy manager
         _enemyManager = FindObjectOfType<DT_EnemyManager>();
         
-        
-        // Check if _gameTextManager is null
-        if (_thisCollider == null)
-        {
-            Debug.LogError("NO COLLIDER");
-        }
-
+        // Disable the collider
+        _thisCollider.enabled = false;
     }
+    
 
     // Trigger handler will tell this object to prepare if it is to be a trigger in this scene
     public void PrepareTrigger(DT_SO_GameText.GameText.TextType textToLoad, GameManager.GameScene sceneToLoad)
     {
-        // Make sure collider is on and trigger enabled
-        //_thisCollider.enabled = true;
-        //_thisCollider.isTrigger = true;
+        // Turn collider on
+        _thisCollider.enabled = true;
 
         // Assign values received
         _myTextType = textToLoad;
