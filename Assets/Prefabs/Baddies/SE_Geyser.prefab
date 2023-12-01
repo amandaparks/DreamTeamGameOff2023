@@ -4906,7 +4906,8 @@ PrefabInstance:
       propertyPath: intervalParticles
       value: 
       objectReference: {fileID: 4375338260514144071}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5726744184793402842, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3831050817840092586, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}

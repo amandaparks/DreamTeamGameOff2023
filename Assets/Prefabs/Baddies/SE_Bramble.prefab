@@ -49,12 +49,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5810176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: m_Size.y
-      value: 2.2856529
+      value: 1.3921273
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: m_Size.z
+      value: 1.8253675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0156187415
       objectReference: {fileID: 0}
     - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: m_Center.y
-      value: 2.011324
+      value: 1.564561
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: m_Center.z
+      value: -0.026905417
       objectReference: {fileID: 0}
     - target: {fileID: 4240605657969558484, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: m_IsTrigger
@@ -69,9 +85,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
-      propertyPath: intervalSound
+      propertyPath: onDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: damageSound
       value: 
       objectReference: {fileID: 8300000, guid: 320f04d4c8845294597d7c77d9f4dea6, type: 3}
+    - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: offDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: damageVolume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
+      propertyPath: intervalSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: destroyedSound
       value: 
@@ -92,7 +124,8 @@ PrefabInstance:
       propertyPath: maxAttackableDistance
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5726744184793402842, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3831050817840092586, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}

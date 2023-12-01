@@ -31,7 +31,7 @@ public class DT_PlayerDamage : MonoBehaviour
         // Start counting
         float elapsedTime = 0f;
         
-        // Climb until there is no time left
+        // Move until there is no time left
         while (elapsedTime < timeToReturn)
         {
             // Move to where Player should be this frame

@@ -150,15 +150,11 @@ public class DT_MovingEnemy : MonoBehaviour
                 // End point is further down on the Y axis
                 _endPoint = new Vector3(_enemyStartPosition.x, _enemyStartPosition.y - maxMoveDistance,
                     _enemyStartPosition.z);
-                // Distance
-                // _distance = Vector3.Distance(_startPoint, _endPoint);
                 break;
             case MovementType.screenRightToLeft:
                 // End point is further left on the X axis
                 _endPoint = new Vector3(_enemyStartPosition.x - maxMoveDistance, _enemyStartPosition.y,
                     _enemyStartPosition.z);
-                // Distance
-                //_distance = Vector3.Distance(_startPoint, _endPoint);
                 break;
             case MovementType.shootTowardPlayer:
                 // Work out direction to player
@@ -380,12 +376,34 @@ public class DT_MovingEnemy : MonoBehaviour
         // Allow Unity to catch up
         yield return new WaitForSeconds(seconds);
 
-        // Turn off kinematic so it falls with gravity
+        // Send straight down
+        StartCoroutine(Fall());
 
-        if (gameObject.GetComponent<Rigidbody>() != null)
+    }
+
+    private IEnumerator Fall()
+    {
+        _startPoint = transform.position;
+        _endPoint = new Vector3(_startPoint.x, _startPoint.y - 30, _startPoint.z);
+
+        // Set speed quite high
+        moveSpeed = 1;
+        
+        // Start counting
+        float elapsedTime = 0f;
+
+        // 
+        while (elapsedTime < (5f / moveSpeed))
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            
+            // Move enemy in assigned direction
+            transform.position = Vector3.Lerp(_startPoint, _endPoint, elapsedTime / (5f / moveSpeed));
 
+            // Increment for next frame
+            elapsedTime += Time.deltaTime;
+
+            // Wait for next frame
+            yield return null;
         }
     }
 }

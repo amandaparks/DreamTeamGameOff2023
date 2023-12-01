@@ -6,15 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Character/SS_knight.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Character/SS_knight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art - Character/SS_knight.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Character/SS_knight.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/Knight Anim/Bard_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/Knight Anim/Bard_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/Knight Anim/Crouch_Placeholder.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/Knight Anim/Crouch_Placeholder.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/Knight Anim/Player Sprite.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/Knight Anim/Player Sprite.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_Icicle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_Icicle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_MagicArrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_MagicArrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_WindGust.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_WindGust.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/SE_Bramble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/SE_Bramble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/SE_Geyser.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/SE_Geyser.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/StationaryEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MasterPrefabs/StationaryEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerDamage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dungeon_5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dungeon_5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Gameplay UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gameplay UI.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -16,6 +16,7 @@ public class DT_LevelManager : MonoBehaviour
     [SerializeField] private GameManager.PlayerLevel _leavesWith;
 
     private DT_GameTextManager _gameTextManager;
+    private GameObject _player;
     
     // Start is called before the first frame update
     void Awake()
@@ -25,11 +26,12 @@ public class DT_LevelManager : MonoBehaviour
         GameManager.CurrentPlayerLevel = _entersWith;
         GameManager.EndLevelPlayerLevel = _leavesWith;
         _gameTextManager = FindObjectOfType<DT_GameTextManager>();
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
     void Start()
     {
         // Tell game manager where the player is
-        GameManager.PlayerStartPos = transform.position;
+        GameManager.PlayerStartPos = _player.transform.position;
         Debug.Log($"Player starting position is {GameManager.PlayerStartPos}");
         
         // Load text if expected
