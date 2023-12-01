@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: collisionVolume
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 7050836737708528434, guid: bf98746e89857ff479c248e9774c7161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.053
+      objectReference: {fileID: 0}
     - target: {fileID: 8710893225372027957, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       propertyPath: m_Name
       value: ME_Icicle 2
@@ -141,6 +145,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3597800797168024642, guid: bf98746e89857ff479c248e9774c7161, type: 3}
+    - {fileID: 5942577338634320470, guid: bf98746e89857ff479c248e9774c7161, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6903775161456547398, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       insertIndex: -1

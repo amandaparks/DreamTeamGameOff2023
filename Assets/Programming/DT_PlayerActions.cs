@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class DT_PlayerActions : MonoBehaviour
 {
     [Header("PLAYER ACTION SETTINGS")]
     [Header(" -Script controls crouching, magic etc.")]
     [Space]
+    [SerializeField] private GameObject _iceCircle;
+    [SerializeField] private GameObject _vineCircle;
+    [SerializeField] private GameObject _lightCircle;
+    
+    
     [SerializeField] private float _magicTime = 1f;
     private GameManager _gameManager;
     private bool _isBardMode;
@@ -16,9 +20,14 @@ public class DT_PlayerActions : MonoBehaviour
     private DT_GameTextManager _gameTextManager;
     private GameObject _bardEffects;
     private AudioManager _audioManager;
+<<<<<<< HEAD
     private MusicManager _musicManager;
 
 
+=======
+    private GameObject _spell;
+    
+>>>>>>> ccf2254a12370669de382b97ad2f8c8d2d9e33f8
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +55,13 @@ public class DT_PlayerActions : MonoBehaviour
         //Bard mode off by default
         _isBardMode = false;
         _bardEffects.SetActive(false);
+
+        //Turn off magic circles
+        _iceCircle.SetActive(false);
+        _vineCircle.SetActive(false);
+        _lightCircle.SetActive(false);
+        
+        
     }
 
     public void Next()
@@ -86,8 +102,12 @@ public class DT_PlayerActions : MonoBehaviour
         Debug.Log("PLAYER_STATE: ATTACKING");
         _audioManager.PlayKalimba("6");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Attacking;
-        // Wait then go to Idle
-        StartCoroutine(WaitAndReset());
+        
+        // Assign spell
+        _spell = _iceCircle;
+        
+        // Do magic then go to Idle
+        StartCoroutine(DoMagic());
     }
     public void Defend()
     {
@@ -97,8 +117,12 @@ public class DT_PlayerActions : MonoBehaviour
         Debug.Log("PLAYER_STATE: DEFENDING");
         _audioManager.PlayKalimba("1");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Defending;
-        // Wait then go to Idle
-        StartCoroutine(WaitAndReset());
+        
+        // Assign spell
+        _spell = _vineCircle;
+        
+        // Do magic then go to Idle
+        StartCoroutine(DoMagic());
     }
     public void Magic()
     {
@@ -108,13 +132,19 @@ public class DT_PlayerActions : MonoBehaviour
         Debug.Log("PLAYER_STATE: MAGIC");
         _audioManager.PlayKalimba("7");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Magic;
-        // Wait then go to Idle
-        StartCoroutine(WaitAndReset());
+        
+        // Assign spell
+        _spell = _lightCircle;
+        
+        // Do magic then go to Idle
+        StartCoroutine(DoMagic());
     }
 
-    private IEnumerator WaitAndReset()
+    private IEnumerator DoMagic()
     {
+        _spell.SetActive(true);
         yield return new WaitForSeconds(_magicTime);
+        _spell.SetActive(false);
         // Update Player State
         Debug.Log("PLAYER_STATE: IDLE");
         GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;

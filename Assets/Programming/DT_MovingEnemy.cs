@@ -56,6 +56,7 @@ public class DT_MovingEnemy : MonoBehaviour
     private bool playerCanDefend;
 
     [SerializeField] private ParticleSystem disabledParticles;
+    [SerializeField] private GameObject enableGameObject;
     [SerializeField] private AudioClip disabledSound;
     [Range(0f, 1f)] public float disabledVolume;
     [HideInInspector] public AudioSource disabledAudioSource;
@@ -121,6 +122,27 @@ public class DT_MovingEnemy : MonoBehaviour
 
         // Assign targets depending on move type
         AssignTargets(moveType);
+        
+        // Turn off game object that gets enabled later
+        if (enableGameObject != null)
+        {
+            enableGameObject.SetActive(false);
+        }
+
+        if (collisionParticles != null)
+        {
+            collisionParticles.Pause();
+        }
+
+        if (damageParticles != null)
+        {
+            damageParticles.Pause();
+        }
+
+        if (disabledParticles != null)
+        {
+            disabledParticles.Pause();
+        }
 
         // Turn on
         EnemyToggle(true);
@@ -314,6 +336,8 @@ public class DT_MovingEnemy : MonoBehaviour
         if (string.IsNullOrEmpty(environmentTag)) return;
         if (other.CompareTag(environmentTag))
         {
+            Debug.Log($"HIT {environmentTag}");
+            
             // Do effects and sound
             if (collisionParticles != null)
             {
@@ -359,6 +383,11 @@ public class DT_MovingEnemy : MonoBehaviour
             disabledAudioSource.clip = disabledSound;
             disabledAudioSource.volume = disabledVolume;
             disabledAudioSource.Play();
+        }
+
+        if (enableGameObject != null)
+        {
+            enableGameObject.SetActive(true);
         }
 
         StartCoroutine(DisableWaitDrop(0.5f));

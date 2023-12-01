@@ -127,6 +127,9 @@ public class DT_StationaryEnemy : MonoBehaviour
             intervalAudioSource.clip = intervalSound;
             intervalAudioSource.volume = intervalVolume;
         }
+        
+        //Turn off object that will be enabled later
+        objectToEnable.SetActive(false);
 
         EnemyToggle(true);
     }
