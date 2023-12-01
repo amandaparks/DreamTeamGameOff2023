@@ -143,6 +143,14 @@ PrefabInstance:
       propertyPath: defaultTrack
       value: 
       objectReference: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
+    - target: {fileID: 6428075863436645500, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
+      propertyPath: tracks.Array.data[0].volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6428075863436645500, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
+      propertyPath: tracks.Array.data[1].volume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6589913829146155988, guid: f7b501b3dc2a49d4d924714877727fb3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -4182,6 +4190,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClickInput
       objectReference: {fileID: 0}
+    - target: {fileID: 6375173763316372518, guid: c0ea6ecd0edf3bd44b8cec6adf94b7f7, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: -751511001, guid: 335f2c5441f812d4bb038b9492b656c7, type: 3}
+    - target: {fileID: 6375173763316372518, guid: c0ea6ecd0edf3bd44b8cec6adf94b7f7, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: -668158191, guid: 5e7059c6b6bfcab4082603cedf5c53e2, type: 3}
     - target: {fileID: 6375173763316372518, guid: c0ea6ecd0edf3bd44b8cec6adf94b7f7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

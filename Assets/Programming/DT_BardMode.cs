@@ -14,6 +14,7 @@ public class DT_BardMode : MonoBehaviour
         {
             Debug.LogError("No Audio Manager Found");
         }
+
     }
 
     public void PlayNote(string keyNumber)

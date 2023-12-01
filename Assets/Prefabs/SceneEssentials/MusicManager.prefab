@@ -45,55 +45,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTrack: {fileID: 0}
+  defaultTrackVol: 0.5
+  bardModeVol: 0.2
+  preBardModeVolume: 0
   audioFadeTime: 1.5
   tracks:
   - trackScene: 
     sceneName: 1
     sceneMusic: {fileID: 8300000, guid: a7f779c4e7a2475459aae7613b850990, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 2
     sceneMusic: {fileID: 8300000, guid: 22d38bfbbcc6c704c857ec1176f6cca8, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 6
     sceneMusic: {fileID: 8300000, guid: 22d38bfbbcc6c704c857ec1176f6cca8, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 3
     sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 4
     sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 5
     sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 7
     sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 8
     sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
     sceneName: 9
     sceneMusic: {fileID: 8300000, guid: e11dd55be93ea5f49bcf2f772be684b1, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
   - trackScene: 
-    sceneName: 9
+    sceneName: 10
     sceneMusic: {fileID: 8300000, guid: 22d38bfbbcc6c704c857ec1176f6cca8, type: 3}
-    volume: 0
+    volume: 0.7
     source: {fileID: 0}
