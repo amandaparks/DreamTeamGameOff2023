@@ -1449,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[0].spawnRate
-      value: 0.6
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7240836918332033958, guid: 2b4ac26fba3a7ea4a9d8d1d9398e0c51, type: 3}
       propertyPath: enemiesToSpawn.Array.data[1].moveSpeed

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.52487314, g: 0.59285885, b: 0.70011073, a: 1}
+  m_IndirectSpecularColor: {r: 0.52486044, g: 0.5928462, b: 0.70010436, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10981,7 +10981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6516850701093397321, guid: f6749ade4000165479b27045ba7b42dc, type: 3}
       propertyPath: testingMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6516850701093397321, guid: f6749ade4000165479b27045ba7b42dc, type: 3}
       propertyPath: _portals.Array.size

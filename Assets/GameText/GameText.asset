@@ -62,7 +62,7 @@ MonoBehaviour:
       voiceover: {fileID: 0}
     - speaker: 2
       text: Play the CRIMSON SCALE to ASCEND/DESCEND LADDERS.
-      voiceover: {fileID: 8300000, guid: 1449ae88bcf10c541a94df0bf54afa18, type: 3}
+      voiceover: {fileID: 0}
   - sceneName: 4
     textBoxType: 2
     textLines:
