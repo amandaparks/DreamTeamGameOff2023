@@ -20,8 +20,14 @@ public class DT_PlayerActions : MonoBehaviour
     private DT_GameTextManager _gameTextManager;
     private GameObject _bardEffects;
     private AudioManager _audioManager;
+<<<<<<< HEAD
+    private MusicManager _musicManager;
+
+
+=======
     private GameObject _spell;
     
+>>>>>>> ccf2254a12370669de382b97ad2f8c8d2d9e33f8
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +41,15 @@ public class DT_PlayerActions : MonoBehaviour
         
         // Find the Audio Manager
         _audioManager = FindObjectOfType<AudioManager>();
-        
+
+        // Find the Music Manager
+        _musicManager = FindObjectOfType<MusicManager>();
+        if (_musicManager == null)
+        {
+            Debug.LogError("No Music Manager Found");
+        }
+
+
         //Find bard effects
         _bardEffects = GameObject.FindGameObjectWithTag("BardMode");
         //Bard mode off by default
@@ -153,6 +167,9 @@ public class DT_PlayerActions : MonoBehaviour
             Debug.Log("PLAYER_STATE: BARD MODE");
             _audioManager.PlayKalimba("B");
             GameManager.CurrentPlayerState = GameManager.PlayerState.BardMode;
+            // Turn down BGM
+            Debug.Log("Calling BardModeMusic");
+            _musicManager.BardModeMusic();
         }
         // If already in bard mode
         else if (GameManager.CurrentPlayerState == GameManager.PlayerState.BardMode)
@@ -165,6 +182,8 @@ public class DT_PlayerActions : MonoBehaviour
             Debug.Log("PLAYER_STATE: IDLE");
             _audioManager.PlayKalimba("B");
             GameManager.CurrentPlayerState = GameManager.PlayerState.Idle;
+            // Turn BGM back up
+            _musicManager.BardModeRestoreMusic();
         }
     }
 
