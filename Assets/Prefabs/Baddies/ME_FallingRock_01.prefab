@@ -128,7 +128,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: d588ce67ce25a9d4796c21eb3b219d90, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: dropOnCollide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnVolume

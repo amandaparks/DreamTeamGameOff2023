@@ -129,7 +129,10 @@ public class DT_StationaryEnemy : MonoBehaviour
         }
         
         //Turn off object that will be enabled later
-        objectToEnable.SetActive(false);
+        if (objectToEnable != null)
+        {
+            objectToEnable.SetActive(false);
+        }
 
         EnemyToggle(true);
     }
