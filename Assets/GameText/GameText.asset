@@ -203,7 +203,10 @@ MonoBehaviour:
     textBoxType: 1
     textLines:
     - speaker: 2
-      text: Play from the heart, free them from the curse. [Play a magical SCALE]
+      text: The power of Blazon's light will show the way.
+      voiceover: {fileID: 0}
+    - speaker: 2
+      text: Play from the heart, free them from the curse!
       voiceover: {fileID: 0}
   - sceneName: 10
     textBoxType: 2
