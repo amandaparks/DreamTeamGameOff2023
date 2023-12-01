@@ -70,7 +70,7 @@ MonoBehaviour:
     volume: 0
     source: {fileID: 0}
   - name: Kalimba_B
-    clip: {fileID: 8300000, guid: 846335e88fe19604fbb816666231952c, type: 3}
+    clip: {fileID: 8300000, guid: 60c29b4daac9b8e42a4c4c5726ed47c3, type: 3}
     volume: 0.7
     source: {fileID: 0}
   - name: Kalimba_fail
@@ -120,6 +120,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - buttonKey: B
     kalimbaNote: Bard Button
-    noteClip: {fileID: 8300000, guid: 7925b530c10094d4babec3c9046fdf59, type: 3}
+    noteClip: {fileID: 8300000, guid: 60c29b4daac9b8e42a4c4c5726ed47c3, type: 3}
     volume: 0.798
     source: {fileID: 0}

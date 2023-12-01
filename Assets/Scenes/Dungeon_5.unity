@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7618722229372886341, guid: 5463b4d0da8e37e448c33d4b104100a9, type: 3}
+      propertyPath: damageVolume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 8407529213298239371, guid: 5463b4d0da8e37e448c33d4b104100a9, type: 3}
       propertyPath: m_Name
       value: SE_Bramble_1

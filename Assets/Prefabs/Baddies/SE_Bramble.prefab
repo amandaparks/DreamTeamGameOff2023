@@ -3495,7 +3495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: damageVolume
-      value: 0
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: intervalSound
@@ -3504,7 +3504,7 @@ PrefabInstance:
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: destroyedSound
       value: 
-      objectReference: {fileID: 8300000, guid: 36de155542fbe5f4180639e080d3b35b, type: 3}
+      objectReference: {fileID: 8300000, guid: 857fc665db870f24f8d123b14e818c37, type: 3}
     - target: {fileID: 9015122461595824817, guid: b672af9e168b9d143a03fdf51099bc60, type: 3}
       propertyPath: objectToEnable
       value: 

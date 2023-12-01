@@ -171,6 +171,8 @@ public class DT_StationaryEnemy : MonoBehaviour
             }
             if (destroyedSound != null)
             {
+                destroyedAudioSource.clip = destroyedSound;
+                destroyedAudioSource.volume = destroyedVolume;
                 destroyedAudioSource.Play();
             }
             
