@@ -9770,19 +9770,19 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: fa865a79348357b4e9fdd42cdc90dfd4, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnVolume
-      value: 0.481
+      value: 0.474
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionSound
       value: 
-      objectReference: {fileID: 8300000, guid: 63bf4114c3df2d543a51397adc68c5e3, type: 3}
+      objectReference: {fileID: 8300000, guid: f754bd10517f7cd47b77b01e01de6222, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: environmentTag
       value: HotSpring
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionVolume
-      value: 0.1
+      value: 0.078
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnParticles

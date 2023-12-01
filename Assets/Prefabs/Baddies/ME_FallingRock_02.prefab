@@ -141,14 +141,14 @@ PrefabInstance:
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionSound
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: c0625c74764527d40adc511b7af44efb, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: environmentTag
       value: RockBreak
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionVolume
-      value: 0.586
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 8446087185476981497, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: m_Name

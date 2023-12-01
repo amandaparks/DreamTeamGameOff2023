@@ -58,6 +58,9 @@ public class DT_PlayerMovement : MonoBehaviour
         // Check we can do it
         if (!CanPerformAction("Step")) return;
 
+        // Play sound 
+        _audioManager.PlayKalimba("3");
+
         // Move character
         targetDirection = TargetDirection.Left;
         StartCoroutine(Step());
@@ -66,6 +69,9 @@ public class DT_PlayerMovement : MonoBehaviour
     {
         // Check we can do it
         if (!CanPerformAction("Step")) return;
+
+        // Play sound 
+        _audioManager.PlayKalimba("5");
 
         // Move character
         targetDirection = TargetDirection.Right;
@@ -232,8 +238,6 @@ public class DT_PlayerMovement : MonoBehaviour
         else
         {
             GameManager.CurrentPlayerState = GameManager.PlayerState.Stepping;
-            // Play sound
-            _audioManager.PlayKalimba("5");
             
             // Set start and end points of curve
             var startPoint = transform.position;
