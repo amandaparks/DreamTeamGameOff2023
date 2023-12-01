@@ -128,11 +128,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5949967557677963295, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       propertyPath: alwaysOnVolume
-      value: 0
+      value: 0.456
       objectReference: {fileID: 0}
     - target: {fileID: 5949967557677963295, guid: bf98746e89857ff479c248e9774c7161, type: 3}
+      propertyPath: collisionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d2785342bbbac0a468c44aa3fecbf909, type: 3}
+    - target: {fileID: 5949967557677963295, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       propertyPath: collisionVolume
-      value: 0.05
+      value: 0.085
       objectReference: {fileID: 0}
     - target: {fileID: 7050836737708528434, guid: bf98746e89857ff479c248e9774c7161, type: 3}
       propertyPath: m_LocalPosition.x
