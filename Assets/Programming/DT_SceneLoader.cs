@@ -74,11 +74,13 @@ public class DT_SceneLoader : MonoBehaviour
         {
             switch (scene)
             {
-                // If loading main menu, game has been restarted so set to newgame
                 case GameManager.GameScene.MainMenu:
+                    // If loading main menu, game has been restarted so set to newgame
                     GameManager.CurrentPlayerLevel = GameManager.PlayerLevel.NewGame;
                     break;
+                
                 default:
+                    // In all other cases do what was set in game manager
                     GameManager.CurrentPlayerLevel = GameManager.EndLevelPlayerLevel;
                     break;
             }
@@ -93,6 +95,9 @@ public class DT_SceneLoader : MonoBehaviour
     {        
         switch (scene)
         {
+            case GameManager.GameScene.MainMenu:
+                SceneManager.LoadScene("MainMenu");
+                break;
             case GameManager.GameScene.WorldMap:
             case GameManager.GameScene.WorldMapRotated:
             case GameManager.GameScene.Summit:

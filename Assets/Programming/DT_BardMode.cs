@@ -19,7 +19,6 @@ public class DT_BardMode : MonoBehaviour
 
     public void PlayNote(string keyNumber)
     {
-        Debug.Log($"Playing key number {keyNumber}");
         _audioManager.PlayKalimba(keyNumber);
     }
 }

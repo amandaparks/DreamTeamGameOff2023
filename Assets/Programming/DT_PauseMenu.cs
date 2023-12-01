@@ -60,10 +60,10 @@ public class DT_PauseMenu : MonoBehaviour
             }
                 break;
             case "quit":
-                {
-                    //StartCoroutine(_sceneLoader.LoadScene(GameManager.GameScene.MainMenu));
-                    Debug.Log("calling it QUITS");
-                    Application.Quit();
+                { 
+                    StartCoroutine(_sceneLoader.LoadScene(GameManager.GameScene.MainMenu));
+                  //  Debug.Log("calling it QUITS");
+                   // Application.Quit();
                 }
                 break;
         }

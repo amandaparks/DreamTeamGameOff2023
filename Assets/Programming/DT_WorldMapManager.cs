@@ -99,6 +99,7 @@ public class DT_WorldMapManager : MonoBehaviour
             if (portal._dungeonStep != null)
             {
                 // ready trigger
+                portal._dungeonStep.GetComponent<Collider>().enabled = true;
                 portal._dungeonStep.GetComponent<DT_Trigger>().WorldMapTrigger(portal._dungeonToLoad);
             }
         }

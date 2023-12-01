@@ -100,7 +100,6 @@ public class DT_InputManager : MonoBehaviour
     public void SwitchActionMap(string mapName)
     {
         _playerInput.SwitchCurrentActionMap(mapName);
-        Debug.Log($"Input map is now: {mapName}");
     }
     
     // KEYBOARD INPUT SECTION 

@@ -37,6 +37,7 @@ public class DT_PlayerAnimations : MonoBehaviour
 
     private void ChangeAnimation(GameManager.PlayerState gameManagerPlayerState)
     {
+        Debug.Log($"Changing Animation due to: {gameManagerPlayerState}");
         switch (GameManager.CurrentPlayerState)
         {
             case GameManager.PlayerState.Idle:
