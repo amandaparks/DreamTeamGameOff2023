@@ -22,6 +22,14 @@ public class DT_WorldMapManager : MonoBehaviour
     private bool _hasScroll;
     private bool _isIntroFinished;
 
+    [Header("Summit Settings")] [SerializeField]
+    private GameObject _camera;
+    [SerializeField]
+    private Vector3 _summitCameraPosition;
+    [SerializeField]
+    private Vector3 _summitCameraRotation;
+    [SerializeField] private Vector3 _playerEndPosition;
+
     private void Awake()
     {
         //If testing mode, set player level now
@@ -57,12 +65,32 @@ public class DT_WorldMapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // If this is the end of the game, skip the normal stuff and set up summit
+        if (GameManager.CurrentPlayerLevel == GameManager.PlayerLevel.SevenNotes)
+        {
+            SummitSetup();
+            return;
+        }
 
         // Set up portals
         SetUpPortals();
 
         // Play scroll story if there is one
         StartStory();
+    }
+    
+    private void SummitSetup()
+    {
+        // Put player on top of summit and make them smol
+        _player.transform.position = _playerEndPosition;
+        _player.transform.localScale = new Vector3(0.5f,0.5f, 0.5f);
+        
+        // Rotate the world
+        world.transform.rotation = _worldFlippedRotation;
+        
+        // Move the camera
+        _camera.transform.position = _summitCameraPosition;
+        _camera.transform.rotation = Quaternion.Euler(_summitCameraRotation.x,_summitCameraRotation.y,_summitCameraRotation.z);
     }
 
     void StartStory()
