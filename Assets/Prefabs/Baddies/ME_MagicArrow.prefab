@@ -5137,22 +5137,34 @@ PrefabInstance:
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnSound
       value: 
-      objectReference: {fileID: 8300000, guid: 116eb5646f53dfb479fa80caf1739f47, type: 3}
+      objectReference: {fileID: 8300000, guid: bf9d099fd91e1ca49bd6be2729a35cbc, type: 3}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: disabledSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b24d74ecf64e3744aaf8d31d9b7c92f, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: dropOnCollide
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnVolume
-      value: 0.437
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionSound
       value: 
       objectReference: {fileID: 8300000, guid: 116eb5646f53dfb479fa80caf1739f47, type: 3}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: disabledVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: environmentTag
       value: ArrowBreak
+      objectReference: {fileID: 0}
+    - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
+      propertyPath: collisionVolume
+      value: 0.287
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: playerCanDefend

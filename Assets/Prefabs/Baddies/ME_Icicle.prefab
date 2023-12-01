@@ -9782,7 +9782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: collisionVolume
-      value: 0.078
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 6865543360262948563, guid: aef7be6d50339ee458874849555317b9, type: 3}
       propertyPath: alwaysOnParticles
