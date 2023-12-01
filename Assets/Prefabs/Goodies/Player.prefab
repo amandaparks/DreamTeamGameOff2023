@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.9447043, b: 1, a: 1}
+      maxColor: {r: 0.54509807, g: 0.9254902, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5354,7 +5354,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.006, y: 0.14, z: 0.008}
-  m_LocalScale: {x: 1.9995515, y: 1.9995519, z: 1.9995519}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 397109551544077566}
@@ -10423,7 +10423,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.006, y: 0.14, z: 0.008}
-  m_LocalScale: {x: 1.9995515, y: 1.9995519, z: 1.9995519}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2102173990287155110}
@@ -10553,7 +10553,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.006, y: 0.14, z: 0.008}
-  m_LocalScale: {x: 1.9995515, y: 1.9995519, z: 1.9995519}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4054558734091656501}
@@ -20638,7 +20638,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.9447043, b: 1, a: 1}
+      maxColor: {r: 0.54509807, g: 0.9254902, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

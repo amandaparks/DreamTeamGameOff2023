@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Effects and Anim/MAT_MagicCircle Variant.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Effects and Anim/MAT_MagicCircle Variant.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_Icicle 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_Icicle 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_Icicle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_Icicle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_MagicArrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/ME_MagicArrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Baddies/SE_Bramble.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Baddies/SE_Bramble.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Goodies/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_StationaryEnemy.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +35,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_IntroPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.9/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/215a3d79f22d4716a26783e9b63e881e175600/54/5a677ccf/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DT_UnityEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/66/84f8bd8e/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
@@ -64,6 +73,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_MovingEnemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventTrigger.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2Xsv6o5YC0S4qROesvcN3f1oWqF" />
   <component name="ProjectViewState">
