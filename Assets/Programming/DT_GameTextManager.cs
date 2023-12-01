@@ -47,6 +47,7 @@ public class DT_GameTextManager : MonoBehaviour
     private bool _isConfirmed;
     private bool _isFirstLine;
     private AudioManager _audioManager;
+    private bool _isThanked;
     
     private void Awake()
     {
@@ -263,7 +264,14 @@ public class DT_GameTextManager : MonoBehaviour
     {
         _isFirstLine = true;
         //Populate text
-        _infoTextField.text = "Enter the Dungeon";
+        if (GameManager.CurrentPlayerLevel == GameManager.PlayerLevel.Winner)
+        {
+            _infoTextField.text = "You won the game!<br>Thank you for playing :)";
+        }
+        else
+        {
+            _infoTextField.text = "Enter the Dungeon";
+        }
         //Smooth Open and Turn On
         _infoCanvasGameObject.SetActive(true);
         _infoSmoothUI.Open();
@@ -369,8 +377,17 @@ public class DT_GameTextManager : MonoBehaviour
         
     }
 
+
     private void FinishUp()
     {
+        if (GameManager.CurrentPlayerLevel == GameManager.PlayerLevel.Winner && !_isThanked)
+        {
+            Debug.Log("Thanking Player");
+            _isThanked = true;
+            // Show thank you scroll!
+            WorldMapRequest(GameManager.GameScene.MainMenu);
+        }
+
         if (_currentCanvasGameObject == _infoCanvasGameObject)
         {
             _infoSmoothUI.Close();

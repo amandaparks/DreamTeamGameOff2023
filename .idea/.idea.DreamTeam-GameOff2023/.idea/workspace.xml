@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d48f6eda-1eb4-4bfb-83d5-6e6b32953fd7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_PlayerActions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DreamTeam-GameOff2023/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art - Character/SS_dragons.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art - Character/SS_dragons.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DT_UnityEvent.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DT_UnityEvent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Blue 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Blue 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Green 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Green 3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Orange 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Orange 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Purple 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Purple 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Red 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Red 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Silver 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Silver 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/MAT_Silver 3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/MAT_Silver 3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Goodies/DS_Octavia.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Goodies/DS_Octavia.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_BardMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_BardMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_EndSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_EndSceneManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameTextManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_GameplayUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_GameplayUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Programming/DT_WorldMapManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Programming/DT_WorldMapManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/WorldMap.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +44,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Programming/DT_IntroPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.9/Editor/Data/Graphs/SerializableTexture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/215a3d79f22d4716a26783e9b63e881e175600/54/5a677ccf/IMGUIContainer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DT_UnityEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/66/84f8bd8e/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />

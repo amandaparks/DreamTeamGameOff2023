@@ -17,6 +17,7 @@ public class DT_GameplayUI : MonoBehaviour
     public Button _gPB, _g1B, _g2B, _g3B, _g4B, _g5B, _g6B, _g7B, _gBB;
 
     public Button _b1B, _b2B, _b3B, _b4B, _b5B, _b6B, _b7B, _bBB;
+    private bool _isEndGame;
 
     private void Awake()
     {
@@ -164,6 +165,21 @@ public class DT_GameplayUI : MonoBehaviour
         }
     }
 
+    public void EndGameControls()
+    {
+        // Allow player to use bard mode or magic 
+        _gBB.interactable = true; // bard mode
+        _g7B.interactable = true; // magic
+        
+        // Disable everything else
+        _g1B.interactable = false; // defend
+        _g2B.interactable = false; // crouch
+        _g3B.interactable = false; // step bkd
+        _g4B.interactable = false; // climb
+        _g5B.interactable = false; // step fwd / Next
+        _g6B.interactable = false; // attack
+    }
+
     private void BardControls()
     {
         switch (GameManager.CurrentPlayerLevel)
@@ -295,33 +311,33 @@ public class DT_GameplayUI : MonoBehaviour
             switch (GameManager.CurrentPlayerLevel)
             {
                 case GameManager.PlayerLevel.NewGame:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     break;
                 case GameManager.PlayerLevel.OneNote:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     break;
                 case GameManager.PlayerLevel.TwoNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     _g4B.interactable = false; // climb
                     break;
                 case GameManager.PlayerLevel.ThreeNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     _g4B.interactable = false; // climb
                     _g3B.interactable = false; // step bkd
                     break;
                 case GameManager.PlayerLevel.FourNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     _g4B.interactable = false; // climb
                     _g3B.interactable = false; // step bkd
                     _g2B.interactable = false; // crouch
                     break;
                 case GameManager.PlayerLevel.FiveNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     _g4B.interactable = false; // climb
                     _g3B.interactable = false; // step bkd
@@ -329,7 +345,7 @@ public class DT_GameplayUI : MonoBehaviour
                     _g6B.interactable = false; // attack
                     break;
                 case GameManager.PlayerLevel.SixNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     _g4B.interactable = false; // climb
                     _g3B.interactable = false; // step bkd
@@ -339,7 +355,7 @@ public class DT_GameplayUI : MonoBehaviour
                     break;
                 case GameManager.PlayerLevel.SevenNotes:
                 case GameManager.PlayerLevel.Winner:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = false; // bard mode
                     _g4B.interactable = false; // climb
                     _g3B.interactable = false; // step bkd
@@ -357,33 +373,33 @@ public class DT_GameplayUI : MonoBehaviour
             switch (GameManager.CurrentPlayerLevel)
             {
                 case GameManager.PlayerLevel.NewGame:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     break;
                 case GameManager.PlayerLevel.OneNote:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     break;
                 case GameManager.PlayerLevel.TwoNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     _g4B.interactable = true; // climb
                     break;
                 case GameManager.PlayerLevel.ThreeNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     _g4B.interactable = true; // climb
                     _g3B.interactable = true; // step bkd
                     break;
                 case GameManager.PlayerLevel.FourNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     _g4B.interactable = true; // climb
                     _g3B.interactable = true; // step bkd
                     _g2B.interactable = true; // crouch
                     break;
                 case GameManager.PlayerLevel.FiveNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     _g4B.interactable = true; // climb
                     _g3B.interactable = true; // step bkd
@@ -391,7 +407,7 @@ public class DT_GameplayUI : MonoBehaviour
                     _g6B.interactable = true; // attack
                     break;
                 case GameManager.PlayerLevel.SixNotes:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     _g4B.interactable = true; // climb
                     _g3B.interactable = true; // step bkd
@@ -401,7 +417,7 @@ public class DT_GameplayUI : MonoBehaviour
                     break;
                 case GameManager.PlayerLevel.SevenNotes:
                 case GameManager.PlayerLevel.Winner:
-                    _g1B.interactable = true; // step fwd / Next
+                    _g5B.interactable = true; // step fwd / Next
                     _gBB.interactable = true; // bard mode
                     _g4B.interactable = true; // climb
                     _g3B.interactable = true; // step bkd
