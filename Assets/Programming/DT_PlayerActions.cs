@@ -20,14 +20,9 @@ public class DT_PlayerActions : MonoBehaviour
     private DT_GameTextManager _gameTextManager;
     private GameObject _bardEffects;
     private AudioManager _audioManager;
-<<<<<<< HEAD
     private MusicManager _musicManager;
-
-
-=======
     private GameObject _spell;
     
->>>>>>> ccf2254a12370669de382b97ad2f8c8d2d9e33f8
     // Start is called before the first frame update
     void Start()
     {
